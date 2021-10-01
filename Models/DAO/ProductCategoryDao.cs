@@ -53,10 +53,14 @@ namespace Models.DAO
         {
             return db.ProductCategories.Find(id);
         }
-        public IEnumerable<ProductCategory> ListAllPaging( int page, int pageSize)
+        public IEnumerable<ProductCategory> ListAllPaging(string searchString, int page, int pageSize)
         {
-
-            return db.ProductCategories.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+            IQueryable<ProductCategory> model = db.ProductCategories;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Name.Contains(searchString)||x.MetaTitle.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
         public bool Delete(int id)
