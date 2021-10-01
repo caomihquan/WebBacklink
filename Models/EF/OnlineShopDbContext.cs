@@ -13,6 +13,7 @@ namespace Models.EF
         }
 
         public virtual DbSet<About> Abouts { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
@@ -45,6 +46,14 @@ namespace Models.EF
             modelBuilder.Entity<About>()
                 .Property(e => e.MetaDescriptions)
                 .IsFixedLength();
+
+            modelBuilder.Entity<Account>()
+                .Property(e => e.UserName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Account>()
+                .Property(e => e.Password)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Category>()
                 .Property(e => e.MetaTitle)
