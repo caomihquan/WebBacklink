@@ -18,5 +18,11 @@ namespace Models.DAO
         {
             return db.Categories.Where(x => x.Status == true).ToList();
         }
+        public long Insert(Category entity)
+        {
+            db.Categories.Add(entity);
+            db.SaveChanges();
+            return entity.ID;
+        }
     }
 }
