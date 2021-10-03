@@ -24,5 +24,11 @@ namespace Models.DAO
             db.SaveChanges();
             return entity.ID;
         }
+        public ProductCategory ViewDetail(long id)
+        {
+            return db.ProductCategories.Find(id);
+        }
+
+
     }
 }

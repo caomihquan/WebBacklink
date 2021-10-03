@@ -58,7 +58,7 @@ namespace Models.DAO
             IQueryable<ProductCategory> model = db.ProductCategories;
             if (!string.IsNullOrEmpty(searchString))
             {
-                model = model.Where(x => x.Name.Contains(searchString)||x.MetaTitle.Contains(searchString));
+                model = model.Where(x => x.Name.Contains(searchString) || x.MetaTitle.Contains(searchString));
             }
             return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
@@ -77,6 +77,16 @@ namespace Models.DAO
                 return false;
             }
 
+        }
+
+        public List<ProductCategory> ListAll()
+        {
+            return db.ProductCategories.Where(x => x.Status == true).OrderBy(x => x.DisplayOrder).ToList();
+        }
+
+        public ProductCategory ViewDetail(long id)
+        {
+            return db.ProductCategories.Find(id);
         }
     }
 }

@@ -11,6 +11,10 @@ namespace WebBacklink.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Slides = new SlideDao().ListAll();
+            var productDao = new ProductDao();
+            ViewBag.NewProducts = productDao.ListNewProduct(4);
+            ViewBag.ListFeatureProducts = productDao.ListFeatureProduct(4);
             return View();
         }
         [ChildActionOnly]
