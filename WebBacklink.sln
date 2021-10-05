@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBacklink", "WebBacklink\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{783386CE-3837-4F2F-9812-D0A438790011}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{39F7D8B8-61A5-4A1C-8C5F-C95104414B34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{783386CE-3837-4F2F-9812-D0A438790011}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{783386CE-3837-4F2F-9812-D0A438790011}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{783386CE-3837-4F2F-9812-D0A438790011}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39F7D8B8-61A5-4A1C-8C5F-C95104414B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39F7D8B8-61A5-4A1C-8C5F-C95104414B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39F7D8B8-61A5-4A1C-8C5F-C95104414B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39F7D8B8-61A5-4A1C-8C5F-C95104414B34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

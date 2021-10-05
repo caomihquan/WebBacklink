@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="/Assets/Client/css/bootstrap.css" rel="stylesheet" />
     <link href="/Assets/Client/css/bootstrap-theme.css" rel="stylesheet" />
-    <link href="/Assets/Client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Assets/Client/css/style.css" rel="stylesheet" />
     <link href="/Assets/Client/css/slider.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/Assets/Client/css/fontawesome.min.css" rel="stylesheet" />
     <link href="/Assets/Client/css/all.min.css" rel="stylesheet" />
-    <script src="~/Assets/Client/js/jquery-3.6.0.min.js"></script>
+
+    <script src="/Assets/Client/js/jquery-1.11.3.min.js"></script>
     <script src="/Assets/Client/js/bootstrap.min.js"></script>
     <script type="/Assets/Client/text/javascript" src="js/move-top.js"></script>
     <script type="/Assets/Client/text/javascript" src="js/easing.js"></script>
@@ -24,8 +25,10 @@
             </div>
             <div class="header_top">
                 <div class="logo">
-                    <a href="/"><img src="~/Assets/Client/images/logoShop.png" alt="" /></a>
+                    <a href="/" ref="nofollow"><img src="~/Assets/Client/images/logoShop.png" alt="" /></a>
                 </div>
+                @{ Html.RenderAction("HeaderSave", "Home");}
+
                 <script type="text/javascript">
                     function DropDown(el) {
                         this.dd = el;
@@ -60,7 +63,7 @@
             <div class="header_bottom">
                 @{Html.RenderAction("MainMenu", "Home");}
             </div>
-            @RenderSection("slide",required:false)
+            @RenderSection("slide", required: false)
 
         </div>
         <div class="main">
@@ -73,10 +76,10 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $().UItoTop({ easingType: 'easeOutQuart' });
-
         });
     </script>
     <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+    @RenderSection("jsFooter", required: false)
 </body>
 </html>
 

@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebBacklink.Common;
+using WebBacklink.Models;
 
 namespace WebBacklink.Controllers
 {
     public class HomeController : Controller
     {
+       
         public ActionResult Index()
         {
             ViewBag.Slides = new SlideDao().ListAll();
@@ -29,6 +32,20 @@ namespace WebBacklink.Controllers
             var model = new MenuDao().ListByGroupId(2);
             return PartialView(model);
         }
+
+        [ChildActionOnly]
+        public PartialViewResult HeaderSave()
+        {
+            var save = Session[CommonConstants.SaveSession];
+            var list = new List<SaveItem>();
+            if (save != null)
+            {
+                list = (List<SaveItem>)save;
+            }
+           
+            return PartialView(list);
+        }
+
         [ChildActionOnly]
         public ActionResult Footer()
         {

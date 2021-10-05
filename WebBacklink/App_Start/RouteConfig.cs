@@ -33,6 +33,33 @@ namespace WebBacklink
                 defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "WebBacklink.Controllers" }
             );
+            routes.MapRoute(
+                name: "Contact",
+                url: "lien-he",
+                defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Contact Success",
+                url: "hoan-thanh",
+                defaults: new { controller = "Contact", action = "Success", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Save",
+                url: "luu-bai-viet",
+                defaults: new { controller = "Save", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Add Cart",
+                url: "them-gio-hang",
+                defaults: new { controller = "Save", action = "AddItem", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
 
             routes.MapRoute(
                 name: "Default",

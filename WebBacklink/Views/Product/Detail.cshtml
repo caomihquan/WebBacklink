@@ -8,8 +8,6 @@
     var relatedProducts = (List<Models.EF.Product>)ViewBag.RelatedProducts;
 }
 
-<h2>@Model.Name</h2>
-
 <div class="content">
     <div class="content_top">
         <div class="back-links">
@@ -43,7 +41,7 @@
                     <h2>@Model.Name</h2>
                     <p>@Model.Decscription</p>
                     <div class="price">
-                        <p>Giá: <span>@(Model.Price.HasValue? Model.Price.Value.ToString("N0"):"Liên Hệ")</span></p>
+                        <p>Giá: @(Model.Price.HasValue? Model.Price.Value.ToString("N0"):"Liên Hệ")</p>
                     </div>
                
                     <div class="share-desc">
@@ -54,7 +52,7 @@
                                 <li><a href="#"><img src="images/twitter.png" alt="" /></a></li>
                             </ul>
                         </div>
-                        <div class="button"><span><a href="#">Add</a></span></div>
+                        <div class="btn btn-info"><span><a href="@Model.Link" style="color:#fff;text-decoration:none;">Đến Nơi Bán</a></span></div>
                         <div class="clear"></div>
                     </div>
                     <div class="wish-list">

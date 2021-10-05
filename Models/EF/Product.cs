@@ -33,6 +33,9 @@ namespace Models.EF
         [Column(TypeName = "ntext")]
         public string Detail { get; set; }
 
+        [StringLength(250)]
+        public string Link { get; set; }
+
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(50)]

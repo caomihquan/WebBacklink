@@ -1,0 +1,50 @@
+﻿@model List<WebBacklink.Models.SaveItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+    <script src="/Assets/Client/js/controller/saveController.js"></script>
+    }
+<div class="content">
+
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã Sản Phẩm</td>
+                        <td>Tên Sản Phẩm</td>
+                        <td>Ảnh Sản Phẩm</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Product.ID</td>
+                            <td>@item.Product.Name</td>
+                            <td><img src="@item.Product.Image" width="100" /></td>
+                            <td><a href="#" data-id="@item.Product.ID" class="btn-delete"><i class="fas fa-minus-circle" style="color:red !important"></i></a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <button id="btnContinue" class="btn">Tiếp Tục Xem</button>
+            <button id="btnUpdate" class="btn">Cập Nhật</button>
+            <button id="btnDeleteAll" class="btn">Xóa</button>
+
+        }
+        else
+        {
+            <span class="alert alert-danger" >Chưa Có Sản Phẩm Nào.</span>
+        }
+
+    </div>
+    </div>
+        
+
