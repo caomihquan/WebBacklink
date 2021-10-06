@@ -13,6 +13,9 @@ namespace WebBacklink
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.IgnoreRoute("{*botdetect}",
+   new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+
             routes.MapRoute(
                 name: "Product Category",
                 url: "san-pham/{metatitle}-{cateId}",
@@ -33,6 +36,14 @@ namespace WebBacklink
                 defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "WebBacklink.Controllers" }
             );
+
+            routes.MapRoute(
+                name: "Register",
+                url: "dang-ky",
+                defaults: new { controller = "User", action = "Register", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
+
             routes.MapRoute(
                 name: "Contact",
                 url: "lien-he",
@@ -41,9 +52,9 @@ namespace WebBacklink
             );
 
             routes.MapRoute(
-                name: "Contact Success",
-                url: "hoan-thanh",
-                defaults: new { controller = "Contact", action = "Success", id = UrlParameter.Optional },
+                name: "Login",
+                url: "dang-nhap",
+                defaults: new { controller = "User", action = "Login", id = UrlParameter.Optional },
                 namespaces: new[] { "WebBacklink.Controllers" }
             );
 

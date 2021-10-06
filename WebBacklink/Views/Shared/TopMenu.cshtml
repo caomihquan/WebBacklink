@@ -1,12 +1,26 @@
 ﻿@model List<Models.EF.Menu>
 <div class="account_desc">
-    <ul>
-        @foreach (var item in Model)
-        {
-            <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
-        }
+    @{ 
+        var session =(UserLogin)Session[WebBacklink.Common.CommonConstants.USER_SESSION];
+    }
+    @if (session==null)
+    {
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
+            }
 
 
-    </ul>
+        </ul>
+    }
+    else
+    {
+        <ul>
+            <li>Xin Chào:@session.UserName </li>
+            <li>@Html.ActionLink("Thoát","Logout","User")</li>
+        </ul>
+    }
+
 </div>
 <div class="clear"></div>

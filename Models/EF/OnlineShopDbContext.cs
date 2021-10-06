@@ -196,5 +196,7 @@ namespace Models.EF
                 .Property(e => e.ID)
                 .IsUnicode(false);
         }
+
+        
     }
 }
