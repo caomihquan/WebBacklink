@@ -44,21 +44,13 @@
                         <p>Giá: @(Model.Price.HasValue? Model.Price.Value.ToString("N0"):"Liên Hệ")</p>
                     </div>
                
-                    <div class="share-desc">
-                        <div class="share">
-                            <p>Chia Sẻ: </p>
-                            <ul>
-                                <li><a href="#"><img src="images/facebook.png" alt="" /></a></li>
-                                <li><a href="#"><img src="images/twitter.png" alt="" /></a></li>
-                            </ul>
-                        </div>
+                    <div class="share-desc">>
                         <div class="btn btn-info"><span><a href="@Model.Link" style="color:#fff;text-decoration:none;">Đến Nơi Bán</a></span></div>
                         <div class="clear"></div>
                     </div>
                     <div class="wish-list">
                         <ul>
-                            <li class="wish"><a href="#">Thêm vào yêu thích</a></li>
-                            <li class="compare"><a href="#">So sánh</a></li>
+                            <li class="wish"><a href="/them-gio-hang?productId=@Model.ID&quantity=1"><i class="fas fa-heart"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -104,7 +96,9 @@
                         <a href="@url"><img src="@item.Image" alt=""></a>
                         <div class="price" style="border:none">
                             <div class="add-cart" style="float:none">
-                                <h4><a href="@url">Add to Cart</a></h4>
+                                <a href="/them-gio-hang?productId=@item.ID&quantity=1"><i class="fas fa-heart"></i></a>
+                                <h4><a href="@url">Xem Chi Tiết</a></h4>
+                                <a href="@item.Link">Đến Nơi Bán</a>
                             </div>
                             <div class="clear"></div>
                         </div>

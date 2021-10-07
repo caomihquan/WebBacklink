@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace WebBacklink.Controllers
 {
     public class ProductController : Controller
     {
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(string searchString,int page = 1, int pageSize = 3)
         {
-            return View();
+            var dao = new ProductDao();
+            var model = dao.ListPaging(searchString, page, pageSize);
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
         [ChildActionOnly]
         public PartialViewResult ProductCategory()

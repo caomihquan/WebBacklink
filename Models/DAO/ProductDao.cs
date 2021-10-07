@@ -43,7 +43,7 @@ namespace Models.DAO
 
         }
 
-        public IEnumerable<Product> ListAllPaging(string searchString, int page, int pageSize)
+        public IEnumerable<Product> ListPaging(string searchString, int page, int pageSize)
         {
             IQueryable<Product> model = db.Products;
             if (!string.IsNullOrEmpty(searchString))
@@ -77,6 +77,11 @@ namespace Models.DAO
         public List<Product> ListNewProduct(int top)
         {
             return db.Products.OrderByDescending(x => x.CreatedDate).Take(top).ToList();
+        }
+
+        public List<Product> ListAllProduct()
+        {
+            return db.Products.OrderByDescending(x => x.CreatedDate).ToList();
         }
 
         public List<Product> ListFeatureProduct (int top)

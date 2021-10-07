@@ -11,9 +11,12 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class ContentController : BaseController
     {
         // GET: Admin/Content
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            return View();
+            var dao = new ContentDao();
+            var model = dao.ListAllPaging(searchString, page, pageSize);
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
         [HttpGet]
         public ActionResult Create()
@@ -27,34 +30,71 @@ namespace WebBacklink.Areas.Admin.Controllers
             var dao = new ContentDao();
             var content = dao.GetByID(id);
             SetViewBag(content.CategoryID);
-            return View();
+
+            return View(content);
         }
         [HttpPost]
         public ActionResult Edit(Content model)
         {
             if (ModelState.IsValid)
             {
-
+                var dao = new ContentDao();
+                var result = dao.Update(model);
+                if (result)
+                {
+                    SetAlert("Sửa Thành Công ", "Success");
+                    return RedirectToAction("Index", "Product");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhật Không thành công");
+                }
             }
             SetViewBag(model.CategoryID);
-            return View();
+            return View("Index");
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(Content model)
+        public ActionResult Create(Content content)
         {
             if(ModelState.IsValid)
             {
-
+                var dao = new ContentDao();
+                long id = dao.Insert(content);
+                if (id > 0)
+                {
+                    SetAlert("Thêm Thành Công ", "Success");
+                    return RedirectToAction("Index", "Content");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Thêm Sản Phẩm Không Thành Công");
+                }
             }
             SetViewBag();
-            return View();
+            return View("Index");
         }
         public void SetViewBag(long? selectedId=null)
         {
             var dao = new CategoryDao();
             ViewBag.CategoryID = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            var result = new ContentDao().Delete(id);
+            if (result)
+            {
+                return RedirectToAction("Index", "Content");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Cập nhật Không thành công");
+            }
+            return View("Index");
+
         }
     }
 }

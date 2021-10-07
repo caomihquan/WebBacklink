@@ -5,16 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace WebBacklink.Areas.Admin.Controllers
 {
     public class ProductController : BaseController
     {
         // GET: Admin/Product
-        public ActionResult Index(string searchString,int page=1,int pageSize=1)
+        public ActionResult Index(string searchString,int page=1,int pageSize=10)
         {
             var dao = new ProductDao();
-            var model = dao.ListAllPaging(searchString, page, pageSize);
+            var model = dao.ListPaging(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
             return View(model);
         }

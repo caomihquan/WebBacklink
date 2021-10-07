@@ -9,6 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using BotDetect.Web.Mvc;
 
 namespace WebBacklink.Controllers
 {
@@ -24,6 +25,7 @@ namespace WebBacklink.Controllers
 
 
         [HttpPost]
+        [CaptchaValidationActionFilter("CaptchaCode", "contactCaptcha", "Mã xác nhận không đúng!")]
         public JsonResult Send(string name, string mobile, string address, string email, string contents)
         {
             var feedback = new Feedback();
@@ -37,6 +39,7 @@ namespace WebBacklink.Controllers
             var id = new ContactDao().InsertFeedBack(feedback);
             if (id > 0)
             {
+                ViewBag.Success = "Gửi Thành Công";
                 return Json(new
                 {
                     status = true

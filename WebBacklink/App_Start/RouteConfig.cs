@@ -29,6 +29,12 @@ namespace WebBacklink
                 defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
                 namespaces: new[] { "WebBacklink.Controllers" }
             );
+            routes.MapRoute(
+                name: "Content",
+                url: "tin-tuc",
+                defaults: new { controller = "Content", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
 
             routes.MapRoute(
                 name: "About",
@@ -48,6 +54,13 @@ namespace WebBacklink
                 name: "Contact",
                 url: "lien-he",
                 defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Product",
+                url: "san-pham",
+                defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "WebBacklink.Controllers" }
             );
 
