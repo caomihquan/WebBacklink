@@ -30,6 +30,12 @@ namespace WebBacklink
                 namespaces: new[] { "WebBacklink.Controllers" }
             );
             routes.MapRoute(
+                name: "Content Detail",
+                url: "chi-tiet-bao/{metatitle}-{id}",
+                defaults: new { controller = "Content", action = "Detail", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
+            routes.MapRoute(
                 name: "Content",
                 url: "tin-tuc",
                 defaults: new { controller = "Content", action = "Index", id = UrlParameter.Optional },

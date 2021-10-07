@@ -33,6 +33,7 @@ namespace Models.DAO
                 product.Price = entity.Price;
                 product.ModifiedBy = entity.ModifiedBy;
                 product.ModifiedDate = DateTime.Now;
+                product.TopHot = entity.TopHot;
                 db.SaveChanges();
                 return true;
             }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebBacklink.Common;
-using WebShop.Areas.Admin.Models;
+using WebBacklink.Areas.Admin.Models;
 
 namespace WebBacklink.Areas.Admin.Controllers
 {

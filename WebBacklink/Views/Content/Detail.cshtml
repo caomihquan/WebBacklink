@@ -1,0 +1,24 @@
+﻿@model Models.EF.Content
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="section-group">
+
+            <h1 id="article_title" class="clrTit bld tuht_show" itemprop="headline">@Model.Name </h1>
+
+        <div>@Model.CreatedDate</div>
+
+        <h2>@Model.Decscription</h2>
+
+        <article>
+            <div>
+                <section>
+                    @Html.Raw(Model.Detail)
+                </section>
+            </div>
+        </article>
+    </div>
+</div>
