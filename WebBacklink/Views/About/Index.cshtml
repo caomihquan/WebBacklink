@@ -1,9 +1,16 @@
-﻿
+﻿@model List<Models.EF.About>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="content">
-    <h2>Giới Thiệu</h2>
+    <div class="container"><h2>Giới Thiệu</h2></div>
+    @foreach (var item in Model)
+    {
+        <div class="container">@Html.Raw(item.Detail)</div>
+    }
+
+
+
 </div>
 

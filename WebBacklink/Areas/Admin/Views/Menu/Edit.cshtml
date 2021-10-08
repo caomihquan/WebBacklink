@@ -1,14 +1,14 @@
 ﻿@model Models.EF.Menu
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
 }
 
 @section header{
     Sửa Menu
 }
-@using (Html.BeginForm("Create", "Menu", FormMethod.Post))
+@using (Html.BeginForm("Edit", "Menu", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 

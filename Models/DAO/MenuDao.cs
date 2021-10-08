@@ -38,6 +38,7 @@ namespace Models.DAO
                 menu.DisplayOrder = entity.DisplayOrder;
                 menu.Target = entity.Target;
                 menu.TypeID = entity.TypeID;
+                menu.Status = entity.Status;
 
                 db.SaveChanges();
                 return true;
