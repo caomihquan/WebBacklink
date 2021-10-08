@@ -52,5 +52,7 @@ namespace WebBacklink.Controllers
             var model = new FooterDao().GetFooter();
             return PartialView(model);
         }
+
+
     }
 }
