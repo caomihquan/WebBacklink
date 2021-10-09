@@ -25,7 +25,7 @@
         [StringLength(50)]
         public string Address { get; set; }
         //[Required(ErrorMessage = "Yêu Cầu Nhập Nội Dung")]
-        [StringLength(250,MinimumLength =10, ErrorMessage = "Độ dài Yêu Cầu ít nhất 10 ký tự.")]
+        [StringLength(250,MinimumLength =20, ErrorMessage = "Độ dài Yêu Cầu ít nhất 10 ký tự.")]
         public string Content { get; set; }
 
         public DateTime? CreatedDate { get; set; }

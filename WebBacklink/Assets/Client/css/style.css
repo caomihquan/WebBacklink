@@ -1929,4 +1929,28 @@ body {
 	.signup input[type="submit"] {
 		width: 80px;
 	}
+
+	.header__notify-link {
+		display: flex;
+		padding: 12px;
+		text-decoration: none;
+		width: 100%;
+	}
+
+	.header__notify-img {
+		width: 48px;
+		height: 48px;
+		object-fit: contain;
+		display: flex;
+	}
+
+	.header__notify-name {
+		display: block;
+		font-size: 25px;
+	}
+
+	.header__notify-descirpsopn {
+		display: block;
+		color: rgb(150, 150, 150);
+	}
 }

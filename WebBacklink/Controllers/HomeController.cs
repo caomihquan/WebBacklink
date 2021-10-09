@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using WebBacklink.Common;
 using WebBacklink.Models;
 
@@ -21,12 +22,14 @@ namespace WebBacklink.Controllers
             return View();
         }
         [ChildActionOnly]
+        [OutputCache(Duration =3600*24)]
         public ActionResult MainMenu()
         {
             var model = new MenuDao().ListByGroupId(1);
             return PartialView(model);
         }
         [ChildActionOnly]
+        
         public ActionResult TopMenu()
         {
             var model = new MenuDao().ListByGroupId(2);
@@ -47,6 +50,7 @@ namespace WebBacklink.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 3600 * 24)]
         public ActionResult Footer()
         {
             var model = new FooterDao().GetFooter();

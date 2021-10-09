@@ -29,6 +29,14 @@ namespace WebBacklink
                 defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
                 namespaces: new[] { "WebBacklink.Controllers" }
             );
+
+            routes.MapRoute(
+                name: "Search",
+                url: "tim-kiem",
+                defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
+
             routes.MapRoute(
                 name: "Content Detail",
                 url: "chi-tiet-bao/{metatitle}-{id}",

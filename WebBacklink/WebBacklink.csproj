@@ -3037,6 +3037,7 @@
     <Content Include="Assets\Client\css\easy-responsive-tabs.css" />
     <Content Include="Assets\Client\css\fontawesome.min.css" />
     <Content Include="Assets\Client\css\global.css" />
+    <Content Include="Assets\Client\css\jquery-ui.css" />
     <Content Include="Assets\Client\css\slider.css" />
     <Content Include="Assets\Client\css\style.css" />
     <Content Include="Assets\Client\font\glyphicons-halflings-regular.svg" />
@@ -3092,13 +3093,14 @@
     <Content Include="Assets\Client\images\value-rating.png" />
     <Content Include="Assets\Client\images\wishlist.png" />
     <Content Include="Assets\Client\js\bootstrap.min.js" />
+    <Content Include="Assets\Client\js\controller\baseController.js" />
     <Content Include="Assets\Client\js\controller\contactController.js" />
     <Content Include="Assets\Client\js\controller\saveController.js" />
     <Content Include="Assets\Client\js\easing.js" />
     <Content Include="Assets\Client\js\easyResponsiveTabs.js" />
     <Content Include="Assets\Client\js\jquery-1.11.3.min.js" />
     <Content Include="Assets\Client\js\jquery-1.7.2.min.js" />
-    <Content Include="Assets\Client\js\jquery-3.6.0.min.js" />
+    <Content Include="Assets\Client\js\jquery-ui.js" />
     <Content Include="Assets\Client\js\jquery.accordion.js" />
     <Content Include="Assets\Client\js\jquery.easing.js" />
     <Content Include="Assets\Client\js\move-top.js" />
@@ -5086,6 +5088,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Content\Index.cshtml" />
     <Content Include="Views\Content\Detail.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

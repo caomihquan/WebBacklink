@@ -197,6 +197,6 @@ namespace Models.EF
                 .IsUnicode(false);
         }
 
-        
+        public System.Data.Entity.DbSet<Models.ViewModels.ProductViewModel> ProductViewModels { get; set; }
     }
 }
