@@ -20,6 +20,8 @@
 </style>
 @section jsFooter{
     <script src="https://maps.googleapis.com/maps/api/js"></script>
+   
+ 
     <script src="/Assets/Client/js/controller/contactController.js"></script>
 
     <script>
@@ -58,14 +60,15 @@
                 <h2>Thông tin liên hệ</h2>
                 @Html.Raw(Model.Content)
                 <div>
-                    <br/>
+                    <br />
                     Follow on:
                     <a href="https://www.facebook.com/caominhquan0512/"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/minwuaan_/"><i class="fab fa-instagram"></i></a>
                 </div>
                 <br />
                 <h2>Gửi thông tin</h2>
-                @if (ViewBag.Success !=null)
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                @if (ViewBag.Success != null)
                 {
                     <div class="alert alert-success">@ViewBag.Success</div>
                 }

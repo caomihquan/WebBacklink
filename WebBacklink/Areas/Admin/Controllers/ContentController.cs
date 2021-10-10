@@ -1,10 +1,12 @@
-﻿using Models.DAO;
+﻿using Models.Dao;
+using Models.DAO;
 using Models.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebBacklink.Common;
 
 namespace WebBacklink.Areas.Admin.Controllers
 {
@@ -34,6 +36,7 @@ namespace WebBacklink.Areas.Admin.Controllers
             return View(content);
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(Content model)
         {
             if (ModelState.IsValid)
@@ -43,7 +46,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                 if (result)
                 {
                     SetAlert("Sửa Thành Công ", "Success");
-                    return RedirectToAction("Index", "Product");
+                    return RedirectToAction("Index", "Content");
                 }
                 else
                 {
@@ -60,17 +63,12 @@ namespace WebBacklink.Areas.Admin.Controllers
         {
             if(ModelState.IsValid)
             {
-                var dao = new ContentDao();
-                long id = dao.Insert(content);
-                if (id > 0)
-                {
-                    SetAlert("Thêm Thành Công ", "Success");
-                    return RedirectToAction("Index", "Content");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Thêm Sản Phẩm Không Thành Công");
-                }
+                var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+                content.CreatedBy = session.UserName;
+                //var culture = Session[CommonConstants.]
+                //content.Language = culture.ToString();
+                new ContentDao().Create(content);
+                return RedirectToAction("Index");
             }
             SetViewBag();
             return View("Index");

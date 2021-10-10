@@ -35,7 +35,7 @@ namespace WebBacklink.Controllers
             feedback.Phone = mobile;
             feedback.Content = contents;
             feedback.Address = address;
-
+            
             var id = new ContactDao().InsertFeedBack(feedback);
             if (id > 0)
             {

@@ -5,20 +5,23 @@
 }
 
 <div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>@Model.Name</h3>
+        </div>
+
+        <div class="clear"></div>
+    </div>
     <div class="section-group">
-
-            <h1 id="article_title" class="clrTit bld tuht_show" itemprop="headline">@Model.Name </h1>
-
-        <div>@Model.CreatedDate</div>
-
-        <h2>@Model.Decscription</h2>
-
-        <article>
-            <div>
-                <section>
-                    @Html.Raw(Model.Detail)
-                </section>
-            </div>
-        </article>
+        @Html.Raw(Model.Detail)
+        <ul>
+            @{
+                var tags = (List<Models.EF.Tag>)ViewBag.Tags;
+                foreach (var tag in tags)
+                {
+                    <li><a href="/tag/@tag.ID">@tag.Name</a></li>
+                }
+            }
+        </ul>
     </div>
 </div>

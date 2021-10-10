@@ -13,7 +13,7 @@
         public int ID { get; set; }
 
         [StringLength(50)]
-        
+        //[Required(ErrorMessage = "Yêu Cầu Nhập Số Điện Thoại")]
         public string Name { get; set; }
         //[Required(ErrorMessage = "Yêu Cầu Nhập Số Điện Thoại")]
         [StringLength(50)]
