@@ -2,24 +2,39 @@
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var listRelatedContents = (List<Models.EF.Content>)ViewBag.RelatedContents;
 }
 
 <div class="content">
     <div class="content_top">
         <div class="heading">
-            <h3>@Model.Name</h3>
+            <h3>Tin Tức</h3>
         </div>
 
         <div class="clear"></div>
     </div>
-    <div class="section-group">
-        @Html.Raw(Model.Detail)
-        <ul>
+
+    <div class="container">
+        <h1 style=" font-size: 30px; color: red;line-height:40px; margin-top:20px;">@Model.Name</h1>
+        <h4 style=" font-size: 12px; color: darkgrey;line-height:40px;">@Model.CreatedDate<span> by: <a href="#">@Model.CreatedBy</a></span></h4>
+        
+    </div>
+
+    <div class="section-group container" style="padding:50px;">
+        <p style="font-size:20px;color:#000;padding: 0 25% 20px 0">@Model.Decscription</p>
+        <div style="padding: 0px 25% 50px 0px; line-height: 25px; color: #494747;">@Html.Raw(Model.Detail)</div>
+        <ul style="display: flex;border-top: 1px solid rgba(34,34,34,.1);padding:30px;">
+            @foreach(var item in listRelatedContents)
+            {
+                <li><img src="@item.Image" /></li>
+            }
+            <li>Từ Khóa:  </li>
             @{
+
                 var tags = (List<Models.EF.Tag>)ViewBag.Tags;
                 foreach (var tag in tags)
                 {
-                    <li><a href="/tag/@tag.ID">@tag.Name</a></li>
+                    <li ><a style="color:grey" href="/tag/@tag.ID">@tag.Name</a>  </li>
                 }
             }
         </ul>

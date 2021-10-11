@@ -74,6 +74,12 @@ namespace Models.Dao
             return db.Contents.Find(id);
         }
 
+        public List<Content> ListRelatedContents(long contentId,int top)
+        {
+            var content = db.Contents.Find(contentId);
+            return db.Contents.Where(x => x.ID != contentId && x.CategoryID == content.CategoryID).Take(top).ToList();
+        }
+
         public Tag GetTag(string id)
         {
             return db.Tags.Find(id);

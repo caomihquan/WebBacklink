@@ -9,5 +9,6 @@ namespace WebBacklink.Common
     {
         public static string USER_SESSION = "USER_SESSION";
         public static string SaveSession = "SaveSession";
+        public static string SESSION_CREDENTIALS = "SESSION_CREDENTIALS";
     }
 }

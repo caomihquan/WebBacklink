@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebBacklink.Common;
 using WebBacklink.Areas.Admin.Models;
+using System.Web.Security;
 
 namespace WebBacklink.Areas.Admin.Controllers
 {
@@ -16,18 +17,23 @@ namespace WebBacklink.Areas.Admin.Controllers
         {
             return View();
         }
+        
         public ActionResult Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                var result = dao.Login(model.UserName, Encryptor.MD5Hash(model.Password));
+                var result = dao.Login(model.UserName, Encryptor.MD5Hash(model.Password),true);
                 if (result ==1)
                 {
                     var user = dao.GetByID(model.UserName);
                     var userSession = new UserLogin();
+
                     userSession.UserName = user.UserName;
                     userSession.UserID = user.ID;
+                    userSession.GroupID = user.GroupID;
+                    var listCredentials = dao.GetListCredential(model.UserName);
+                    Session.Add(CommonConstants.SESSION_CREDENTIALS, listCredentials);
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }else if (result==0)
@@ -42,6 +48,10 @@ namespace WebBacklink.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("", "Mật Khẩu Không Đúng");
                 }
+                else if (result == -3)
+                {
+                    ModelState.AddModelError("", "Tài Khoản Của Bạn Không Có Quyền Đăng Nhập");
+                }
                 else
                 {
                     ModelState.AddModelError("", "Đăng Nhập Không Đúng");
@@ -49,6 +59,16 @@ namespace WebBacklink.Areas.Admin.Controllers
             }
             return View("Index");
 
+        }
+
+        public ActionResult Logout()
+        {
+            Session[CommonConstants.USER_SESSION] = null;
+
+           
+            FormsAuthentication.SignOut();
+            // chuye view ve login
+            return RedirectToAction("Index", "Home", new { Area = "Admin" });
         }
     }
     

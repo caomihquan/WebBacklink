@@ -24,7 +24,7 @@ namespace WebBacklink.Controllers
         {
 
             var model = new ContentDao().GetByID(id);
-
+            ViewBag.RelatedContents = new ContentDao().ListRelatedContents(id,1);
             ViewBag.Tags = new ContentDao().ListTag(id);
             return View(model);
         }

@@ -12,6 +12,9 @@ namespace Models.EF
         public int ID { get; set; }
 
         [StringLength(250)]
+        public string Name { get; set; }
+
+        [StringLength(250)]
         public string Image { get; set; }
 
         public int? DisplayOrder { get; set; }
