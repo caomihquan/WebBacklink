@@ -20,6 +20,13 @@ namespace Models.DAO
             return db.Feedbacks.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
+        public long Insert(Feedback entity)
+        {
+            db.Feedbacks.Add(entity);
+            db.SaveChanges();
+            return entity.ID;
+        }
+
         public bool Delete(int id)
         {
             try

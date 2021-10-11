@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\FeedBackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SaveController.cs" />
@@ -5094,6 +5095,7 @@
     <Content Include="Views\Product\Search.cshtml" />
     <Content Include="Views\Content\Tag.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
+    <Content Include="Views\FeedBack\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

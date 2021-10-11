@@ -75,7 +75,7 @@ namespace WebBacklink
             routes.MapRoute(
                 name: "Contact",
                 url: "lien-he",
-                defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
+                defaults: new { controller = "FeedBack", action = "Create", id = UrlParameter.Optional },
                 namespaces: new[] { "WebBacklink.Controllers" }
             );
 

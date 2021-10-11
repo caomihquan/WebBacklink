@@ -1,13 +1,5 @@
 ﻿@model Models.EF.Contact
 
-@using BotDetect.Web.Mvc;
-<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
-      rel="stylesheet" type="text/css" />
-
-@{
-    MvcCaptcha contactCapCha = new MvcCaptcha("contactCapCha");
-    contactCapCha.UserInputID = "CaptchaCode";
-}
 
 @{
     ViewBag.Title = "Liên hệ";
@@ -20,8 +12,8 @@
 </style>
 @section jsFooter{
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-   
- 
+
+
     <script src="/Assets/Client/js/controller/contactController.js"></script>
 
     <script>
@@ -95,12 +87,6 @@
 
                         </textarea>
 
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            @Html.Captcha(contactCapCha)
-                            @Html.TextBox("CaptchaCode")
-                        </div>
                     </div>
                     <button id="btnSend" class="btn btn-success">Gửi đi</button>
                 </form>
