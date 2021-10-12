@@ -45,6 +45,13 @@ namespace WebBacklink
             );
 
             routes.MapRoute(
+                name: "Term",
+                url: "chinh-sach",
+                defaults: new { controller = "Term", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
+
+            routes.MapRoute(
              name: "Tags",
              url: "tag/{tagId}",
              defaults: new { controller = "Content", action = "Tag", id = UrlParameter.Optional },

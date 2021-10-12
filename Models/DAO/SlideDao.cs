@@ -17,7 +17,7 @@ namespace Models.DAO
         }
         public List<Slide> ListAll()
         {
-            return db.Slides.Where(x => x.Status == true).OrderBy(y => y.DisplayOrder).ToList();
+            return db.Slides.Where(x => x.Status == true).OrderBy(x => x.DisplayOrder).ToList();
         }
         public long Insert(Slide entity)
         {
