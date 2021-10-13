@@ -118,7 +118,8 @@ namespace Models.DAO
                              Images = a.Image,
                              Name = a.Name,
                              MetaTitle = a.MetaTitle,
-                             Price = a.Price
+                             Price = a.Price,
+                             Link=a.Link
                          }).AsEnumerable().Select(x => new ProductViewModel()
                          {
                              CateMetaTitle = x.MetaTitle,
@@ -128,7 +129,8 @@ namespace Models.DAO
                              Images = x.Images,
                              Name = x.Name,
                              MetaTitle = x.MetaTitle,
-                             Price = x.Price
+                             Price = x.Price,
+                             Link=x.Link
                          });
             model.OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize);
             return model.ToList();
@@ -150,7 +152,8 @@ namespace Models.DAO
                              Images = a.Image,
                              Name = a.Name,
                              MetaTitle = a.MetaTitle,
-                             Price = a.Price
+                             Price = a.Price,
+                             Link=a.Link
                          }).AsEnumerable().Select(x => new ProductViewModel()
                          {
                              CateMetaTitle = x.MetaTitle,
@@ -160,7 +163,8 @@ namespace Models.DAO
                              Images = x.Images,
                              Name = x.Name,
                              MetaTitle = x.MetaTitle,
-                             Price = x.Price
+                             Price = x.Price,
+                             Link=x.Link
                          });
             model.OrderByDescending(x => x.CreatedDate).Skip((pageIndex - 1) * pageSize).Take(pageSize);
             return model.ToList();

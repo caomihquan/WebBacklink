@@ -11,6 +11,7 @@ namespace Models.ViewModels
         public long ID { set; get; }
         public string Images { set; get; }
         public string Name { set; get; }
+        public string Link { set; get; }
         public decimal? Price { set; get; }
         public string CateName { set; get; }
         public string CateMetaTitle { set; get; }

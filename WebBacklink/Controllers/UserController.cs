@@ -9,6 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebBacklink.Common;
+using Facebook;
 using WebBacklink.Models;
 
 namespace WebBacklink.Controllers
@@ -39,13 +40,13 @@ namespace WebBacklink.Controllers
         {
             return View();
         }
-
+            [AllowAnonymous]
         public ActionResult LoginFacebook()
         {
             var fb = new FacebookClient();
             var loginUrl = fb.GetLoginUrl(new
             {
-                client_id = ConfigurationManager.AppSettings["FbAppId"],
+                client_id = /*ConfigurationManager.AppSettings["FbAppId"]*/1024793591616473,
                 client_secret = ConfigurationManager.AppSettings["FbAppSecret"],
                 redirect_uri = RedirectUri.AbsoluteUri,
                 response_type = "code",
@@ -60,7 +61,7 @@ namespace WebBacklink.Controllers
             var fb = new FacebookClient();
             dynamic result = fb.Post("oauth/access_token", new
             {
-                client_id = ConfigurationManager.AppSettings["FbAppId"],
+                client_id = /*ConfigurationManager.AppSettings["FbAppId"]*/1024793591616473,
                 client_secret = ConfigurationManager.AppSettings["FbAppSecret"],
                 redirect_uri = RedirectUri.AbsoluteUri,
                 code = code
@@ -68,6 +69,7 @@ namespace WebBacklink.Controllers
 
 
             var accessToken = result.access_token;
+            
             if (!string.IsNullOrEmpty(accessToken))
             {
                 fb.AccessToken = accessToken;
@@ -94,6 +96,7 @@ namespace WebBacklink.Controllers
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                 }
             }
+
             return Redirect("/");
         }
 

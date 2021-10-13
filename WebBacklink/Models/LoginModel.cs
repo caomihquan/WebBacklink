@@ -16,5 +16,6 @@ namespace WebBacklink.Models
         [Required(ErrorMessage ="Bạn Phải Nhập Mật Khẩu")]
         public string Password { set; get; }
         public bool RememberMe { set; get; }
+        public string JavascriptToRun { get; set; }
     }
 }
