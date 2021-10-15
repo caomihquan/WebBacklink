@@ -7,7 +7,7 @@
         var child = Model.Where(x => x.ParentID == item.ID);
         var parentClass = child.Count() > 0 ? "class=dropdown-toggle data-toggle=dropdown" : "";
         <li class="dropdown">
-            <a href="/san-pham/@item.MetaTitle-@item.ID" @parentClass style="color:#000" >@item.Name</a>
+            <a href="/san-pham/@item.MetaTitle-@item.ID" title="@item.Name" @parentClass style="color:#000" >@item.Name</a>
             
                 @if (child.Count() > 0)
                 {
@@ -15,7 +15,7 @@
                     <ul class="dropdown-menu" style="width: 100%; border: none;">
                         @foreach (var childItem in child)
                         {
-                            <li style="text-decoration: none; margin-left: 10px; font-size: 13px"><a href="/san-pham/@childItem.MetaTitle-@childItem.ID">@childItem.Name</a></li>
+                            <li title="@childItem.Name" style="text-decoration: none; margin-left: 10px; font-size: 13px"><a href="/san-pham/@childItem.MetaTitle-@childItem.ID">@childItem.Name</a></li>
                         }
 
                     </ul>

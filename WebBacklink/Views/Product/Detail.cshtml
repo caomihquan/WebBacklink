@@ -2,16 +2,20 @@
 
 
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = Model.Name;
+    ViewBag.Keywords = Model.MetaKeywords;
+    ViewBag.Descriptions = Model.MetaDescriptions;
     Layout = "~/Views/Shared/_Layout.cshtml";
     var category = (Models.EF.ProductCategory)ViewBag.Category;
     var relatedProducts = (List<Models.EF.Product>)ViewBag.RelatedProducts;
 }
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6168ecfe9afe107b"></script>
 
 <div class="content">
     <div class="content_top">
-        <div class="back-links">
-            <p><a href="/">Trang Chủ</a> >>>> <a href="/san-pham/@category.MetaTitle-@category.ID">@category.Name</a></p>
+        <div >
+            <p><a href="/" style="color:white;">Trang Chủ</a> >> <a href="/san-pham/@category.MetaTitle-@category.ID"style="color:white;">@category.Name</a></p>
         </div>
         <div class="clear"></div>
     </div>
@@ -23,36 +27,45 @@
                         <div id="products_example">
                             <div id="products">
                                 <div class="slides_container">
-                                    <a href="#" target="_blank"><img src="@Model.Image" alt=" " /></a>
+                                    <h1><a href="#" target="_blank"><img src="@Model.Image" alt="@Model.Name" /></a></h1>
                                 </div>
                                 @*<ul class="pagination">
-                                    <li><a href="#"><img src="images/thumbnailslide-1.jpg" alt=" " /></a></li>
-                                    <li><a href="#"><img src="images/thumbnailslide-2.jpg" alt=" " /></a></li>
-                                    <li><a href="#"><img src="images/thumbnailslide-3.jpg" alt=" " /></a></li>
-                                    <li><a href="#"><img src="images/thumbnailslide-4.jpg" alt=" " /></a></li>
-                                    <li><a href="#"><img src="images/thumbnailslide-5.jpg" alt=" " /></a></li>
-                                    <li><a href="#"><img src="images/thumbnailslide-6.jpg" alt=" " /></a></li>
-                                </ul>*@
+                                        <li><a href="#"><img src="images/thumbnailslide-1.jpg" alt=" " /></a></li>
+                                        <li><a href="#"><img src="images/thumbnailslide-2.jpg" alt=" " /></a></li>
+                                        <li><a href="#"><img src="images/thumbnailslide-3.jpg" alt=" " /></a></li>
+                                        <li><a href="#"><img src="images/thumbnailslide-4.jpg" alt=" " /></a></li>
+                                        <li><a href="#"><img src="images/thumbnailslide-5.jpg" alt=" " /></a></li>
+                                        <li><a href="#"><img src="images/thumbnailslide-6.jpg" alt=" " /></a></li>
+                                    </ul>*@
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="desc span_3_of_2">
-                    <h2>@Model.Name</h2>
+                    <h1 style="font-size:25px;">@Model.Name</h1>
                     <p>@Model.Decscription</p>
                     <div class="price">
                         <p>Giá: @(Model.Price.HasValue? Model.Price.Value.ToString("N0"):"Liên Hệ")</p>
                     </div>
-               
-                    <div class="share-desc">>
+
+                    <div class="share-desc">
                         <div class="btn btn-info"><span><a href="@Model.Link" style="color:#fff;text-decoration:none;">Đến Nơi Bán</a></span></div>
                         <div class="clear"></div>
                     </div>
                     <div class="wish-list">
                         <ul>
-                            <li class="wish"><a href="/them-gio-hang?productId=@Model.ID&quantity=1"><i class="fas fa-heart"></i></a></li>
+                            <li>
+                                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                                <div class="addthis_inline_share_toolbox_fw73"></div>
+                            </li>
+
                         </ul>
+
                     </div>
+                    <div class="wish-list">
+                        <a href="/them-gio-hang?productId=@Model.ID&quantity=1" style="padding:10px;color:red;text-decoration:none;"><i class="fas fa-heart"></i>Yêu Thích</a>
+                    </div>
+                    
                 </div>
                 <div class="clear"></div>
             </div>
@@ -60,25 +73,22 @@
                 <div id="horizontalTab">
                     <ul class="resp-tabs-list">
                         <li>Chi Tiết</li>
-                        
-                        <div class="clear"></div>
                     </ul>
-                    <div class="resp-tabs-container">
+                    <div class="resp-tabs-container"">
                         <div class="product-desc">
-                              @Html.Raw(Model.Detail)
+                            @Html.Raw(Model.Detail)
                         </div>
-
-                        
                     </div>
                 </div>
             </div>
-            <script type="text/javascript">$(document).ready(function () {
-        $('#horizontalTab').easyResponsiveTabs({
-            type: 'default', //Types: default, vertical, accordion
-            width: 'auto', //auto or any width like 600px
-            fit: true   // 100% fit in a container
-        });
-    });</script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#horizontalTab').easyResponsiveTabs({
+                        type: 'default', //Types: default, vertical, accordion
+                        width: 'auto', //auto or any width like 600px
+                        fit: true   // 100% fit in a container
+                    });
+                });</script>
             <div class="content_bottom">
                 <div class="heading">
                     <h3>Sản Phẩm Liên Quan</h3>
@@ -88,19 +98,26 @@
                 </div>
                 <div class="clear"></div>
             </div>
-            <div class="section group">
+            <div class="section group" style="display:flex;flex-wrap:wrap;justify-content:space-evenly">
                 @foreach (var item in relatedProducts)
-                        {
-                            var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                {
+                    var url = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
                     <div class="grid_1_of_4 images_1_of_4">
                         <a href="@url"><img src="@item.Image" alt=""></a>
-                        <div class="price" style="border:none">
-                            <div class="add-cart" style="float:none">
-                                <a href="/them-gio-hang?productId=@item.ID&quantity=1"><i class="fas fa-heart"></i></a>
-                                <h4><a href="@url">Xem Chi Tiết</a></h4>
-                                <a href="@item.Link">Đến Nơi Bán</a>
+                        <h2>@item.Name</h2>
+                        
+                        <div style="display:flex;justify-content:space-around;border-top:1px solid blue;padding:10px;">
+                            <div>
+                                <p>Giá: <span class="rupees" style="color:red;">@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên Hệ")</span></p>
+
                             </div>
+                            <div><a href="/them-gio-hang?productId=@item.ID&quantity=1" style="color:red"><i class="fas fa-heart"></i></a></div>
+
                             <div class="clear"></div>
+                        </div>
+                        <div style="display:flex; justify-content:space-around;flex-wrap:wrap">
+                            <h4><a href="@url" class="btn btn-success">Xem Chi Tiết</a></h4>
+                            <h4><a href="@item.Link" class="btn btn-primary">Đến Nơi Bán</a></h4>
                         </div>
                     </div>
                 }
@@ -109,49 +126,16 @@
         </div>
         <div class="rightsidebar span_3_of_1">
             @{ Html.RenderAction("ProductCategory", "Product");}
-            <div class="subscribe">
-                <h2>Newsletters Signup</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.......</p>
-                <div class="signup">
-                    <form>
-                        <input type="text" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';"><input type="submit" value="Sign up">
-                    </form>
-                </div>
-            </div>
-            <div class="community-poll">
-                <h2>Community POll</h2>
-                <p>What is the main reason for you to purchase products online?</p>
-                <div class="poll">
-                    <form>
-                        <ul>
-                            <li>
-                                <input type="radio" name="vote" class="radio" value="1">
-                                <span class="label"><label>More convenient shipping and delivery </label></span>
-                            </li>
-                            <li>
-                                <input type="radio" name="vote" class="radio" value="2">
-                                <span class="label"><label for="vote_2">Lower price</label></span>
-                            </li>
-                            <li>
-                                <input type="radio" name="vote" class="radio" value="3">
-                                <span class="label"><label for="vote_3">Bigger choice</label></span>
-                            </li>
-                            <li>
-                                <input type="radio" name="vote" class="radio" value="5">
-                                <span class="label"><label for="vote_5">Payments security </label></span>
-                            </li>
-                            <li>
-                                <input type="radio" name="vote" class="radio" value="6">
-                                <span class="label"><label for="vote_6">30-day Money Back Guarantee </label></span>
-                            </li>
-                            <li>
-                                <input type="radio" name="vote" class="radio" value="7">
-                                <span class="label"><label for="vote_7">Other.</label></span>
-                            </li>
-                        </ul>
-                    </form>
-                </div>
-            </div>
+            @*<div class="subscribe">
+                    <h2>Newsletters Signup</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.......</p>
+                    <div class="signup">
+                        <form>
+                            <input type="text" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';"><input type="submit" value="Sign up">
+                        </form>
+                    </div>
+                </div>*@
+
         </div>
     </div>
 </div>

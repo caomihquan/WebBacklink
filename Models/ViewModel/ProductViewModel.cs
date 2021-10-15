@@ -13,6 +13,7 @@ namespace Models.ViewModels
         public string Name { set; get; }
         public string Link { set; get; }
         public decimal? Price { set; get; }
+        public string Decriptions { get; set; }
         public string CateName { set; get; }
         public string CateMetaTitle { set; get; }
         public string MetaTitle { set; get; }

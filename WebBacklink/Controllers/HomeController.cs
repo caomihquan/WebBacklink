@@ -1,6 +1,7 @@
 ﻿using Models.DAO;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,6 +20,12 @@ namespace WebBacklink.Controllers
             var productDao = new ProductDao();
             ViewBag.NewProducts = productDao.ListNewProduct(8);
             ViewBag.ListFeatureProducts = productDao.ListFeatureProduct(4);
+
+            //seo title
+            ViewBag.Title = ConfigurationManager.AppSettings["HomeTitle"];
+            ViewBag.Keywords = ConfigurationManager.AppSettings["HomeKeyWord"];
+            ViewBag.Descriptions = ConfigurationManager.AppSettings["HomeDescriptions"];
+
             return View();
         }
         [ChildActionOnly]

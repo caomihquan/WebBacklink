@@ -37,6 +37,7 @@ namespace Models.DAO
                 product.Name = entity.Name;
                 product.MetaTitle = entity.MetaTitle;
                 product.Price = entity.Price;
+                product.Detail = entity.Detail;
                 product.ModifiedBy = entity.ModifiedBy;
                 product.ModifiedDate = DateTime.Now;
                 product.TopHot = entity.TopHot;
@@ -119,7 +120,8 @@ namespace Models.DAO
                              Name = a.Name,
                              MetaTitle = a.MetaTitle,
                              Price = a.Price,
-                             Link=a.Link
+                             Link=a.Link,
+                             Decriptions=a.Decscription
                          }).AsEnumerable().Select(x => new ProductViewModel()
                          {
                              CateMetaTitle = x.MetaTitle,
@@ -130,7 +132,8 @@ namespace Models.DAO
                              Name = x.Name,
                              MetaTitle = x.MetaTitle,
                              Price = x.Price,
-                             Link=x.Link
+                             Link=x.Link,
+                             Decriptions = x.Decriptions
                          });
             model.OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize);
             return model.ToList();

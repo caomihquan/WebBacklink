@@ -31,6 +31,7 @@ namespace WebBacklink.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Create(Product product)
         {
             if (ModelState.IsValid)
@@ -51,6 +52,7 @@ namespace WebBacklink.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
