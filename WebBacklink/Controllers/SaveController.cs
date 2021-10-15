@@ -5,19 +5,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebBacklink.Models;
+using WebBacklink.Common;
 
 namespace WebBacklink.Controllers
 {
     
-    public class SaveController : Controller
+    public class SaveController : BaseController
     {
         private const string SaveSession = "SaveSession";
         // GET: Save
         public ActionResult Index()
         {
             var save = Session[SaveSession];
+            var user = Session[CommonConstants.USER_SESSION];
             var list = new List<SaveItem>();
-            if(save != null)
+            if(save != null && user!=null)
             {
                 list = (List<SaveItem>)save;
             }
@@ -47,8 +49,9 @@ namespace WebBacklink.Controllers
         public ActionResult AddItem(long productId,int quantity)
         {
             var product = new ProductDao().ViewDetail(productId);
+            var user = Session[CommonConstants.USER_SESSION];
             var save = Session[SaveSession];
-            if (save != null)
+            if (save != null&&user!=null)
             {
                 var list = (List<SaveItem>)save;
                 if (list.Exists(x => x.Product.ID == productId))

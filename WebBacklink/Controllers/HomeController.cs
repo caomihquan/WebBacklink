@@ -17,7 +17,7 @@ namespace WebBacklink.Controllers
         {
             ViewBag.Slides = new SlideDao().ListAll();
             var productDao = new ProductDao();
-            ViewBag.NewProducts = productDao.ListNewProduct(4);
+            ViewBag.NewProducts = productDao.ListNewProduct(8);
             ViewBag.ListFeatureProducts = productDao.ListFeatureProduct(4);
             return View();
         }
@@ -40,10 +40,12 @@ namespace WebBacklink.Controllers
         public PartialViewResult HeaderSave()
         {
             var save = Session[CommonConstants.SaveSession];
+            var user = Session[CommonConstants.USER_SESSION];
             var list = new List<SaveItem>();
-            if (save != null)
+            if (save != null && user!=null)
             {
                 list = (List<SaveItem>)save;
+
             }
            
             return PartialView(list);
