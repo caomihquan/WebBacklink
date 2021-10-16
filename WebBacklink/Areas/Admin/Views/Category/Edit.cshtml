@@ -1,13 +1,11 @@
 ﻿@model Models.EF.Category
-
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
 }
 
-
 @section header{
-    Create Categories
+    Sửa Danh Mục Tin Tức
 }
 
 
@@ -117,7 +115,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Tạo" class="btn btn-success" />
+                <input type="submit" value="Sửa" class="btn btn-success" />
             </div>
         </div>
     </div>
@@ -126,3 +124,5 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+

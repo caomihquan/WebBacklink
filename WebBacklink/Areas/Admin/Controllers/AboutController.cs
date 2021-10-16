@@ -11,7 +11,7 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class AboutController : BaseController
     {
         // GET: Admin/About
-        public ActionResult Index(string searchString,int page=1,int pageSize=1)
+        public ActionResult Index(string searchString,int page=1,int pageSize=10)
         {
             var dao = new AboutDao();
             var model = dao.ListAllPaging(searchString, page, pageSize);

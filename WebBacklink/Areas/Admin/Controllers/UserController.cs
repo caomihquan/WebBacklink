@@ -14,7 +14,7 @@ namespace WebBacklink.Areas.Admin.Controllers
     {
         // GET: Admin/User
         [HasCredential(RoleID ="VIEW_USER")]
-        public ActionResult Index(string searchString, int page=1,int pageSize=1)
+        public ActionResult Index(string searchString, int page=1,int pageSize=10)
         {
             var dao = new UserDao();
             var model = dao.ListAllPaging(searchString,page, pageSize);

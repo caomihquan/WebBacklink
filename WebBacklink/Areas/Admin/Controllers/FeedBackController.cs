@@ -10,7 +10,7 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class FeedBackController : BaseController
     {
         // GET: Admin/FeedBack
-        public ActionResult Index(int page=1,int pageSize=2)
+        public ActionResult Index(int page=1,int pageSize=5)
         {
             var dao = new FeedBackDao();
             var model = dao.ListAllPaging(page, pageSize);
