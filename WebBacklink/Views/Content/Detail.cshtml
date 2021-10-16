@@ -5,6 +5,10 @@
     var listRelatedContents = (List<Models.EF.Content>)ViewBag.RelatedContents;
 }
 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-616a4b481dde4c91"></script>
+
+
 <div class="content">
     <div class="content_top">
         <div class="heading">
@@ -17,43 +21,60 @@
     <div class="container">
         <h1 style=" font-size: 30px; color: red;line-height:40px; margin-top:20px;">@Model.Name</h1>
         <h4 style=" font-size: 12px; color: darkgrey;line-height:40px;">@Model.CreatedDate<span> by: <a href="#">@Model.CreatedBy</a></span></h4>
-        
+
     </div>
 
-    <div class="section-group container" style="padding:50px;">
-        <p style="font-size:20px;color:#000;padding: 0 25% 20px 0">@Model.Decscription</p>
-        <div style="padding: 0px 25% 50px 0px; line-height: 25px; color: #494747;">@Html.Raw(Model.Detail)</div>
-        <div class="heading">Bài Viết Liên Quan</div>
-        <br/>
-        @foreach (var item in listRelatedContents)
-        {
-            var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
-            
-                        <a href="@link"style="display:flex;padding: 10px 25% 10px 0px;border-top: 1px solid rgba(34,34,34,.1);text-decoration:none;">
-                            <span><img src="@item.Image" style="height:93px;width:150px;" /></span>
-                             <div style="margin-left:20px;">
-                        
-                            <h1 style="font-size:25px;color:#000;">@item.Name</h1>
-                            <p style="color:darkgrey">@item.Decscription</p>
-                        
-                            </div>
-                        </a>
-                   
+    <div class="section-group container">
+        <div class="cont-desc span_1_of_2">
+            <p style="font-size:20px;color:#000;padding: 0 0 20px 0">@Model.Decscription</p>
+            <div style="padding: 0px 0 50px 0px; line-height: 25px; color: #494747;">@Html.Raw(Model.Detail)</div>
+            <div class="heading">Bài Viết Liên Quan</div>
+            <br />
+            @foreach (var item in listRelatedContents)
+            {
+                var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
 
-            
-        }
-        <ul style="display: flex;border-top: 1px solid rgba(34,34,34,.1);padding:30px;">
+                <a href="@link" style="display:flex;padding: 10px 0 10px 0px;border-top: 1px solid rgba(34,34,34,.1);text-decoration:none;">
+                    <span><img src="@item.Image" style="height:93px;width:150px;" /></span>
+                    <div style="margin-left:20px;">
+
+                        <h1 style="font-size:25px;color:#000;">@item.Name</h1>
+                        <p style="color:darkgrey">@item.Decscription</p>
+
+                    </div>
+                </a>
 
 
-            <li>Từ Khóa:  </li>
-            @{
 
-                var tags = (List<Models.EF.Tag>)ViewBag.Tags;
-                foreach (var tag in tags)
-                {
-                    <li><a style="color:grey" href="/tag/@tag.ID">@tag.Name</a>  </li>
-                }
             }
-        </ul>
+            <ul style="display: flex;border-top: 1px solid rgba(34,34,34,.1);padding:30px;">
+
+
+                <li>Từ Khóa:  </li>
+                @{
+
+                    var tags = (List<Models.EF.Tag>)ViewBag.Tags;
+                    foreach (var tag in tags)
+                    {
+                        <li><a style="color:grey" href="/tag/@tag.ID">@tag.Name</a>  </li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="rightsidebar span_3_of_1">
+            <div class="">
+                @{ Html.RenderAction("Category", "Content");}
+            </div>
+            @*<div class="subscribe">
+                    <h2>Newsletters Signup</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.......</p>
+                    <div class="signup">
+                        <form>
+                            <input type="text" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';"><input type="submit" value="Sign up">
+                        </form>
+                    </div>
+                </div>*@
+
+        </div>
     </div>
 </div>

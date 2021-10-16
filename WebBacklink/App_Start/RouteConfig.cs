@@ -22,6 +22,12 @@ namespace WebBacklink
                 defaults: new { controller = "Product", action = "Category", id = UrlParameter.Optional },
                 namespaces: new[] { "WebBacklink.Controllers" }
             );
+            routes.MapRoute(
+                name: "Content Category",
+                url: "danh-muc/{metatitle}-{id}",
+                defaults: new { controller = "Content", action = "MenuCategory", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
 
             routes.MapRoute(
                 name: "Product Detail",

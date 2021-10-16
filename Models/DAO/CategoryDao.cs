@@ -17,7 +17,7 @@ namespace Models.DAO
         }
         public List<Category> ListAll()
         {
-            return db.Categories.Where(x => x.Status == true).ToList();
+            return db.Categories.Where(x => x.Status == true).OrderBy(x=>x.DisplayOrder).ToList();
         }
 
         public IEnumerable<Category> ListAllPaging(string searchString, int page, int pageSize)

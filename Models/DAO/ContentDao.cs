@@ -244,6 +244,13 @@ namespace Models.Dao
 
         }
 
+        public List<Content> ListByCategoryId(long categoryID, ref int totalRecord, int page = 1, int pageSize = 2)
+        {
+            totalRecord = db.Contents.Where(x => x.CategoryID == categoryID).Count();
+            var model = db.Contents.Where(x => x.CategoryID == categoryID).OrderByDescending(x=>x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            return model;
+        }
+
     }
 }
 

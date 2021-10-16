@@ -5108,6 +5108,8 @@
     <Content Include="Views\Shared\401.cshtml" />
     <Content Include="Views\FeedBack\Create.cshtml" />
     <Content Include="Views\Term\Index.cshtml" />
+    <Content Include="Views\Shared\Category.cshtml" />
+    <Content Include="Views\Content\MenuCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

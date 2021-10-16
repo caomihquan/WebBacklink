@@ -125,7 +125,10 @@
             </div>
         </div>
         <div class="rightsidebar span_3_of_1">
-            @{ Html.RenderAction("ProductCategory", "Product");}
+            <div class="content">
+                @{ Html.RenderAction("ProductCategory", "Product");}
+            </div>
+           
             @*<div class="subscribe">
                     <h2>Newsletters Signup</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.......</p>
