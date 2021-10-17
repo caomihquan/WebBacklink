@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using System.Web.Script.Serialization;
+using System.Xml.Linq;
 
 namespace WebBacklink.Areas.Admin.Controllers
 {
@@ -86,6 +88,56 @@ namespace WebBacklink.Areas.Admin.Controllers
             }
             return View("Index");
             
+        }
+
+        public JsonResult LoadImages(long id)
+        {
+            ProductDao dao = new ProductDao();
+            var product = dao.ViewDetail(id);
+            var images = product.MoreImages;
+            XElement xImages = XElement.Parse(images);
+            List<string> listImagesReturn = new List<string>();
+
+            foreach (XElement element in xImages.Elements())
+            {
+                listImagesReturn.Add(element.Value);
+                
+            }
+            return Json(new
+            {
+                data = listImagesReturn
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult SaveImages(long id, string images)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var listImages = serializer.Deserialize<List<string>>(images);
+
+            XElement xElement = new XElement("Images");
+
+            foreach (var item in listImages)
+            {
+                var subStringItem = item.Substring(23);
+                xElement.Add(new XElement("Image", subStringItem));
+            }
+            ProductDao dao = new ProductDao();
+            try
+            {
+                dao.UpdateImages(id, xElement.ToString());
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            catch (Exception )
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+
         }
     }
 }

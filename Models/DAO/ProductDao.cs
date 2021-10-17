@@ -183,6 +183,12 @@ namespace Models.DAO
             return model.ToList();
         }
 
+        public void UpdateImages(long productId, string images)
+        {
+            var product = db.Products.Find(productId);
+            product.MoreImages = images;
+            db.SaveChanges();
+        }
 
         public Product ViewDetail(long id)
         {
