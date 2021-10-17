@@ -136,7 +136,27 @@ namespace Models.Dao
                 content.MetaKeywords = entity.MetaKeywords;
                 content.TopHot = entity.TopHot;
                 content.ViewCount = entity.ViewCount;
-                content.Tags = entity.Tags;
+
+                if (!string.IsNullOrEmpty(content.Tags=entity.Tags))
+                {
+                    this.RemoveAllContentTag(content.ID);
+                    string[] tags = content.Tags.Split(',');
+                    foreach (var tag in tags)
+                    {
+                        var tagId = StringHelper.ToUnsignString(tag);
+                        var existedTag = this.CheckTag(tagId);
+
+                        //insert to to tag table
+                        if (!existedTag)
+                        {
+                            this.InsertTag(tagId, tag);
+                        }
+
+                        //insert to content tag
+                        this.InsertContentTag(content.ID, tagId);
+
+                    }
+                }
                 db.SaveChanges();
                 return true;
             }

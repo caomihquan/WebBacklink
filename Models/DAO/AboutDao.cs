@@ -32,8 +32,13 @@ namespace Models.DAO
                 var about = db.Abouts.Find(entity.ID);
                 about.Name = entity.Name;
                 about.MetaTitle = entity.MetaTitle;
+                about.Decscription = entity.Decscription;
                 about.Image = entity.Image;
                 about.Detail = entity.Detail;
+                about.ModifiedBy = entity.ModifiedBy;
+                about.ModifiedDate = entity.ModifiedDate;
+                about.MetaDescriptions = entity.MetaDescriptions;
+                about.MetaKeywords = entity.MetaKeywords;
                 about.Status = entity.Status;
                 db.SaveChanges();
                 return true;

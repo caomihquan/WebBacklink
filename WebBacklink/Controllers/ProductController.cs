@@ -36,7 +36,7 @@ namespace WebBacklink.Controllers
         }
 
 
-        public ActionResult Category(long cateId,int page=1,int pageSize=1)
+        public ActionResult Category(long cateId,int page=1,int pageSize=10)
         {
             var category = new ProductCategoryDao().ViewDetail(cateId);
             ViewBag.Category = category;

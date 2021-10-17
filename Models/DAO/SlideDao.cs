@@ -30,12 +30,14 @@ namespace Models.DAO
             try
             {
                 var slide = db.Slides.Find(entity.ID);
+                slide.Name = entity.Name;
                 slide.Image = entity.Image;
                 slide.DisplayOrder = entity.DisplayOrder;
                 slide.Link = entity.Link;
                 slide.ModifiedBy = entity.ModifiedBy;
                 slide.ModifiedDate = DateTime.Now;
                 slide.Description = entity.Description;
+                slide.Status = entity.Status;
                 db.SaveChanges();
                 return true;
             }

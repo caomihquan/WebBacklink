@@ -13,6 +13,7 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class ContentController : BaseController
     {
         // GET: Admin/Content
+        [HasCredential(RoleID = "VIEW_CONTENT")]
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
             var dao = new ContentDao();

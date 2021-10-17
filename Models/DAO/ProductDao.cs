@@ -36,11 +36,18 @@ namespace Models.DAO
                 var product = db.Products.Find(entity.ID);
                 product.Name = entity.Name;
                 product.MetaTitle = entity.MetaTitle;
+                product.Decscription = entity.Decscription;
+                product.Image = entity.Image;
+                product.MoreImages = entity.MoreImages;
                 product.Price = entity.Price;
+                product.CategoryID = entity.CategoryID;
                 product.Detail = entity.Detail;
+                product.Link = entity.Link;
+                product.Status = entity.Status;
                 product.ModifiedBy = entity.ModifiedBy;
                 product.ModifiedDate = DateTime.Now;
                 product.TopHot = entity.TopHot;
+                product.ViewCount = entity.ViewCount;
                 db.SaveChanges();
                 return true;
             }

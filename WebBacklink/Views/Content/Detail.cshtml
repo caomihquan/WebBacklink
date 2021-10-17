@@ -1,6 +1,8 @@
 ﻿@model Models.EF.Content
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = Model.Name;
+    ViewBag.Keywords = Model.MetaKeywords;
+    ViewBag.Descriptions = Model.MetaDescriptions;
     Layout = "~/Views/Shared/_Layout.cshtml";
     var listRelatedContents = (List<Models.EF.Content>)ViewBag.RelatedContents;
 }
@@ -50,7 +52,7 @@
             <ul style="display: flex;border-top: 1px solid rgba(34,34,34,.1);padding:30px;">
 
 
-                <li>Từ Khóa:  </li>
+                <li><i class="fas fa-tag"></i>Từ Khóa:  </li>
                 @{
 
                     var tags = (List<Models.EF.Tag>)ViewBag.Tags;

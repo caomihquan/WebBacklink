@@ -58,7 +58,7 @@ namespace WebBacklink.Controllers
             return View(model);
         }
 
-        public ActionResult MenuCategory(long id, int page = 1, int pageSize = 1)
+        public ActionResult MenuCategory(long id, int page = 1, int pageSize = 10)
         {
             var category = new CategoryDao().ViewDetail(id);
             ViewBag.Category = category;

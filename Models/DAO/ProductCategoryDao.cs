@@ -29,11 +29,15 @@ namespace Models.DAO
                 var productcategory = db.ProductCategories.Find(entity.ID);
                 productcategory.Name = entity.Name;
                 productcategory.MetaTitle = entity.MetaTitle;
+                productcategory.ParentID = entity.ParentID;
+                productcategory.DisplayOrder = entity.DisplayOrder;
                 productcategory.SeoTitle = entity.SeoTitle;
                 productcategory.ModifiedBy = entity.ModifiedBy;
                 productcategory.ModifiedDate = DateTime.Now;
                 productcategory.MetaDescriptions = entity.MetaDescriptions;
                 productcategory.MetaKeywords = entity.MetaKeywords;
+                productcategory.ShowOnHome = entity.ShowOnHome;
+                productcategory.Status = entity.Status;
                 db.SaveChanges();
                 return true;
             }

@@ -51,8 +51,10 @@ namespace Models.DAO
                 {
                     user.Password = entity.Password;
                 }
+                user.GroupID = entity.GroupID;
                 user.Address = entity.Address;
                 user.Email = entity.Email;
+                user.Phone = entity.Phone;
                 user.ModifiedBy = entity.ModifiedBy;
                 user.ModifiedDate = DateTime.Now;
                 db.SaveChanges();
