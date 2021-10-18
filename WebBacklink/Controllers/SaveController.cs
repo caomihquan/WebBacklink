@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebBacklink.Models;
 using WebBacklink.Common;
+using Models.EF;
 
 namespace WebBacklink.Controllers
 {
@@ -19,9 +20,11 @@ namespace WebBacklink.Controllers
             var save = Session[SaveSession];
             var user = Session[CommonConstants.USER_SESSION];
             var list = new List<SaveItem>();
-            if(save != null && user!=null)
+            
+            if(user!=null && save!=null)
             {
                 list = (List<SaveItem>)save;
+
             }
             return View(list);
         }
@@ -51,7 +54,7 @@ namespace WebBacklink.Controllers
             var product = new ProductDao().ViewDetail(productId);
             var user = Session[CommonConstants.USER_SESSION];
             var save = Session[SaveSession];
-            if (save != null&&user!=null)
+            if (user!=null && save!=null)
             {
                 var list = (List<SaveItem>)save;
                 if (list.Exists(x => x.Product.ID == productId))

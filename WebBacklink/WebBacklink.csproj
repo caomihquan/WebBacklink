@@ -187,6 +187,7 @@
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\SlideController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserGroupController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
@@ -5064,6 +5065,9 @@
     <Content Include="Areas\Admin\Views\Role\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Role\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\UserGroup\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UserGroup\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\UserGroup\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
