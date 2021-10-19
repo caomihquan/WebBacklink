@@ -35,7 +35,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                 var result = dao.Update(footer);
                 if (result)
                 {
-                    SetAlert("Thêm Thành Công ", "Success");
+                    SetAlert("Sửa Thành Công ", "success");
                     return RedirectToAction("Index", "Footer");
                 }
                 else

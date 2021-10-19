@@ -30,12 +30,10 @@ namespace WebBacklink.Areas.Admin.Controllers
             else if (type == "warning")
             {
                 TempData["AlertType"] = "alert-warning";
-
             }
             else if (type == "error")
             {
                 TempData["AlertType"] = "alert-danger";
-
             }
 
         }

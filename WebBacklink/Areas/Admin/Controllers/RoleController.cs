@@ -40,7 +40,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                 string id = dao.Insert(role);
                 if (id != null)
                 {
-                    //SetAlert("Thêm Thành Công ", "Success");
+                    SetAlert("Thêm Thành Công ", "success");
                     return RedirectToAction("Index", "Role");
                 }
                 else
@@ -61,7 +61,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                 var result = dao.Update(role);
                 if (result)
                 {
-                    //SetAlert("Sửa Thành Công ", "Success");
+                    SetAlert("Sửa Thành Công ", "success");
                     return RedirectToAction("Index", "Role");
                 }
                 else

@@ -39,7 +39,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                 long id = dao.Insert(productCategory);
                 if (id > 0)
                 {
-                    SetAlert("Thêm Thành Công ", "Success");
+                    SetAlert("Thêm Thành Công ", "success");
                     return RedirectToAction("Index", "ProductCategory");
                 }
                 else
@@ -59,7 +59,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                 var result = dao.Update(productCategory);
                 if (result)
                 {
-                    SetAlert("Thêm Thành Công ", "Success");
+                    SetAlert("Sửa Thành Công ", "success");
                     return RedirectToAction("Index", "ProductCategory");
                 }
                 else

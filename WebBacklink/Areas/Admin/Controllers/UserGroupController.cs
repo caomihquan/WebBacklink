@@ -40,7 +40,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                 string id = dao.Insert(usergroup);
                 if (id !=null)
                 {
-                    //SetAlert("Thêm Thành Công ", "Success");
+                    SetAlert("Thêm Thành Công ", "success");
                     return RedirectToAction("Index", "UserGroup");
                 }
                 else
@@ -60,7 +60,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                 var result = dao.Update(usergroup);
                 if (result)
                 {
-                    //SetAlert("Thêm Thành Công ", "Success");
+                    SetAlert("Sửa Thành Công ", "success");
                     return RedirectToAction("Index", "UserGroup");
                 }
                 else

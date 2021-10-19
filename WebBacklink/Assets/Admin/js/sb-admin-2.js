@@ -1,8 +1,8 @@
 (function($) {
   "use strict"; // Start of use strict
 
-    $('#Alert').removeClass('hide');
-    $('#Alert').delay(1000).slideUp(500);
+    $('#AlertBox').removeClass('hide');
+    $('#AlertBox').delay(1000).slideUp(500);
   // Toggle the side navigation
   $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
     $("body").toggleClass("sidebar-toggled");

@@ -48,7 +48,7 @@
                     <h1 class="h3 mb-4 text-gray-800">@RenderSection("header", required: true)</h1>
                     @if (TempData["AlertMessage"] != null)
                     {
-                        <div id="AlertBox" class="alert @TempData["AlertType"] hide" >
+                        <div id="AlertBox" class="alert @TempData["AlertType"] hide">
                             @TempData["AlertMessage"]
                         </div>
                     }
@@ -110,6 +110,7 @@
     <!-- Custom scripts for all pages-->
     <script src="/Assets/Admin/js/sb-admin-2.min.js"></script>
     <script src="/Assets/Admin/js/sb-admin-2.js"></script>
+    
     @RenderSection("jsFooter", required: false)
 </body>
 
