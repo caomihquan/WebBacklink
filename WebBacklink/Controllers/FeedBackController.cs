@@ -1,4 +1,5 @@
-﻿using Models.DAO;
+﻿using BotDetect.Web.Mvc;
+using Models.DAO;
 using Models.EF;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace WebBacklink.Controllers
             return View();
         }
         [HttpPost]
+        [CaptchaValidationActionFilter("CaptchaCode", "feedbackCaptcha", "Mã xác nhận không đúng!")]
         public ActionResult Create(Feedback feedback)
         {
             if (ModelState.IsValid)
@@ -29,12 +31,13 @@ namespace WebBacklink.Controllers
                 long id = dao.Insert(feedback);
                 if (id > 0)
                 {
-                    
+                    ViewBag.Success = "Đăng Kí Thành Công";
                     return RedirectToAction("Create", "FeedBack");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Không Thành Công");
+                    
                 }
             }
             return View("Create");

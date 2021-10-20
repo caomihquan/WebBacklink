@@ -65,7 +65,7 @@
         {
             var url = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="@url"><img src="@item.Image" alt=""></a>
+                <a href="@url"><img src="@item.Image" alt="@item.MetaKeywords" title="@item.Name" ></a>
                 <h2>@item.Name</h2>
                 <p style="color:darkgray">@item.Decscription</p>
                 <div style="display:flex;justify-content:space-around;border-top:1px solid blue;padding:10px;">
@@ -78,7 +78,7 @@
                     <div class="clear"></div>
                 </div>
                 <div style="display:flex; justify-content:space-around;flex-wrap:wrap">
-                    <h4><a href="@url" class="btn btn-success" >Xem Chi Tiết</a></h4>
+                    <h4><a href="@url" title="Xem Chi Tiết" class="btn btn-success" >Xem Chi Tiết</a></h4>
                     <h4><a href="@item.Link" class="btn btn-primary" >Đến Nơi Bán</a></h4>
                 </div>
             </div>
@@ -101,7 +101,7 @@
         {
             var url = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
             <div class="grid_1_of_4 images_1_of_4">
-    <a href="@url"><img src="@item.Image" alt=""></a>
+    <a href="@url"><img src="@item.Image" alt="@item.MetaKeywords"></a>
     <h2>@item.Name</h2>
                 <p style="color:darkgray">@item.Decscription</p>
     <div style="display:flex;justify-content:space-around;border-top:1px solid blue;padding:10px;">
@@ -114,7 +114,7 @@
         <div class="clear"></div>
     </div>
     <div style="display:flex; justify-content:space-around;flex-wrap:wrap">
-        <h4><a href="@url" class="btn btn-success">Xem Chi Tiết</a></h4>
+        <h4><a href="@url" title="Xem Chi Tiết" class="btn btn-success">Xem Chi Tiết</a></h4>
         <h4><a href="@item.Link" class="btn btn-primary">Đến Nơi Bán</a></h4>
     </div>
 </div>

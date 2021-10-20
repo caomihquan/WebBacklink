@@ -29,6 +29,16 @@ namespace Models.DAO
             return entity.ID;
         }
 
+        public int? InsertViewCount(Product entity)
+        {
+            
+                var product = db.Products.Find(entity.ID);
+                product.ViewCount = entity.ViewCount;
+                db.SaveChanges();
+                return product.ViewCount + 1;
+           
+        }
+
         public bool Update(Product entity)
         {
             try
