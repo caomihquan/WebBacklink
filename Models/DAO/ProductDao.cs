@@ -104,7 +104,6 @@ namespace Models.DAO
             return db.Products.OrderByDescending(x => x.CreatedDate).Take(top).ToList();
         }
 
-
         public List<Product> ListAllProduct()
         {
             return db.Products.OrderByDescending(x => x.CreatedDate).ToList();

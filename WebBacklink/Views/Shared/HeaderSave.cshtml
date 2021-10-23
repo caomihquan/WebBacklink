@@ -4,22 +4,8 @@
     <p>Chào Mừng Bạn Đến Với WebSite! </p><a href="/luu-bai-viet">Bài Viết Lưu</a>
     <div id="dd" class="wrapper-dropdown-2">
         @Model.Count Bài Viết 
-        @*<ul class="dropdown">
-            @foreach(var item in Model)
-            {
-                var link = "/chi-tiet" + item.Product.MetaTitle + "-" + item.Product.ID;
-            <li> <a href="@link">
-                
-                <p>@item.Product.Name</p>
-                 <p>@item.Product.Decscription    </p>
-                <img src="@item.Product.Image" width="40" height="40" />
-                </a>
-            </li>
-            }
-
-        </ul>*@
                 <ul class="dropdown">
-                    @foreach(var item in Model)
+                    @foreach(var item in Model.Take(6))
                     {
                         var link = "/chi-tiet" + item.Product.MetaTitle + "-" + item.Product.ID;
                     <li class="">
@@ -35,7 +21,7 @@
                         </a>
                     </li>
                     }
-            
+                <li  ><a style="text-decoration: none; display: flex; justify-content: center; border-top: 1px solid black; padding:10px;" class="header__notify-link" href="/luu-bai-viet">Xem Tất Cả (@Model.Count)</a></li>
             </ul>
     </div><p></p>
 </div>

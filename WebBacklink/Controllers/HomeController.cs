@@ -49,6 +49,7 @@ namespace WebBacklink.Controllers
             var save = Session[CommonConstants.SaveSession];
             var user = Session[CommonConstants.USER_SESSION];
             var list = new List<SaveItem>();
+            
             if (save != null && user!=null)
             {
                 list = (List<SaveItem>)save;
