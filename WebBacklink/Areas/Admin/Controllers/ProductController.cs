@@ -94,7 +94,8 @@ namespace WebBacklink.Areas.Admin.Controllers
         {
             ProductDao dao = new ProductDao();
             var product = dao.ViewDetail(id);
-            var images = product.MoreImages ;
+            var images= product.MoreImages ;
+            
             XElement xImages = XElement.Parse(images);
             List<string> listImagesReturn = new List<string>();
 
@@ -102,7 +103,7 @@ namespace WebBacklink.Areas.Admin.Controllers
             {
                 if (element == null)
                 {
-                    ModelState.AddModelError("", "Cập nhật Sản Phẩm Không thành công");
+                    
                 }
                 else
                 {

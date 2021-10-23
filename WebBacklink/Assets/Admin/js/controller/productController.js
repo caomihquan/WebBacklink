@@ -7,7 +7,7 @@
             e.preventDefault();
             $('#imagesManage').modal('show');
             $('#hidProductID').val($(this).data('id'));
-            //product.loadImages();
+            product.loadImages();
         });
 
         $('#btnChooImages').off('click').on('click', function (e) {
@@ -67,7 +67,7 @@
                 $.each(data, function (i, item) {
                     html += '<div style="float:left"><img src="' + item + '" width="100" /><a href="#" class="btn-delImage"><i class="fa fa-times"></i></a></div>'
                 });
-                $('#imagesManage').html(html);
+                $('#imageList').html(html);
 
                 $('.btn-delImage').off('click').on('click', function (e) {
                     e.preventDefault();
