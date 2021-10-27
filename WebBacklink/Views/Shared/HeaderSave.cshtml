@@ -1,11 +1,11 @@
 ﻿@model List<WebBacklink.Models.SaveItem>
 
 <div class="cart">
-    <p>Chào Mừng Bạn Đến Với WebSite! </p><a href="/luu-bai-viet">Bài Viết Lưu</a>
+    <a href="/luu-bai-viet"><i class="fas fa-archive"></i> Xem Sau</a>
     <div id="dd" class="wrapper-dropdown-2">
         @Model.Count Bài Viết 
-                <ul class="dropdown">
-                    @foreach(var item in Model.Take(6))
+                <ul class="dropdown" style="min-width:400px">
+                    @foreach(var item in Model)
                     {
                         var link = "/chi-tiet" + item.Product.MetaTitle + "-" + item.Product.ID;
                     <li class="">

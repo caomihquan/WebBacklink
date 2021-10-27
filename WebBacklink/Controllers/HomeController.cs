@@ -47,10 +47,10 @@ namespace WebBacklink.Controllers
         public PartialViewResult HeaderSave()
         {
             var save = Session[CommonConstants.SaveSession];
-            var user = Session[CommonConstants.USER_SESSION];
+            
             var list = new List<SaveItem>();
             
-            if (save != null && user!=null)
+            if (save != null)
             {
                 list = (List<SaveItem>)save;
 

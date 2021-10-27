@@ -11,17 +11,17 @@ using Models.EF;
 namespace WebBacklink.Controllers
 {
     
-    public class SaveController : BaseController
+    public class SaveController : Controller
     {
         private const string SaveSession = "SaveSession";
         // GET: Save
         public ActionResult Index()
         {
             var save = Session[SaveSession];
-            var user = Session[CommonConstants.USER_SESSION];
+            
             var list = new List<SaveItem>();
             
-            if(user!=null && save!=null)
+            if(save!=null)
             {
                 list = (List<SaveItem>)save;
 
@@ -49,12 +49,15 @@ namespace WebBacklink.Controllers
             });
         }
 
+        
         public ActionResult AddItem(long productId,int quantity)
         {
             var product = new ProductDao().ViewDetail(productId);
+            
             var user = Session[CommonConstants.USER_SESSION];
             var save = Session[SaveSession];
-            if (user!=null && save!=null)
+            
+            if (save != null)
             {
                 var list = (List<SaveItem>)save;
                 if (list.Exists(x => x.Product.ID == productId))
@@ -74,7 +77,7 @@ namespace WebBacklink.Controllers
                     item.Quantity = quantity;
                     list.Add(item);
                 }
-                Session[SaveSession] = list;            
+                Session[SaveSession]  = list;            
             }
             else
             {
