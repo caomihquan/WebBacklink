@@ -2,14 +2,15 @@
 @using PagedList.Mvc;
 @{
     var category = (Models.EF.ProductCategory)ViewBag.Category;
+    
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="content">
     <div class="content_top">
-        <div class="heading">
-            <h3>Sản Phẩm</h3>
+        <div>
+            <p style="font-size:12px;"><a href="/" style="color:white;"><i class="fas fa-home"></i> Trang Chủ</a> >> <a href="/san-pham" style="color:white;">Sản Phẩm</a></p>
         </div>
         <div class="clear"></div>
     </div>
@@ -26,7 +27,7 @@
                         <p>Giá: <span class="rupees" style="color:red;">@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên Hệ")</span></p>
 
                     </div>
-                    <div><a href="/them-gio-hang?productId=@item.ID&quantity=1" ><i class="fas fa-archive"></i> Xem Sau</a></div>
+                    <div><a href="/them-gio-hang?productId=@item.ID&quantity=1" target="_self"><i class="fas fa-archive"></i> Xem Sau</a></div>
 
                     <div class="clear"></div>
                 </div>

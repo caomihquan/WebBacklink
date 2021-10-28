@@ -23,22 +23,24 @@
         {
             foreach (var item in Model)
             {
-                var link = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
+                var url = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
                 <div class="grid_1_of_4 images_1_of_4">
-                    <a href="@link"><img src="@item.Images" alt="" /></a>
+                    <a href="@url"><img src="@item.Images" alt=""></a>
                     <h2>@item.Name</h2>
-                    <span>@item.CateName</span>
-                    <div class="price-details">
-                        <div class="price-number">
-                            <p><span class="rupees">@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên Hệ") </span></p>
-                            <h5><a href="/them-gio-hang?productId=@item.ID&quantity=1"><i class="fas fa-archive"></i> Xem Sau</a></h5>
+                    <p style="color:darkgray">@item.Decriptions</p>
+                    <div style="display:flex;justify-content:space-around;border-top:1px solid blue;padding:10px;">
+                        <div>
+                            <p>Giá: <span class="rupees" style="color:red;">@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên Hệ")</span></p>
+
                         </div>
-                        <div class="add-cart">
-                            <h4><a href="@item.Link">Đến Nơi Bán</a></h4>
-                        </div>
+                        <div><a href="/them-gio-hang?productId=@item.ID&quantity=1" target="_self"><i class="fas fa-archive"></i> Xem Sau</a></div>
+
                         <div class="clear"></div>
                     </div>
-
+                    <div style="display:flex; justify-content:space-around;flex-wrap:wrap">
+                        <h4><a href="@url" class="btn btn-success">Xem Chi Tiết</a></h4>
+                        <h4><a href="@item.Link" class="btn btn-primary">Đến Nơi Bán</a></h4>
+                    </div>
                 </div>
             }
             <!--Phan trang-->

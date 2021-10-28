@@ -23,7 +23,7 @@
                 },
                 success: function (res) {
                     if (res.status == true) {
-                        window.alert('Gửi thành công');
+                        alert('Gửi thành công');
                         contact.resetForm();
                     }
                 }

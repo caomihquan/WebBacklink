@@ -8,42 +8,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="content">
+    <div class="content_top">
+        <div>
+            <p style="font-size:12px;"><a href="/" style="color:white;"><i class="fas fa-home"></i> Trang Chủ</a> >> <a href="/tin-tuc" style="color:white;">Tin Tức</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div style="display:flex;">
+        <div class="content" style="width:20%">
+            <div class="categories">
 
-<div style="display:flex;">
-    <div class="content" style="width:20%">
-        <div class="categories">
+                @{ Html.RenderAction("Category", "Content");}
+            </div>
 
-            @{ Html.RenderAction("Category", "Content");}
         </div>
 
-    </div>
-
-    <div class="content" style="width:80%">
-        @foreach (var item in Model)
-        {
-            var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
-            <div class="image group">
-                <div class="grid images_3_of_1">
-                    <a href="@link"><img src="@item.Image" alt="@item.MetaKeywords"></a>
+        <div class="content" style="width:80%">
+            @foreach (var item in Model)
+            {
+                var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
+                <div class="image group">
+                    <div class="grid images_3_of_1">
+                        <a href="@link"><img src="@item.Image" alt="@item.MetaKeywords"></a>
+                    </div>
+                    <div class="grid news_desc">
+                        <a href="@link"> <h3>@item.Name</h3></a>
+                        <h4>@item.CreatedDate<span>  by:  <a href="#">@item.CreatedBy</a></span></h4>
+                        <p style="color:#808080">@item.Decscription <a href="@link" title="more">[....]</a></p>
+                    </div>
                 </div>
-                <div class="grid news_desc">
-                    <a href="@link"> <h3>@item.Name</h3></a>
-                    <h4>@item.CreatedDate<span>  by:  <a href="#">@item.CreatedBy</a></span></h4>
-                    <p style="color:#808080">@item.Decscription <a href="@link" title="more">[....]</a></p>
-                </div>
-            </div>
-        }
+            }
 
 
-        @*<div class="content-pagenation">
-                <li><a href="#">Frist</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><span>....</span></li>
-                <li><a href="#">Last</a></li>
-                <div class="clear"> </div>
-            </div>*@
+            @*<div class="content-pagenation">
+                    <li><a href="#">Frist</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><span>....</span></li>
+                    <li><a href="#">Last</a></li>
+                    <div class="clear"> </div>
+                </div>*@
+        </div>
     </div>
 </div>
+
 

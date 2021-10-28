@@ -3120,6 +3120,7 @@
     <Content Include="Assets\Client\sprites\brands.svg" />
     <Content Include="Assets\Client\sprites\regular.svg" />
     <Content Include="Assets\Client\sprites\solid.svg" />
+    <Content Include="Assets\Client\style.css" />
     <Content Include="Assets\Client\svgs\brands\500px.svg" />
     <Content Include="Assets\Client\svgs\brands\accessible-icon.svg" />
     <Content Include="Assets\Client\svgs\brands\accusoft.svg" />
