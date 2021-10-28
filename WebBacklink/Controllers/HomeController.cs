@@ -29,7 +29,7 @@ namespace WebBacklink.Controllers
             return View();
         }
         [ChildActionOnly]
-        [OutputCache(Duration =3600*24)]
+        //[OutputCache(Duration =3600*24)]
         public ActionResult MainMenu()
         {
             var model = new MenuDao().ListByGroupId(1);

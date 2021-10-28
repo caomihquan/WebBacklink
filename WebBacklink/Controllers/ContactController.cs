@@ -22,6 +22,24 @@ namespace WebBacklink.Controllers
             return View(model);
         }
 
+        protected void SetAlert(string message, string type)
+        {
+            TempData["AlertMessage"] = message;
+            if (type == "success")
+            {
+                TempData["AlertType"] = "alert-success";
+            }
+            else if (type == "warning")
+            {
+                TempData["AlertType"] = "alert-warning";
+            }
+            else if (type == "error")
+            {
+                TempData["AlertType"] = "alert-danger";
+            }
+
+        }
+
 
 
         [HttpPost]
@@ -39,7 +57,7 @@ namespace WebBacklink.Controllers
             var id = new ContactDao().InsertFeedBack(feedback);
             if (id > 0)
             {
-                ViewBag.Success = "Gửi Thành Công";
+                SetAlert("Gửi Thành Công ", "success");
                 return Json(new
                 {
                     status = true

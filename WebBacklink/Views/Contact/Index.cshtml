@@ -66,9 +66,11 @@
                 <br />
                 <h2>Gửi thông tin</h2>
                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-                @if (ViewBag.Success != null)
+                @if (TempData["AlertMessage"] != null)
                 {
-                    <div class="alert alert-success">@ViewBag.Success</div>
+                    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                        @TempData["AlertMessage"]
+                    </div>
                 }
                 <form>
                     <div class="form-group">

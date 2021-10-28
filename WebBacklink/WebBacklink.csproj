@@ -3066,6 +3066,7 @@
     <Content Include="Assets\Client\images\feature-pic2.jpg" />
     <Content Include="Assets\Client\images\feature-pic3.jpg" />
     <Content Include="Assets\Client\images\feature-pic4.jpg" />
+    <Content Include="Assets\Client\images\img-sp.png" />
     <Content Include="Assets\Client\images\linkedin.png" />
     <Content Include="Assets\Client\images\list-img.png" />
     <Content Include="Assets\Client\images\logo.png" />
