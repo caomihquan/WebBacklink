@@ -10,13 +10,15 @@
         </div>
         <div class="clear"></div>
     </div>
-    <div class="container"><h2>Giới Thiệu</h2></div>
-    @foreach (var item in Model)
-    {
-        <div class="container">@Html.Raw(item.Detail)</div>
-    }
 
+   
+    <div class="container" style="padding:50px;">
+        @foreach (var item in Model)
+        {
+            @Html.Raw(item.Detail)
+        }
 
+    </div>
 
 </div>
 
