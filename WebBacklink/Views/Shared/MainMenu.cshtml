@@ -1,24 +1,56 @@
 ﻿@model List<Models.EF.Menu>
-<div class="menu">
+@*<div class="menu">
     <ul>
         @foreach(var item in Model)
         {
         <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
         }
         
-        <div class="clear"></div>
+        
     </ul>
-</div>
+</div>*@
 @*<div class="search_box">
     <form>
         <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
     </form>
 </div>*@
 
-<div class="search_box">
+@*<div class="search_box">
     <form action="/tim-kiem" method="get">
         <input type="text" id="txtKeyword" name="keyword" placeholder="Gõ từ khoá">
         <input type="submit" value="" style=" border-radius: 4px; background: url(/Assets/Client/images/search.png) no-repeat 3px 4px;">
     </form>
 </div>
-<div class="clear"></div>
+<div class="clear"></div>*@
+
+<div class="nav">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a href="#" class="navbar-brand">MENU</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav mr-auto">
+                    @foreach (var item in Model)
+                    {
+                        <a href="@item.Link" target="@item.Target" class="nav-item nav-link">@item.Text</a>
+                    }
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
+                        <div class="dropdown-menu">
+                            <a href="wishlist.html" class="dropdown-item">Wishlist</a>
+                            <a href="login.html" class="dropdown-item">Login & Register</a>
+                            <a href="contact.html" class="dropdown-item">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-nav ml-auto">
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

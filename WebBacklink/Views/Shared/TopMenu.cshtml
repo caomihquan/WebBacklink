@@ -1,8 +1,6 @@
 ﻿@model List<Models.EF.Menu>
-<div class="call">
-    <marquee style="color:white">Chào Mừng Bạn Đến Với WebSite! </marquee>
-</div>
-<div class="account_desc">
+
+@*<div class="account_desc">
     @{
                 var session =(UserLogin)Session[WebBacklink.Common.CommonConstants.USER_SESSION];
             }
@@ -27,4 +25,50 @@
     
 
 </div>
-<div class="clear"></div>
+<div class="clear"></div>*@
+
+<div class="nav">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a href="#" class="navbar-brand">MENU</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav mr-auto">
+                </div>
+                <div class="navbar-nav ml-auto">
+                    @{
+                        var session = (UserLogin)Session[WebBacklink.Common.CommonConstants.USER_SESSION];
+                    }
+                    @if (session == null)
+                    {
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
+                            <div class="dropdown-menu">
+                                @foreach (var item in Model)
+                                {
+                                    <a href="@item.Link" target="@item.Target" class="dropdown-item">@item.Text</a>
+                                }
+
+
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Xin Chào: @session.UserName</a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-item"> @Html.ActionLink("Thoát", "Logout", "User")</div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

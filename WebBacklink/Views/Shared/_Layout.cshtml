@@ -1,106 +1,251 @@
-﻿<!DOCTYPE HTML>
-<html>
-<head>
-    <title>@ViewBag.Title</title>
-    <meta name="keywords" content="@ViewBag.Keywords" />
-    <meta name="description" content="@ViewBag.Descriptions" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="/Assets/Client/css/bootstrap.css" rel="stylesheet" />
-    <link href="/Assets/Client/css/boostrap-social.css" rel="stylesheet" />
+﻿@*<!DOCTYPE HTML>
+    <html>
+    <head>
+        <title>@ViewBag.Title</title>
+        <meta name="keywords" content="@ViewBag.Keywords" />
+        <meta name="description" content="@ViewBag.Descriptions" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="/Assets/Client/css/bootstrap.css" rel="stylesheet" />
+        <link href="/Assets/Client/css/boostrap-social.css" rel="stylesheet" />
 
-    <link href="/Assets/Client/css/bootstrap-theme.css" rel="stylesheet" />
-    <link href="/Assets/Client/css/jquery-ui.css" rel="stylesheet" />
-
-   
-
-    <link href="/Assets/Client/style.css" rel="stylesheet" />
-    <link href="/Assets/Client/css/slider.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/Assets/Client/css/fontawesome.min.css" rel="stylesheet" />
-    <link href="/Assets/Client/css/all.min.css" rel="stylesheet" />
-    <link href="/Assets/Client/css/easy-responsive-tabs.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/Assets/Client/css/bootstrap-theme.css" rel="stylesheet" />
+        <link href="/Assets/Client/css/jquery-ui.css" rel="stylesheet" />
 
 
 
-    <script src="/Assets/Client/js/jquery-1.11.3.min.js"></script>
-    <script src="/Assets/Client/js/jquery-ui.js"></script>
-    <script src="/Assets/Client/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/Assets/Client/js/move-top.js"></script>
-    <script type="text/javascript" src="/Assets/Client/js/easing.js"></script>
-    <script type="text/javascript" src="/Assets/Client/js/startstop-slider.js"></script>
-    <script src="/Assets/Client/js/easyResponsiveTabs.js" type="text/javascript"></script>
+        <link href="/Assets/Client/style.css" rel="stylesheet" />
+        <link href="/Assets/Client/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/Assets/Client/css/fontawesome.min.css" rel="stylesheet" />
+        <link href="/Assets/Client/css/all.min.css" rel="stylesheet" />
+        <link href="/Assets/Client/css/easy-responsive-tabs.css" rel="stylesheet" type="text/css" media="all" />
 
-</head>
-<body>
-    <div class="wrap">
-        <div class="header">
-            <div class="headertop_desc">
-                @{Html.RenderAction("TopMenu", "Home");}
-            </div>
-            <div class="header_top">
-                <div class="logo">
-                    <a href="/" ref="nofollow"><img src="~/Assets/Client/images/logoShop.png" alt="" /></a>
+
+
+        <script src="/Assets/Client/js/jquery-1.11.3.min.js"></script>
+        <script src="/Assets/Client/js/jquery-ui.js"></script>
+        <script src="/Assets/Client/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/Assets/Client/js/move-top.js"></script>
+        <script type="text/javascript" src="/Assets/Client/js/easing.js"></script>
+        <script type="text/javascript" src="/Assets/Client/js/startstop-slider.js"></script>
+        <script src="/Assets/Client/js/easyResponsiveTabs.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="header">
+                <div class="headertop_desc">
+                    @{Html.RenderAction("TopMenu", "Home");}
                 </div>
-                @{ Html.RenderAction("HeaderSave", "Home");}
+                <div class="header_top">
+                    <div class="logo">
+                        <a href="/" ref="nofollow"><img src="~/Assets/Client/images/logoShop.png" alt="" /></a>
+                    </div>
+                    @{ Html.RenderAction("HeaderSave", "Home");}
 
-                <script type="text/javascript">
-                    function DropDown(el) {
-                        this.dd = el;
-                        this.initEvents();
-                    }
-                    DropDown.prototype = {
-                        initEvents: function () {
-                            var obj = this;
-
-                            obj.dd.on('click', function (event) {
-                                $(this).toggleClass('active');
-                                event.stopPropagation();
-                            });
+                    <script type="text/javascript">
+                        function DropDown(el) {
+                            this.dd = el;
+                            this.initEvents();
                         }
-                    }
+                        DropDown.prototype = {
+                            initEvents: function () {
+                                var obj = this;
 
-                    $(function () {
+                                obj.dd.on('click', function (event) {
+                                    $(this).toggleClass('active');
+                                    event.stopPropagation();
+                                });
+                            }
+                        }
 
-                        var dd = new DropDown($('#dd'));
+                        $(function () {
 
-                        $(document).click(function () {
-                            // all dropdowns
-                            $('.wrapper-dropdown-2').removeClass('active');
+                            var dd = new DropDown($('#dd'));
+
+                            $(document).click(function () {
+                                // all dropdowns
+                                $('.wrapper-dropdown-2').removeClass('active');
+                            });
+
                         });
 
-                    });
+                    </script>
 
-                </script>
+                    <div class="clear"></div>
+                </div>
+                <div class="header_bottom">
+                    @{Html.RenderAction("MainMenu", "Home");}
 
-                <div class="clear"></div>
+                    <div class="clear"></div>
+                </div>
+
+
+                @RenderSection("slide", required: false)
+
             </div>
-            <div class="header_bottom">
-                @{Html.RenderAction("MainMenu", "Home");}
-                
-                <div class="clear"></div>
+            <div class="main">
+                @RenderBody()
             </div>
-   
-
-            @RenderSection("slide", required: false)
-
         </div>
-        <div class="main">
-            @RenderBody()
+        <div class="footer">
+            @{Html.RenderAction("Footer", "Home");}
         </div>
-    </div>
-    <div class="footer">
-        @{Html.RenderAction("Footer", "Home");}
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $().UItoTop({ easingType: 'easeOutQuart' });
-            $('#about').addClass('active');
-        });
-    </script>
-    <a href="#" id="toTop"><span id="toTopHover"> </span></a>
-    <script src="/Assets/Client/js/controller/baseController.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $().UItoTop({ easingType: 'easeOutQuart' });
+                $('#about').addClass('active');
+            });
+        </script>
+        <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+        <script src="/Assets/Client/js/controller/baseController.js"></script>
+
+        @RenderSection("jsFooter", required: false)
+    </body>
+    </html>*@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>E Store - eCommerce HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="eCommerce HTML Template Free Download" name="keywords">
+    <meta content="eCommerce HTML Template Free Download" name="description">
+
+    <!-- Favicon -->
+    <link href="/Assets/Customer/img/favicon.ico" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="/Assets/Customer/lib/slick/slick.css" rel="stylesheet">
+    <link href="/Assets/Customer/lib/slick/slick-theme.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/Assets/Customer/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Top bar End -->
+    @{Html.RenderAction("TopMenu", "Home");}
+    <!-- Nav Bar Start -->
+    @{Html.RenderAction("MainMenu", "Home");}
+    <!-- Nav Bar End -->
+    <!-- Bottom Bar Start -->
+    @{ Html.RenderAction("HeaderSave", "Home");}
+    <!-- Bottom Bar End -->
+    <!-- Main Slider Start -->
+    @RenderSection("slide", required: false)
+    <!-- Main Slider End -->
+    <!-- Brand Start -->
+    @RenderBody()
     
-    @RenderSection("jsFooter", required: false)
+    <!-- Review End -->
+    <!-- Footer Start -->
+    <div class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h2>Get in Touch</h2>
+                        <div class="contact-info">
+                            <p><i class="fa fa-map-marker"></i>123 E Store, Los Angeles, USA</p>
+                            <p><i class="fa fa-envelope"></i>email@example.com</p>
+                            <p><i class="fa fa-phone"></i>+123-456-7890</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h2>Follow Us</h2>
+                        <div class="contact-info">
+                            <div class="social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                                <a href=""><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h2>Company Info</h2>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h2>Purchase Info</h2>
+                        <ul>
+                            <li><a href="#">Pyament Policy</a></li>
+                            <li><a href="#">Shipping Policy</a></li>
+                            <li><a href="#">Return Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row payment align-items-center">
+                <div class="col-md-6">
+                    <div class="payment-method">
+                        <h2>We Accept:</h2>
+                        <img src="img/payment-method.png" alt="Payment Method" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="payment-security">
+                        <h2>Secured By:</h2>
+                        <img src="img/godaddy.svg" alt="Payment Security" />
+                        <img src="img/norton.svg" alt="Payment Security" />
+                        <img src="img/ssl.svg" alt="Payment Security" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Footer Bottom Start -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 copyright">
+                    <p>Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>
+                </div>
+
+                <div class="col-md-6 template-by">
+                    <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Bottom End -->
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/Assets/Customer/lib/easing/easing.min.js"></script>
+    <script src="/Assets/Customer/lib/slick/slick.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/Assets/Customer/js/main.js"></script>
 </body>
 </html>
 
