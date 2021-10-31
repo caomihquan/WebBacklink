@@ -15,134 +15,92 @@
 }
 
 
-<style>
-    #mapCanvas {
-        height: 500px;
-    }
-</style>
-@section jsFooter{
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
 
-
-    <script src="/Assets/Client/js/controller/contactController.js"></script>
-
-    <script>
-
-        // This example displays a marker at the center of Australia.
-        // When the user clicks the marker, an info window opens.
-        //21.046300, 105.793266
-        function initMap() {
-            var uluru = { lat: 10.970598, lng: 106.871879 };
-            var map = new google.maps.Map(document.getElementById('mapCanvas'), {
-                zoom: 18,
-                center: uluru
-            });
-            var contentString = 'aaa';
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map,
-                title: 'Địa chỉ'
-            });
-            marker.addListener('click', function () {
-                infowindow.open(map, marker);
-            });
-
-        }
-        google.maps.event.addDomListener(window, 'load', initMap);
-
-    </script>
-
-
-}
 @using (Html.BeginForm("Create", "FeedBack", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    <div class="content">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="col-md-6">
-                    <div class="form-horizontal">
-                        <h2>Gửi thông tin</h2>
-                        <hr />
+    <nav class="navbar" style="background:#4facfe">
+        <span class="" style="color:white"><a href="/" style="color:white;"><i class="fas fa-home"></i> Trang Chủ</a> / <a href="/lien-he" style="color:white;">Liên Hệ</a></span>
+    </nav>
+    <div class="contact">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-md-6">
+                        <div class="form-horizontal">
+                            <h2>Gửi thông tin</h2>
+                            <hr />
+                            <br />
 
-                        <br />
-
-                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-                        @if (ViewBag.Success != null)
-                        {
-                            <div class="alert alert-success">@ViewBag.Success</div>
-                        }
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            @if (ViewBag.Success != null)
+                            {
+                                <div class="alert alert-success">@ViewBag.Success</div>
+                            }
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Phone, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Phone, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Content, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextAreaFor(model => model.Content, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Content, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                @Html.Captcha(feedbackCaptcha)
-                                @Html.TextBox("CaptchaCode")
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    @Html.Captcha(feedbackCaptcha)
+                                    @Html.TextBox("CaptchaCode")
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Gửi" class="btn btn-primary" />
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Gửi" class="btn btn-primary" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <h2>Bản đồ</h2>
-                    <div class="map" id="mapCanvas"></div>
-                    <h2>Thông tin liên hệ</h2>
-                    <div>
-                        <br />
-                        Follow on:
-                        <a href="https://www.facebook.com/caominhquan0512/"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/minwuaan_/"><i class="fab fa-instagram"></i></a>
+                    <div class="col-md-12">
+                        <div class="contact-map">
+                            <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Giáo Xứ Ba Đông&amp;t=p&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.733248043701!2d-118.24532098539802!3d34.05071312525937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c648fa1d4803%3A0xdec27bf11f9fd336!2s123%20S%20Los%20Angeles%20St%2C%20Los%20Angeles%2C%20CA%2090012%2C%20USA!5e0!3m2!1sen!2sbd!4v1585634930544!5m2!1sen!2sbd" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 }
 

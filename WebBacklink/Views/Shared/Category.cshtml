@@ -1,30 +1,31 @@
 ﻿@model List<Models.EF.Category>
 
-<ul>
-    <li><h3>Danh Mục</h3></li>
+<div class="col-lg-12">
+    <ul class="navbar-nav">
+        <li><h4 style="color:#4facfe;">Danh Mục Tin Tức</h4></li>
+        @foreach (var item in Model.Where(x => x.ParentID == null))
+        {
+            var child = Model.Where(x => x.ParentID == item.ID);
+            var parentClass = child.Count() > 0 ? "class=dropdown-toggle data-toggle=dropdown" : "";
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="/danh-muc/@item.MetaTitle-@item.ID" @parentClass title="@item.Name">@item.Name</a>
+                @if (child.Count() > 0)
+                {
 
-    @foreach (var item in Model.Where(x => x.ParentID == null))
-    {
-        var child = Model.Where(x => x.ParentID == item.ID);
-        var parentClass = child.Count() > 0 ? "class=dropdown-toggle data-toggle=dropdown" : "";
-        <li class="dropdown">
-            <a href="/danh-muc/@item.MetaTitle-@item.ID" title="@item.Name" @parentClass style="color:#000">@item.Name</a>
+                    <ul class="dropdown-menu" style=" border: none;">
+                        @foreach (var childItem in child)
+                        {
+                            <li title="@childItem.Name"><i class="fas fa-caret-right"></i><a href="/danh-muc/@childItem.MetaTitle-@childItem.ID">@childItem.Name</a></li>
+                        }
 
-            @if (child.Count() > 0)
-            {
-
-                <ul class="dropdown-menu" style="width: 100%; border: none;">
-                    @foreach (var childItem in child)
-                    {
-                        <li title="@childItem.Name" style="text-decoration: none; margin-left: 10px; font-size: 13px"><a href="/danh-muc/@childItem.MetaTitle-@childItem.ID">@childItem.Name</a></li>
-                    }
-
-                </ul>
+                    </ul>
 
 
-            }
+                }
+            </li>
+        }
 
-        </li>
-    }
-</ul>
 
+    </ul>
+
+</div>

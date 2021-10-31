@@ -3,16 +3,13 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="content">
-    <div class="content_top">
-        <div>
-            <p style="font-size:12px;"><a href="/" style="color:white;"><i class="fas fa-home"></i> Trang Chủ</a> >> <a href="/gioi-thieu" style="color:white;">Giới Thiệu</a></p>
-        </div>
-        <div class="clear"></div>
-    </div>
+<div class="">
+    <nav class="navbar" style="background:#4facfe">
+        <span class="" style="color:white"><a href="/" style="color:white;"><i class="fas fa-home"></i> Trang Chủ</a> / <a href="/gioi-thieu" style="color:white;">Giới Thiệu</a></span>
+    </nav>
 
-   
-    <div class="container" style="padding:50px;">
+
+    <div class="container">
         @foreach (var item in Model)
         {
             @Html.Raw(item.Detail)
