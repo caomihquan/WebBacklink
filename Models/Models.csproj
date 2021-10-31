@@ -92,6 +92,7 @@
     <Compile Include="DAO\ProductDao.cs" />
     <Compile Include="DAO\RoleDao.cs" />
     <Compile Include="DAO\SlideDao.cs" />
+    <Compile Include="DAO\TagDao.cs" />
     <Compile Include="DAO\UserDao.cs" />
     <Compile Include="EF\About.cs" />
     <Compile Include="EF\Account.cs" />

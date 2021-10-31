@@ -17,6 +17,7 @@ namespace WebBacklink.Controllers
             var dao = new ContentDao();
             var model = dao.ListAllPaging(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
+            ViewBag.Tag = new TagDao().ListTag();
             return View(model);
         }
 

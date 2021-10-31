@@ -10,73 +10,55 @@
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-616a4b481dde4c91"></script>
 
+<nav class="navbar" style="background:#4facfe">
+    <span class="" style="color:white"><a href="/" style="color:white;"><i class="fas fa-home"></i> Trang Chủ</a> / <a href="/tin-tuc" style="color:white;">Tin Tức</a></span>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+  
+            <div class="col-lg-9" style="padding:20px;">
+                <h1>@Model.Name</h1>
+                <h6>@Model.CreatedDate<span> by: <a href="#">@Model.CreatedBy</a></span></h6>
+                <p style="font-size:20px;color:#000;padding: 0 0 20px 0">@Model.Decscription</p>
+                <div style="padding: 0px 0 50px 0px; line-height: 25px; color: #494747;">@Html.Raw(Model.Detail)</div>
+                <div class="heading">Bài Viết Liên Quan</div>
+                <br />
+                @foreach (var item in listRelatedContents)
+                {
+                    var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
 
-<div class="content">
-    <div class="content_top">
-        <div class="heading">
-            <h3>Tin Tức</h3>
-        </div>
+                    <a href="@link" style="display:flex;padding: 10px 0 10px 0px;border-top: 1px solid rgba(34,34,34,.1);text-decoration:none;">
+                        <span><img src="@item.Image" alt="@item.Name" style="height:93px;width:150px;" /></span>
+                        <div style="margin-left:20px;">
 
-        <div class="clear"></div>
-    </div>
+                            <h1 style="font-size:25px;color:#000;">@item.Name</h1>
+                            <p style="color:darkgrey">@item.Decscription</p>
 
-    <div class="container">
-        <h1 style=" font-size: 30px; color: red;line-height:40px; margin-top:20px;">@Model.Name</h1>
-        <h4 style=" font-size: 12px; color: darkgrey;line-height:40px;">@Model.CreatedDate<span> by: <a href="#">@Model.CreatedBy</a></span></h4>
-
-    </div>
-
-    <div class="section-group container">
-        <div class="cont-desc span_1_of_2">
-            <p style="font-size:20px;color:#000;padding: 0 0 20px 0">@Model.Decscription</p>
-            <div style="padding: 0px 0 50px 0px; line-height: 25px; color: #494747;">@Html.Raw(Model.Detail)</div>
-            <div class="heading">Bài Viết Liên Quan</div>
-            <br />
-            @foreach (var item in listRelatedContents)
-            {
-                var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
-
-                <a href="@link" style="display:flex;padding: 10px 0 10px 0px;border-top: 1px solid rgba(34,34,34,.1);text-decoration:none;">
-                    <span><img src="@item.Image" alt="@item.Name"style="height:93px;width:150px;" /></span>
-                    <div style="margin-left:20px;">
-
-                        <h1 style="font-size:25px;color:#000;">@item.Name</h1>
-                        <p style="color:darkgrey">@item.Decscription</p>
-
-                    </div>
-                </a>
+                        </div>
+                    </a>
 
 
 
-            }
-            <ul style="display: flex;border-top: 1px solid rgba(34,34,34,.1);padding:30px;">
-
-
-                <li><i class="fas fa-tag"></i>Từ Khóa:  </li>
-                @{
-
-                    var tags = (List<Models.EF.Tag>)ViewBag.Tags;
-                    foreach (var tag in tags)
-                    {
-                        <li><a style="color:grey" href="/tag/@tag.ID">@tag.Name</a>  </li>
-                    }
                 }
-            </ul>
-        </div>
-        <div class="rightsidebar span_3_of_1">
-            <div class="">
+                <ul style="display: flex;border-top: 1px solid rgba(34,34,34,.1);padding:30px;">
+
+
+                    <li style="list-style-type: none;"><i class="fas fa-tag"></i>Từ Khóa:  </li>
+                    @{
+
+                        var tags = (List<Models.EF.Tag>)ViewBag.Tags;
+                        foreach (var tag in tags)
+                        {
+                            <li style="list-style-type: none;"  >-<a style="color:grey" href="/tag/@tag.ID">@tag.Name</a> </li>
+                        }
+                    }
+                </ul>
+            </div>
+
+            <div class="col-lg-3 sidebar" style="padding:20px;">
                 @{ Html.RenderAction("Category", "Content");}
             </div>
-            @*<div class="subscribe">
-                    <h2>Newsletters Signup</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.......</p>
-                    <div class="signup">
-                        <form>
-                            <input type="text" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';"><input type="submit" value="Sign up">
-                        </form>
-                    </div>
-                </div>*@
-
         </div>
     </div>
-</div>
+
+

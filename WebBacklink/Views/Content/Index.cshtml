@@ -5,11 +5,11 @@
 
 @{
     ViewBag.Title = "Tin Tức";
-
+    var listTag = (List<Models.EF.Tag>)ViewBag.Tag;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <nav class="navbar" style="background:#4facfe">
-    <span class="" style="color:white"><a href="/" style="color:white;"><i class="fas fa-home"></i> Trang Chủ</a> / <a href="/gioi-thieu" style="color:white;">Giới Thiệu</a></span>
+    <span class="" style="color:white"><a href="/" style="color:white;"><i class="fas fa-home"></i> Trang Chủ</a> / <a href="/tin-tuc" style="color:white;">Tin Tức</a></span>
 </nav>
 @*<div class="container-fluid">
         <div class="row">
@@ -99,19 +99,12 @@
 
 
             <div class="sidebar-widget tag">
-                <h2 class="title">Tags Cloud</h2>
-                <a href="#">Lorem ipsum</a>
-                <a href="#">Vivamus</a>
-                <a href="#">Phasellus</a>
-                <a href="#">pulvinar</a>
-                <a href="#">Curabitur</a>
-                <a href="#">Fusce</a>
-                <a href="#">Sem quis</a>
-                <a href="#">Mollis metus</a>
-                <a href="#">Sit amet</a>
-                <a href="#">Vel posuere</a>
-                <a href="#">orci luctus</a>
-                <a href="#">Nam lorem</a>
+                <h2 class="title">Tags</h2>
+                @foreach (var item in listTag)
+                {
+                    <a href="/tag/@item.ID">@item.Name</a>
+                }
+                
             </div>
         </div>
         <!-- Side Bar End -->
