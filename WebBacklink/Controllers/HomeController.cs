@@ -1,4 +1,5 @@
-﻿using Models.DAO;
+﻿using Models.Dao;
+using Models.DAO;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,6 +20,7 @@ namespace WebBacklink.Controllers
             ViewBag.Slides = new SlideDao().ListAll();
             var productDao = new ProductDao();
             ViewBag.NewProducts = productDao.ListNewProduct(8);
+            ViewBag.NewContents = new ContentDao().ListNewContent(3);
             ViewBag.ListFeatureProducts = productDao.ListFeatureProduct(4);
 
             //seo title

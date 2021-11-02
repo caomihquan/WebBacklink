@@ -6,8 +6,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<nav class="navbar" style="background:#4facfe">
-    <span class="" style="color:white"><a href="/" style="color:white;"><i class="fas fa-home"></i> Trang Chủ</a> / <a href="/tin-tuc" style="color:white;">Tin Tức</a></span>
+<nav class="navbar">
+    <span ><a href="/"><i class="fas fa-home"></i> Trang Chủ</a> / <a href="/san-pham">Sản Phẩm</a></span>
 </nav>
 <div class="product-view">
     <div class="container-fluid">
@@ -82,11 +82,12 @@
                 <div class="sidebar-widget category">
 
                     <nav class="navbar bg-light">
+                        
                         @{ Html.RenderAction("ProductCategory", "Product");}
                     </nav>
                 </div>
                 <div class="sidebar-widget category">
-                    <h4 style="color:#4facfe;">Hot</h4>
+                    <h3 style="color:#fff;background:#4facfe;width:100%;text-align:center;padding:10px;">Hot</h3>
                 </div>
                 
                 <div class="sidebar-widget widget-slider">

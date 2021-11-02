@@ -242,6 +242,8 @@ h2 {
     .nav .container-fluid {
         padding-left: 52px;
         padding-right: 52px;
+        padding-top:10px;
+        padding-bottom:10px;
     }
 }
 
@@ -254,7 +256,7 @@ h2 {
     margin-top: 0;
     border: 0;
     border-radius: 0;
-    background: #4facfe;
+    
 }
 
 .nav .dropdown-menu a.active {
@@ -291,7 +293,7 @@ h2 {
     
     .nav,
     .nav .navbar {
-        background: #000000 !important;
+        background: #4facfe !important;
     }
     
     .nav a.nav-link {
@@ -439,7 +441,7 @@ h2 {
 }
 .header .navbar a:hover {
     color: #ffffff;
-    background:#4facfe;
+    
 }
 
 
@@ -934,7 +936,7 @@ h2 {
     padding: 0 15px;
     color: #999999;
     background: transparent;
-    border: 1px solid #353535;
+    border: 1px solid #4facfe;
     border-radius: 4px;
     transition: all .3s;
 }
@@ -951,7 +953,7 @@ h2 {
     right: 1px;
     text-align: center;
     background: transparent;
-    color: #353535;
+    color: #4facfe;
     border: none;
     border-radius: 0 4px 4px 0;
     transition: all .3s;

@@ -271,6 +271,10 @@ namespace Models.Dao
             return model;
         }
 
+        public List<Content> ListNewContent(int top)
+        {
+            return db.Contents.OrderByDescending(x => x.CreatedDate).Take(top).ToList();
+        }
     }
 }
 

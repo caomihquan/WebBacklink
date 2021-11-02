@@ -1,8 +1,7 @@
 ﻿@model List<Models.EF.Category>
-
-<div class="col-lg-12">
+<h3 style="color:#fff;background:#4facfe;width:100%;text-align:center;padding:10px;">Danh Mục Tin Tức</h3>
     <ul class="navbar-nav">
-        <li><h4 style="color:#4facfe;">Danh Mục Tin Tức</h4></li>
+
         @foreach (var item in Model.Where(x => x.ParentID == null))
         {
             var child = Model.Where(x => x.ParentID == item.ID);
@@ -28,4 +27,4 @@
 
     </ul>
 
-</div>
+

@@ -134,12 +134,14 @@
 <body>
 
     <!-- Top bar End -->
-    @{Html.RenderAction("TopMenu", "Home");}
     <!-- Nav Bar Start -->
-    @{Html.RenderAction("MainMenu", "Home");}
+
+    @{Html.RenderAction("TopMenu", "Home");}
     <!-- Nav Bar End -->
     <!-- Bottom Bar Start -->
     @{ Html.RenderAction("HeaderSave", "Home");}
+
+    @{Html.RenderAction("MainMenu", "Home");}
     <!-- Bottom Bar End -->
     <!-- Main Slider Start -->
     @RenderSection("slide", required: false)
@@ -162,6 +164,8 @@
 
     <!-- Template Javascript -->
     <script src="/Assets/Customer/js/main.js"></script>
+
+    @RenderSection("jsFooter", required: false)
 </body>
 </html>
 

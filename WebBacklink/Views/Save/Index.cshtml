@@ -7,48 +7,59 @@
 @section jsFooter{
     <script src="/Assets/Client/js/controller/saveController.js"></script>
     }
-<div class="content">
+<div class="wishlist-page">
 
-    <div class="section group">
-        @if (Model.Count > 0)
-        {
-            <table class="table">
-                <thead class="content_top">
-                    <tr>
-                        <td>Mã Sản Phẩm</td>
-                        <td>Tên Sản Phẩm</td>
-                        <td>Ảnh Sản Phẩm</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        var link = "/chi-tiet" + item.Product.MetaTitle +"-"+ item.Product.ID;
-                    <tr>
-                        
-                        <td>@item.Product.ID</td>
-                        <td>@item.Product.Name</td>
-                        <td><img src="@item.Product.Image" width="100" /></td>
-                        <td><a href="@link"><button type="button" class="btn btn-light">Xem Chi Tiết</button></a></td>
-                        <td><a href="#" data-id="@item.Product.ID" class="btn-delete"><i class="fas fa-minus-circle" style="color:red !important">Bỏ</i></a></td>
-                    </tr>
-                    }
+    <div class="container-fluid">
+        <div class="wishlist-page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        @if (Model.Count > 0)
+                        {
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                       
+                                        <td>Tên Sản Phẩm</td>
+                                        <td>Ảnh Sản Phẩm</td>
+                                        <td></td>
+                                        <td>Xóa</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        var link = "/chi-tiet" + item.Product.MetaTitle + "-" + item.Product.ID;
+                                        <tr>
 
-                </tbody>
-            </table>
-            <button id="btnContinue" class="btn btn-primary">Quay Lại Trang Chủ</button>
-            <button id="btnPayment" class="btn btn-info">Quay Lại Trang Sản Phẩm</button>
-            <button id="btnDeleteAll" class="btn btn-danger">Xóa Tất Cả</button>
+                                            
+                                            <td>@item.Product.Name</td>
+                                            <td><img src="@item.Product.Image" width="200" /></td>
+                                            <td><a href="@link" class="btn btn-primary">Xem Chi Tiết</a></td>
+                                            <td><a href="#" data-id="@item.Product.ID" class="btn-delete"><i class="fa fa-trash"></i></a></td>
+                                        </tr>
+                                    }
 
-        }
-        else
-        {
-            <span class="alert alert-danger" >Chưa Có Sản Phẩm Nào.</span>
-        }
+                                </tbody>
+                            </table>
 
-    </div>
-    </div>
-        
+                            <button id="btnContinue" class="btn btn-primary">Quay Lại Trang Chủ</button>
+                            <button id="btnPayment" class="btn btn-info">Quay Lại Trang Sản Phẩm</button>
+                            <button id="btnDeleteAll" class="btn btn-danger">Xóa Tất Cả</button>
+
+                        }
+                        else
+                        {
+                    <div class="alert alert-danger">
+                        <span >Chưa Có Sản Phẩm Nào.</span>
+                    </div>
+                        }
+
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+</div>
+
 

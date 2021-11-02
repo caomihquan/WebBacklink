@@ -38,7 +38,7 @@ namespace WebBacklink.Controllers
         }
 
 
-        public ActionResult Category(long cateId,int page=1,int pageSize=10)
+        public ActionResult Category(long cateId,int page=1,int pageSize=9)
         {
             var category = new ProductCategoryDao().ViewDetail(cateId);
             ViewBag.Category = category;
@@ -62,7 +62,7 @@ namespace WebBacklink.Controllers
             return View(model);
         }
 
-        public ActionResult Search(string keyword, int page = 1, int pageSize = 10)
+        public ActionResult Search(string keyword, int page = 1, int pageSize = 9)
         {
             int totalRecord = 0;
             var model = new ProductDao().Search(keyword, ref totalRecord, page, pageSize);

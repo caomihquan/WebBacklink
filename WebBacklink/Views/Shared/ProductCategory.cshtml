@@ -1,8 +1,8 @@
 ﻿@model List<Models.EF.ProductCategory>
 
 
+<h3 style="color:#fff;background:#4facfe;width:100%;text-align:center;padding:10px;">Danh Mục Sản Phẩm</h3>
     <ul class="navbar-nav">
-        <li><h4 style="color:#4facfe;">Danh Mục Sản Phẩm</h4></li>
         @foreach (var item in Model.Where(x => x.ParentID == null))
         {
             var child = Model.Where(x => x.ParentID == item.ID);
@@ -15,7 +15,7 @@
                     <ul class="dropdown-menu" style=" border: none;">
                         @foreach (var childItem in child)
                         {
-                            <li title="@childItem.Name" ><i class="fas fa-caret-right"></i><a href="/san-pham/@childItem.MetaTitle-@childItem.ID">@childItem.Name</a></li>
+                            <li title="@childItem.Name"><i class="fas fa-caret-right"></i><a href="/san-pham/@childItem.MetaTitle-@childItem.ID">@childItem.Name</a></li>
                         }
 
                     </ul>
@@ -27,5 +27,5 @@
 
 
     </ul>
-    
+
 

@@ -13,52 +13,58 @@
 <nav class="navbar" style="background:#4facfe">
     <span class="" style="color:white"><a href="/" style="color:white;"><i class="fas fa-home"></i> Trang Chủ</a> / <a href="/tin-tuc" style="color:white;">Tin Tức</a></span>
 </nav>
-<div class="container-fluid">
-    <div class="row">
-  
+<div class="product-view">
+    <div class="container-fluid">
+        <div class="row">
             <div class="col-lg-9" style="padding:20px;">
-                <h1>@Model.Name</h1>
-                <h6>@Model.CreatedDate<span> by: <a href="#">@Model.CreatedBy</a></span></h6>
-                <p style="font-size:20px;color:#000;padding: 0 0 20px 0">@Model.Decscription</p>
-                <div style="padding: 0px 0 50px 0px; line-height: 25px; color: #494747;">@Html.Raw(Model.Detail)</div>
-                <div class="heading">Bài Viết Liên Quan</div>
-                <br />
-                @foreach (var item in listRelatedContents)
-                {
-                    var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
-
-                    <a href="@link" style="display:flex;padding: 10px 0 10px 0px;border-top: 1px solid rgba(34,34,34,.1);text-decoration:none;">
-                        <span><img src="@item.Image" alt="@item.Name" style="height:93px;width:150px;" /></span>
-                        <div style="margin-left:20px;">
-
-                            <h1 style="font-size:25px;color:#000;">@item.Name</h1>
-                            <p style="color:darkgrey">@item.Decscription</p>
-
-                        </div>
-                    </a>
+                <div class="product-view-top">
 
 
 
-                }
-                <ul style="display: flex;border-top: 1px solid rgba(34,34,34,.1);padding:30px;">
+                    <h1>@Model.Name</h1>
+                    <h6>@Model.CreatedDate<span> by: <a href="#">@Model.CreatedBy</a></span></h6>
+                    <p style="font-size:20px;color:#000;padding: 0 0 20px 0">@Model.Decscription</p>
+                    <div style="padding: 0px 0 50px 0px; line-height: 25px; color: #494747;">@Html.Raw(Model.Detail)</div>
+                    <div class="heading">Bài Viết Liên Quan</div>
+                    <br />
+                    @foreach (var item in listRelatedContents)
+                    {
+                        var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
+
+                        <a href="@link" style="display:flex;padding: 10px 0 10px 0px;border-top: 1px solid rgba(34,34,34,.1);text-decoration:none;">
+                            <span><img src="@item.Image" alt="@item.Name" style="height:93px;width:150px;" /></span>
+                            <div style="margin-left:20px;">
+
+                                <h1 style="font-size:25px;color:#000;">@item.Name</h1>
+                                <p style="color:darkgrey">@item.Decscription</p>
+
+                            </div>
+                        </a>
 
 
-                    <li style="list-style-type: none;"><i class="fas fa-tag"></i>Từ Khóa:  </li>
-                    @{
 
-                        var tags = (List<Models.EF.Tag>)ViewBag.Tags;
-                        foreach (var tag in tags)
-                        {
-                            <li style="list-style-type: none;"  >-<a style="color:grey" href="/tag/@tag.ID">@tag.Name</a> </li>
-                        }
                     }
-                </ul>
-            </div>
+                    <ul style="display: flex;border-top: 1px solid rgba(34,34,34,.1);padding:30px;">
 
+
+                        <li style="list-style-type: none;"><i class="fas fa-tag"></i>Từ Khóa:  </li>
+                        @{
+
+                            var tags = (List<Models.EF.Tag>)ViewBag.Tags;
+                            foreach (var tag in tags)
+                            {
+                                <li style="list-style-type: none;">-<a style="color:grey" href="/tag/@tag.ID">@tag.Name</a> </li>
+                            }
+                        }
+                    </ul>
+                </div>
+
+            </div>
             <div class="col-lg-3 sidebar" style="padding:20px;">
                 @{ Html.RenderAction("Category", "Content");}
             </div>
         </div>
+        
+
     </div>
-
-
+    </div>
