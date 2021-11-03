@@ -43,13 +43,17 @@
                                         <img src="@item.Image" alt="@item.Name">
                                     </a>
                                     <div class="product-action">
+                                        <a href="@url"><i class="fas fa-info-circle"></i></a>
                                         <a href="/them-gio-hang?productId=@item.ID&quantity=1"><i class="fa fa-heart"></i></a>
                                         <a href="#"><i class="fa fa-search"></i></a>
                                     </div>
                                 </div>
                                 <div class="product-price">
+
                                     <h3><span></span></h3>
-                                    <a class="btn" href="@item.Link"><i class="fa fa-shopping-cart"></i>Đến Nơi Bán</a>
+                                    <a class="btn" href="@item.Link"><i class="fa fa-shopping-cart"></i> Đến Nơi Bán</a>
+
+
                                 </div>
                             </div>
                         </div>
@@ -105,14 +109,23 @@
                                         <img src="@item.Image" alt="@item.Name">
                                     </a>
                                     <div class="product-action">
-
+                                        <a href="@url"><i class="fas fa-info-circle"></i></a>
                                         <a href="/them-gio-hang?productId=@item.ID&quantity=1"><i class="fa fa-heart"></i></a>
                                         <a href="#"><i class="fa fa-search"></i></a>
                                     </div>
                                 </div>
                                 <div class="product-price">
-                                    <h3><span></span></h3>
-                                    <a class="btn" href="@item.Link"><i class="fa fa-shopping-cart"></i>Đến Nơi Bán</a>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a class="btn" style="font-size:11px" href="@url"><i class="fas fa-info-circle"></i> Xem Chi tiết</a>
+
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a class="btn" style="font-size:11px" href="@item.Link"><i class="fa fa-shopping-cart"></i> Đến Nơi Bán</a>
+
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                         }

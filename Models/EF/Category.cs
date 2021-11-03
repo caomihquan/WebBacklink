@@ -44,5 +44,6 @@ namespace Models.EF
         public bool Status { get; set; }
 
         public bool? ShowOnHome { get; set; }
+        public string Language { get; set; }
     }
 }

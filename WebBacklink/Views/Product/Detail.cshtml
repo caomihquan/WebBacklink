@@ -9,123 +9,19 @@
     var category = (Models.EF.ProductCategory)ViewBag.Category;
     var relatedProducts = (List<Models.EF.Product>)ViewBag.RelatedProducts;
 }
+
+
+@section jsHeader{
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=1024793591616473&autoLogAppEvents=1" nonce="dgwlERrz"></script>
+}
+
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6168ecfe9afe107b"></script>
 
-<!--<div class="content">
-    <div class="content_top">
-        <div>
-            <p style="font-size:12px;"><a href="/" style="color:white;"><i class="fas fa-home"></i> Trang Chủ</a> >> <a href="/san-pham/@category.MetaTitle-@category.ID" style="color:white;">@category.Name</a></p>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="section group">
 
-        <div class="cont-desc span_1_of_2">
-            <div class="product-details">
-                <div class="grid images_3_of_2">
-                    <div id="container">
-                        <div id="products_example">
-                            <div id="products" class="carousel-item">
-                                <div class="slides_container">
-                                    <a href="#" target="_blank"><img src="@Model.Image" alt="@Model.Name " /></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    </div>
-                <div class="desc span_3_of_2">
-                    <h1 style="font-size:25px;">@Model.Name</h1>
-                    <p>@Model.Decscription</p>
-                    <div class="price">
-                        <p>Giá: @(Model.Price.HasValue? Model.Price.Value.ToString("N0"):"Liên Hệ")</p>
-                    </div>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
 
-                    <div class="share-desc">
-                        <div class="btn btn-info"><span><a href="@Model.Link" style="color:#fff;text-decoration:none;">Đến Nơi Bán</a></span></div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="wish-list">
-                        <ul>
-                            <li>-->
-                                <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                                <!--<div class="addthis_inline_share_toolbox_fw73"></div>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                    <div class="wish-list">
-                        <a href="/them-gio-hang?productId=Model.ID&quantity=1" style="padding:10px;color:red;text-decoration:none;"><i class="fas fa-heart"></i>Yêu Thích</a>
-                    </div>
-                    
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="product_desc">
-                <div id="horizontalTab">
-                    <ul class="resp-tabs-list">
-                        <li>Chi Tiết</li>
-                    </ul>
-                    <div class="resp-tabs-container"">
-                        <div class="product-desc">
-                            Html.Raw(Model.Detail)
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $('#horizontalTab').easyResponsiveTabs({
-                        type: 'default', //Types: default, vertical, accordion
-                        width: 'auto', //auto or any width like 600px
-                        fit: true   // 100% fit in a container
-                    });
-                });</script>
-            <div class="content_bottom">
-                <div class="heading">
-                    <h3>Sản Phẩm Liên Quan</h3>
-                </div>
-                <div class="see">
-                    <p><a href="/san-pham">Xem tất cả</a></p>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="section group" style="display:flex;flex-wrap:wrap;justify-content:space-evenly">
-                @foreach (var item in relatedProducts)
-                {
-                    var url = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
-                    <div class="grid_1_of_4 images_1_of_4">
-                        <a href="@url"><img src="@item.Image" alt="@item.MetaKeywords"></a>
-                        <h2>@item.Name</h2>
-                        
-                        <div style="display:flex;justify-content:space-around;border-top:1px solid blue;padding:10px;">
-                            <div>
-                                <p>Giá: <span class="rupees" style="color:red;">@(item.Price.HasValue?item.Price.Value.ToString("N0"):"Liên Hệ")</span></p>
-
-                            </div>
-                            <div><a href="/them-gio-hang?productId=@item.ID&quantity=1" style="font-size:19px; text-decoration:none ;" title="Xem Sau"><i class="fas fa-archive"></i></a></div>
-
-                            <div class="clear"></div>
-                        </div>
-                        <div style="display:flex; justify-content:space-around;flex-wrap:wrap">
-                            <h4><a href="@url" class="btn btn-success">Xem Chi Tiết</a></h4>
-                            <h4><a href="@item.Link" class="btn btn-primary">Đến Nơi Bán</a></h4>
-                        </div>
-                    </div>
-                }
-
-            </div>
-        </div>
-        <div class="rightsidebar span_3_of_1">
-            <div class="content">
-                
-            </div>
-           
-        </div>
-    </div>
-</div>-->
 
 <div class="product-detail">
     <div class="container-fluid">
@@ -136,9 +32,11 @@
                         <div class="col-md-5">
                             <div class="product-slider-single normal-slider">
                                 <img src="@Model.Image" alt="@Model.Name">
+
                             </div>
+
                             <div class="product-slider-single-nav normal-slider">
-                                <div class="slider-nav-img"><img src="@Model.Image" alt="@Model.Name"></div>
+                                <div class="slider-nav-img"><img src="@Model.MoreImages" alt="@Model.Name"></div>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -153,13 +51,13 @@
                                 </div>
 
                                 <div class="p-size">
-                                    
-                                        <div class="addthis_inline_share_toolbox_fw73"></div>
-                                    
+
+                                    <div class="addthis_inline_share_toolbox_fw73"></div>
+
                                 </div>
                                 <div class="p-color">
 
-                                </div>  
+                                </div>
                                 <div class="action">
                                     <a class="btn" href="@Model.Link"><i class="fa fa-shopping-bag"></i>Đến Nơi Bán</a>
                                 </div>
@@ -183,10 +81,15 @@
                                     @Html.Raw(Model.Detail)
                                 </p>
                             </div>
-                            
-                            
+
+
                         </div>
                     </div>
+                </div>
+                Binh luan
+                <div class="col-lg-8">
+                    <div class="fb-comments" data-href="https://localhost:44371/chi-tiet/@Model.MetaTitle-@Model.ID" data-width="" data-numposts="5"></div>
+                    <div class="fb-save" data-uri="https://localhost:44371/chi-tiet/@Model.MetaTitle-@Model.ID" data-size="large"></div>
                 </div>
 
                 <div class="product">
@@ -209,6 +112,7 @@
                                             <img src="@item.Image" alt="Product Image">
                                         </a>
                                         <div class="product-action">
+                                             <a href="@url"><i class="fas fa-info-circle"></i></a>
                                             <a href="/them-gio-hang?productId=@item.ID&quantity=1"><i class="fa fa-heart"></i></a>
                                             <a href="#"><i class="fa fa-search"></i></a>
                                         </div>
@@ -226,7 +130,7 @@
 
             <!-- Side Bar Start -->
             <div class="col-lg-4 sidebar">
-                <div class="col-md-12">   
+                <div class="col-md-12">
                     <nav class="navbar bg-light">
                         @{ Html.RenderAction("ProductCategory", "Product");}
                     </nav>
@@ -246,7 +150,7 @@
                                         <img src="@item.Image" alt="@item.Name">
                                     </a>
                                     <div class="product-action">
-
+                                        <a href="@url"><i class="fas fa-info-circle"></i></a>
                                         <a href="/them-gio-hang?productId=@item.ID&quantity=1"><i class="fa fa-heart"></i></a>
                                         <a href="#"><i class="fa fa-search"></i></a>
                                     </div>

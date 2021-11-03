@@ -40,6 +40,7 @@ namespace WebBacklink.Controllers
         public ActionResult Tag(string tagId, int page = 1, int pageSize = 10)
         {
             var model = new ContentDao().ListAllByTag(tagId, page, pageSize);
+            ViewBag.Tags = new TagDao().ListTag();
             int totalRecord = 0;
 
             ViewBag.Total = totalRecord;
@@ -62,6 +63,7 @@ namespace WebBacklink.Controllers
         public ActionResult MenuCategory(long id, int page = 1, int pageSize = 10)
         {
             var category = new CategoryDao().ViewDetail(id);
+            ViewBag.Tags = new TagDao().ListTag();
             ViewBag.Category = category;
             int totalRecord = 0;
             var model = new ContentDao().ListByCategoryId(id, ref totalRecord, page, pageSize);
