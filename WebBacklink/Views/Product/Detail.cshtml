@@ -8,12 +8,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var category = (Models.EF.ProductCategory)ViewBag.Category;
     var relatedProducts = (List<Models.EF.Product>)ViewBag.RelatedProducts;
+
 }
 
 
 @section jsHeader{
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=1024793591616473&autoLogAppEvents=1" nonce="dgwlERrz"></script>
+    <script src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=1024793591616473&autoLogAppEvents=1" nonce="ujM3rLdx"></script>
+    <script src="/Assets/Admin/js/controller/productController.js"></script>
 }
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -35,9 +37,12 @@
 
                             </div>
 
-                            <div class="product-slider-single-nav normal-slider">
-                                <div class="slider-nav-img"><img src="@Model.MoreImages" alt="@Model.Name"></div>
-                            </div>
+                            @*<div class="product-slider-single-nav normal-slider">
+                                <a href="#" data-id="@Model.ID" class="btn-images">Quản Lý Ảnh</a>
+                                <div class="slider-nav-img">
+                                    <img src="@Model.MoreImages.Substring(15)" alt="@Model.Name">
+                                </div>
+                            </div>*@
                         </div>
                         <div class="col-md-7">
                             <div class="product-content">
@@ -86,10 +91,11 @@
                         </div>
                     </div>
                 </div>
-                Binh luan
+
                 <div class="col-lg-8">
-                    <div class="fb-comments" data-href="https://localhost:44371/chi-tiet/@Model.MetaTitle-@Model.ID" data-width="" data-numposts="5"></div>
-                    <div class="fb-save" data-uri="https://localhost:44371/chi-tiet/@Model.MetaTitle-@Model.ID" data-size="large"></div>
+                    
+                    <div class="fb-comments" data-href="https://localhost:44371/@Model.MetaTitle-@Model.ID" data-width="100%" data-numposts="5"></div>
+
                 </div>
 
                 <div class="product">
@@ -112,7 +118,7 @@
                                             <img src="@item.Image" alt="Product Image">
                                         </a>
                                         <div class="product-action">
-                                             <a href="@url"><i class="fas fa-info-circle"></i></a>
+                                            <a href="@url"><i class="fas fa-info-circle"></i></a>
                                             <a href="/them-gio-hang?productId=@item.ID&quantity=1"><i class="fa fa-heart"></i></a>
                                             <a href="#"><i class="fa fa-search"></i></a>
                                         </div>
@@ -130,8 +136,10 @@
 
             <!-- Side Bar Start -->
             <div class="col-lg-4 sidebar">
-                <div class="col-md-12">
+                <div class="sidebar-widget category">
+
                     <nav class="navbar bg-light">
+
                         @{ Html.RenderAction("ProductCategory", "Product");}
                     </nav>
                 </div>

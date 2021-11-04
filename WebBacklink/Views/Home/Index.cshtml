@@ -57,7 +57,7 @@
                         @{ Html.RenderAction("ProductCategory", "Product");}
                     </nav>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-9">
                     <div class="header-slider normal-slider">
                         @foreach (var item in slides)
                         {
@@ -73,7 +73,7 @@
 
                     </div>
                 </div>
-                <div class="col-md-3">
+                @*<div class="col-md-3">
                     <div class="header-img">
                         <div class="img-item">
                             <img src="img/category-1.jpg" />
@@ -88,7 +88,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div>
         </div>
     </div>
@@ -98,12 +98,7 @@
     <div class="brand">
         <div class="container-fluid">
             <div class="brand-slider">
-                <div class="brand-item"><img src="img/brand-1.png" alt=""></div>
-                <div class="brand-item"><img src="img/brand-2.png" alt=""></div>
-                <div class="brand-item"><img src="img/brand-3.png" alt=""></div>
-                <div class="brand-item"><img src="img/brand-4.png" alt=""></div>
-                <div class="brand-item"><img src="img/brand-5.png" alt=""></div>
-                <div class="brand-item"><img src="img/brand-6.png" alt=""></div>
+
             </div>
         </div>
     </div>
@@ -114,43 +109,44 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-6 feature-col">
                     <div class="feature-content">
-                        <i class="fab fa-cc-mastercard"></i>
-                        <h2>Secure Payment</h2>
+                        <i class="fas fa-wallet"></i>
+                        <h2>Giá Rẻ</h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur elit
+
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 feature-col">
                     <div class="feature-content">
-                        <i class="fa fa-truck"></i>
-                        <h2>Worldwide Delivery</h2>
+                        <i class="fas fa-star"></i>
+                        <h2>Uy Tín</h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur elit
+
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 feature-col">
                     <div class="feature-content">
-                        <i class="fa fa-sync-alt"></i>
-                        <h2>90 Days Return</h2>
+                        <i class="fas fa-check-circle"></i>
+                        <h2>Chất Lượng</h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur elit
+
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 feature-col">
                     <div class="feature-content">
                         <i class="fa fa-comments"></i>
-                        <h2>24/7 Support</h2>
+                        <h2>24/7 Hỗ Trợ</h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur elit
+
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Feature End-->
     <!-- Category Start-->
     <div class="category">
@@ -161,7 +157,7 @@
                     var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
                     <div class="col-md-4">
                         <div class="category-item ch-400">
-                            <img src="@item.Image" />
+                            <img src="@item.Image" style="width:100%" />
                             <a class="category-name" href="@link">
                                 <p>@item.Name</p>
                             </a>
@@ -182,7 +178,7 @@
                     <h1>Chúc Một Ngày Tốt Lành</h1>
                 </div>
                 <div class="col-md-6">
-                    <a href="tel:0123456789">+012-345-6789</a>
+                    <a href="#">CM-REVIEWSHOP</a>
                 </div>
             </div>
         </div>
@@ -271,6 +267,9 @@
 
             </div>
         </div>
+    </div>
+    <div class="col-lg-12">
+        <img src="~/Assets/Customer/img/end.gif" style="width:100%" />
     </div>
     <!-- Recent Product End -->
     <!-- Review Start -->

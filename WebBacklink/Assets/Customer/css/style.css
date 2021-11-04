@@ -619,7 +619,7 @@ h2 {
     height: 100%;
     display: flex;
     align-items: center;
-    background: rgba(255, 111, 97, .7);
+    background: #4facfe8c;
     transition: all 0.3s;
     opacity: 0;
 }
@@ -823,7 +823,7 @@ h2 {
 .product-item .product-price .btn {
     float: right;
     border: none;
-    color: #000000;
+    color: #fff;
     background: #4facfe;
 }
 

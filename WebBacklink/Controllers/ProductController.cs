@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using Models.EF;
+using System.Xml.Linq;
 
 namespace WebBacklink.Controllers
 {
@@ -97,5 +98,7 @@ namespace WebBacklink.Controllers
             
             return View(product);
         }
+
+        
     }
 }
