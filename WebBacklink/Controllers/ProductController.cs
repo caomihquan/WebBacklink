@@ -99,6 +99,32 @@ namespace WebBacklink.Controllers
             return View(product);
         }
 
-        
+        public JsonResult LoadImages(long id)
+        {
+            ProductDao dao = new ProductDao();
+            var product = dao.ViewDetail(id);
+            var images = product.MoreImages;
+
+            XElement xImages = XElement.Parse(images);
+            List<string> listImagesReturn = new List<string>();
+
+            foreach (XElement element in xImages.Elements())
+            {
+                if (element == null)
+                {
+
+                }
+                else
+                {
+                    listImagesReturn.Add(element.Value);
+                }
+
+            }
+            return Json(new
+            {
+                data = listImagesReturn
+            }, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

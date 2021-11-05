@@ -15,7 +15,7 @@
 @section jsHeader{
     <div id="fb-root"></div>
     <script src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=1024793591616473&autoLogAppEvents=1" nonce="ujM3rLdx"></script>
-    <script src="/Assets/Admin/js/controller/productController.js"></script>
+    
 }
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -37,12 +37,12 @@
 
                             </div>
 
-                            @*<div class="product-slider-single-nav normal-slider">
-                                <a href="#" data-id="@Model.ID" class="btn-images">Quản Lý Ảnh</a>
+                            <div class="product-slider-single-nav normal-slider">                              
                                 <div class="slider-nav-img">
-                                    <img src="@Model.MoreImages.Substring(15)" alt="@Model.Name">
+                                    <a href="#" data-id="@Model.ID" class="btn-images">Quản Lý Ảnh</a>
+                                    <img src="@Model.MoreImages" alt="@Model.Name">
                                 </div>
-                            </div>*@
+                            </div>
                         </div>
                         <div class="col-md-7">
                             <div class="product-content">
@@ -173,6 +173,26 @@
                     </div>
                 </div>
 
+                <div id="imagesManage" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                            </div>
+                            <div class="modal-body">
+                                <div id="imageList">
+                                </div>
+                                <div class="clear"></div>  
+                                <input type="hidden" id="hidProductID" value="0" />
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
 
 
 

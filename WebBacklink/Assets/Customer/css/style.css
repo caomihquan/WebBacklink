@@ -1834,11 +1834,11 @@ h2 {
     border-bottom: none;
 }
 
-.my-account .nav.nav-pills .nav-link:hover,
-.my-account .nav.nav-pills .nav-link.active {
-    color: #ffffff;
-    background: #4facfe;
-}
+    .my-account .nav.nav-pills .nav-link:hover,
+    .my-account .nav.nav-pills .nav-link.active {
+        color: #bbcede;
+        background: #4facfe;
+    }
 
 .my-account .nav.nav-pills .nav-link i {
     margin-right: 5px;
