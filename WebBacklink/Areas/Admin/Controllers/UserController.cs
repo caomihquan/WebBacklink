@@ -25,12 +25,15 @@ namespace WebBacklink.Areas.Admin.Controllers
         [HasCredential(RoleID = "ADD_USER")]
         public ActionResult Create()
         {
+            SetViewBag();
             return View();
         }
         [HasCredential(RoleID = "EDIT_USER")]
         public ActionResult Edit(int id)
         {
-            var user = new UserDao().ViewDetail(id);
+            var dao = new UserDao();
+             var user=   dao.ViewDetail(id);
+            SetViewBag(user.GroupID);
             return View(user);
         }
 
@@ -54,6 +57,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Thêm user Không thành công");
                 }
             }
+            SetViewBag();
             return View("Index");
         }
         [HttpPost]
@@ -80,6 +84,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Cập nhật user Không thành công");
                 }
             }
+            SetViewBag(user.GroupID);
             return View("Index");
         }
         [HttpDelete]
@@ -98,6 +103,12 @@ namespace WebBacklink.Areas.Admin.Controllers
             {
                 status=result
             });
+        }
+
+        public void SetViewBag(string selectedId = null)
+        {
+            var dao = new GroupUserDao();
+            ViewBag.GroupID = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
         }
     }
 }

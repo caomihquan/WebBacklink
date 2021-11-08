@@ -186,6 +186,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\SlideController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TagController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserGroupController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
@@ -4774,6 +4775,7 @@
     <Content Include="Assets\Customer\img\slider-2.jpg" />
     <Content Include="Assets\Customer\img\slider-3.jpg" />
     <Content Include="Assets\Customer\img\ssl.svg" />
+    <Content Include="Assets\Customer\js\controller\productController.js" />
     <Content Include="Assets\Customer\js\main.js" />
     <Content Include="Assets\Customer\lib\easing\easing.js" />
     <Content Include="Assets\Customer\lib\easing\easing.min.js" />
@@ -5124,6 +5126,7 @@
     <Content Include="Assets\Customer\lib\slick\slick-theme.scss" />
     <Content Include="Assets\Customer\lib\slick\slick.less" />
     <Content Include="Assets\Customer\lib\slick\slick.scss" />
+    <Content Include="Areas\Admin\Views\Tag\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

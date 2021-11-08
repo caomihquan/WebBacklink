@@ -299,6 +299,9 @@ h2 {
     .nav a.nav-link {
         padding: 5px 0;
     }
+    .nav a.nav-link:hover{
+        color:#000;
+    }
     
     .nav .dropdown-menu {
         box-shadow: none;
@@ -440,7 +443,7 @@ h2 {
     color: #4facfe; 
 }
 .header .navbar a:hover {
-    color: #ffffff;
+    color: #000;
     
 }
 

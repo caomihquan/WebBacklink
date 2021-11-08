@@ -15,7 +15,11 @@
 @section jsHeader{
     <div id="fb-root"></div>
     <script src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=1024793591616473&autoLogAppEvents=1" nonce="ujM3rLdx"></script>
-    
+
+}
+
+@section jsFooter{
+    <script src="/Assets/Customer/js/controller/productController.js"></script>
 }
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -35,13 +39,6 @@
                             <div class="product-slider-single normal-slider">
                                 <img src="@Model.Image" alt="@Model.Name">
 
-                            </div>
-
-                            <div class="product-slider-single-nav normal-slider">                              
-                                <div class="slider-nav-img">
-                                    <a href="#" data-id="@Model.ID" class="btn-images">Quản Lý Ảnh</a>
-                                    <img src="@Model.MoreImages" alt="@Model.Name">
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -63,8 +60,13 @@
                                 <div class="p-color">
 
                                 </div>
+
                                 <div class="action">
                                     <a class="btn" href="@Model.Link"><i class="fa fa-shopping-bag"></i>Đến Nơi Bán</a>
+                                </div>
+                                <div> </div>
+                                <div class="p-color">
+                                    <a href="#" data-id="@Model.ID" class="btn-images text-center">Xem Thêm Ảnh Sản Phẩm</a>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +95,7 @@
                 </div>
 
                 <div class="col-lg-8">
-                    
+
                     <div class="fb-comments" data-href="https://localhost:44371/@Model.MetaTitle-@Model.ID" data-width="100%" data-numposts="5"></div>
 
                 </div>
@@ -185,7 +187,7 @@
                             <div class="modal-body">
                                 <div id="imageList">
                                 </div>
-                                <div class="clear"></div>  
+                                <div class="clear"></div>
                                 <input type="hidden" id="hidProductID" value="0" />
                             </div>
 
