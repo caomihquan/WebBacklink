@@ -8,7 +8,7 @@
             $('#imagesManage').modal('show');
             $('#hidProductID').val($(this).data('id'));
             product.loadImages();
-            product.loadImagesindex();
+            
         });
 
         $('#btnChooImages').off('click').on('click', function (e) {
@@ -78,34 +78,10 @@
                 //thong bao thanh cong
             }
         });
-    },
-
-    loadImagesindex: function () {
-        $.ajax({
-            url: '/Product/LoadImages',
-            type: 'GET',
-            data: {
-                id: $('#hidProductID').val(),
-
-            },
-            dataType: 'json',
-            success: function (response) {
-                var data = response.data;
-                var html = '';
-                $.each(data, function (i, item) {
-                    html += '<div style="float:left"><img src="' + item + '" width="200" /><a href="#" class="btn-delImage"></a></div>'
-                });
-                $('#imageList').html(html);
-
-                $('.btn-delImage').off('click').on('click', function (e) {
-                    e.preventDefault();
-                    $(this).parent().remove();
-                });
-
-                //thong bao thanh cong
-            }
-        });
     }
+
+    
+    
 
 
 
