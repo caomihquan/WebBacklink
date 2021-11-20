@@ -24,7 +24,6 @@ namespace Models.DAO
             db.Feedbacks.Add(fb);
             db.SaveChanges();
             return fb.ID;
-
         }
     }
 }

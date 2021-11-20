@@ -4775,6 +4775,7 @@
     <Content Include="Assets\Customer\img\slider-2.jpg" />
     <Content Include="Assets\Customer\img\slider-3.jpg" />
     <Content Include="Assets\Customer\img\ssl.svg" />
+    <Content Include="Assets\Customer\js\controller\contactController.js" />
     <Content Include="Assets\Customer\js\controller\productController.js" />
     <Content Include="Assets\Customer\js\main.js" />
     <Content Include="Assets\Customer\lib\easing\easing.js" />
