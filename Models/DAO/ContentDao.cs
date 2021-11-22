@@ -18,7 +18,6 @@ namespace Models.Dao
         {
             db = new OnlineShopDbContext();
         }
-
         public IEnumerable<Content> ListAllPaging(string searchString, int page, int pageSize)
         {
             IQueryable<Content> model = db.Contents;
@@ -71,7 +70,10 @@ namespace Models.Dao
 
         public Content GetByID(long id)
         {
-            return db.Contents.Find(id);
+            var model = db.Contents.Find(id);
+            model.ViewCount++;
+            db.SaveChanges();
+            return model;
         }
 
         public List<Content> ListRelatedContents(long contentId,int top)

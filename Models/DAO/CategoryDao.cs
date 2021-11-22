@@ -33,6 +33,7 @@ namespace Models.DAO
         public long Insert(Category entity)
         {
             db.Categories.Add(entity);
+            entity.CreatedDate = DateTime.Now;
             db.SaveChanges();
             return entity.ID;
         }

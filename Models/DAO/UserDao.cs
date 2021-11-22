@@ -21,6 +21,7 @@ namespace Models.DAO
         public long Insert(User entity)
         {
             db.Users.Add(entity);
+            entity.CreatedDate = DateTime.Now;
             db.SaveChanges();
             return entity.ID;
         }

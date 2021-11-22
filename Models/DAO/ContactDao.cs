@@ -22,8 +22,10 @@ namespace Models.DAO
         public int InsertFeedBack(Feedback fb)
         {
             db.Feedbacks.Add(fb);
+           
             db.SaveChanges();
             return fb.ID;
         }
+
     }
 }

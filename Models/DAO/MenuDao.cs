@@ -24,6 +24,7 @@ namespace Models.DAO
         public long Insert(Menu entity)
         {
             db.Menus.Add(entity);
+            
             db.SaveChanges();
             return entity.ID;
         }

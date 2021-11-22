@@ -18,6 +18,7 @@ namespace Models.DAO
         public long Insert(ProductCategory entity)
         {
             db.ProductCategories.Add(entity);
+            entity.CreatedDate = DateTime.Now;
             db.SaveChanges();
             return entity.ID;
         }

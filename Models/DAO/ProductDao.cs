@@ -25,13 +25,14 @@ namespace Models.DAO
         public long Insert(Product entity)
         {
             db.Products.Add(entity);
+            entity.CreatedDate = DateTime.Now;
+            entity.ViewCount = 0;
             db.SaveChanges();
             return entity.ID;
         }
 
         public int? InsertViewCount(Product entity)
         {
-            
                 var product = db.Products.Find(entity.ID);
                 product.ViewCount = entity.ViewCount;
                 db.SaveChanges();
@@ -75,6 +76,7 @@ namespace Models.DAO
             {
                 model = model.Where(x => x.Name.Contains(searchString) || x.MetaTitle.Contains(searchString));
             }
+            
             return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 

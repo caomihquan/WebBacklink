@@ -25,6 +25,7 @@ namespace Models.DAO
         {
             db.UserGroups.Add(entity);
             db.SaveChanges();
+            
             return entity.ID;
         }
 
