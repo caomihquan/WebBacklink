@@ -65,6 +65,7 @@ namespace WebBacklink.Controllers
 
         public ActionResult Search(string keyword, int page = 1, int pageSize = 9)
         {
+            ViewBag.ListFeatureProducts = new ProductDao().ListFeatureProduct(6);
             int totalRecord = 0;
             var model = new ProductDao().Search(keyword, ref totalRecord, page, pageSize);
 

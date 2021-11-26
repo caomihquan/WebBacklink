@@ -3,7 +3,7 @@
 
 @{
 
-  
+    var listFeatureProducts = (List<Models.EF.Product>)ViewBag.ListFeatureProducts;
     ViewBag.Title = "Kết Quả Tìm Kiếm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -15,7 +15,6 @@
     <h5>Kết Quả Tìm Kiếm Theo Từ Khóa:@ViewBag.Keyword </h5>
 </div>
 <div class="container-fluid">
-
     <div class="row">
         <div class="col-lg-8">
             <div class="row">
@@ -24,7 +23,7 @@
                     foreach (var item in Model)
                     {
                         var url = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
-                        <div class="col-md-4">
+                        <div class="col-md-4" style="padding:10px;">
                             <div class="product-item">
                                 <div class="product-title">
                                     <a href="@url">@item.Name</a>
@@ -94,14 +93,16 @@
                 }
                 else
                 {
-                    <div class="alert alert-danger" >
-                    <span>Không có bản ghi nào</span>
-                        </div>
+                    <div class="alert alert-danger">
+                        <span>Không có bản ghi nào</span>
+                    </div>
                 }
 
 
 
             </div>
+
+
         </div>
         <div class="col-lg-4 sidebar">
             <div class="sidebar-widget category">
@@ -109,6 +110,47 @@
                 <nav class="navbar bg-light">
                     @{ Html.RenderAction("ProductCategory", "Product");}
                 </nav>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="featured-product product">
+        <div class="">
+            <div class="section-header">
+                <h1>Sản Phẩm Hot</h1>
+            </div>
+            <div class="row align-items-center product-slider product-slider-4">
+                @foreach (var item in listFeatureProducts)
+                {
+                    var url = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="#">@item.Name</a>
+                            </div>
+                            <div class="product-image">
+                                <a href="@url">
+                                    <img src="@item.Image" alt="@item.Name">
+                                </a>
+                                <div class="product-action">
+                                    <a href="@url"><i class="fas fa-info-circle"></i></a>
+                                    <a href="/them-gio-hang?productId=@item.ID&quantity=1"><i class="fa fa-heart"></i></a>
+
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+
+                                <h3><span></span></h3>
+                                <a class="btn" href="@item.Link"><i class="fa fa-shopping-cart"></i> Đến Nơi Bán</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
             </div>
         </div>
     </div>

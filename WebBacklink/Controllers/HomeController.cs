@@ -21,7 +21,7 @@ namespace WebBacklink.Controllers
             var productDao = new ProductDao();
             ViewBag.NewProducts = productDao.ListNewProduct(8);
             ViewBag.NewContents = new ContentDao().ListNewContent(3);
-            ViewBag.ListFeatureProducts = productDao.ListFeatureProduct(5);
+            ViewBag.ListFeatureProducts = productDao.ListFeatureProduct(6);
 
             //seo title
             ViewBag.Title = ConfigurationManager.AppSettings["HomeTitle"];
