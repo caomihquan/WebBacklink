@@ -11,6 +11,7 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class CategoryController : BaseController
     {
         // GET: Admin/Category
+        
         public ActionResult Index(string searchString,int page=1,int pageSize=10)
         {
             var dao = new CategoryDao();
@@ -19,6 +20,7 @@ namespace WebBacklink.Areas.Admin.Controllers
             return View(model);
         }
         [HttpGet]
+        
         public ActionResult Create()
         {
             return View();
@@ -32,7 +34,7 @@ namespace WebBacklink.Areas.Admin.Controllers
 
 
         [HttpPost]
-
+        
         public ActionResult Create(Category category)
         {
             if (ModelState.IsValid)

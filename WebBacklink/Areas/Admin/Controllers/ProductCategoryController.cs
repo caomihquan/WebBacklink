@@ -11,6 +11,7 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class ProductCategoryController : BaseController
     {
         // GET: Admin/ProductCategory
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Index(string searchString,int page = 1, int pageSize = 10)
         {
             var dao = new ProductCategoryDao();
@@ -19,6 +20,7 @@ namespace WebBacklink.Areas.Admin.Controllers
             return View(model);
         }
         [HttpGet]
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Create()
         {
             return View();
@@ -31,6 +33,7 @@ namespace WebBacklink.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Create(ProductCategory productCategory)
         {
             if (ModelState.IsValid)

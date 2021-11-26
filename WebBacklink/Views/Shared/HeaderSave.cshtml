@@ -1,31 +1,5 @@
 ﻿@model List<WebBacklink.Models.SaveItem>
 
-@*<div class="cart">
-    <a href="/luu-bai-viet"><i class="fas fa-archive"></i> Xem Sau</a>
-    <div id="dd" class="wrapper-dropdown-2">
-        @Model.Count Bài Viết 
-                <ul class="dropdown" style="min-width:400px">
-                    @foreach(var item in Model)
-                    {
-                        var link = "/chi-tiet" + item.Product.MetaTitle + "-" + item.Product.ID;
-                    <li class="">
-                        <a href="@link" class="header__notify-link" style="display:flex;text-decoration:none;">
-                            <span>
-                                <img src="@item.Product.Image"
-                                     alt="" class="header__notify-img" style="display:flex;width:48px;height:48px;">
-                            </span>
-                            <div class="header__notify-info">
-                                <span class="header__notify-name "style="display:flex;line-height:25px;color:dodgerblue;font-size:20px;padding-left:10px;">@item.Product.Name</span>
-                                <span class="header__notify-descirpsopn"style="display:block">@item.Product.MetaDescriptions</span>
-                            </div>
-                        </a>
-                    </li>
-                    }
-                <li  ><a style="text-decoration: none; display: flex; justify-content: center; border-top: 1px solid black; padding:10px;" class="header__notify-link" href="/luu-bai-viet">Xem Tất Cả (@Model.Count)</a></li>
-            </ul>
-    </div><p></p>
-</div>*@
-
 <div class="bottom-bar">
     <div class="container-fluid">
         <div class="row align-items-center">

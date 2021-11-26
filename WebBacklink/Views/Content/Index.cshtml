@@ -11,41 +11,6 @@
 <nav class="navbar">
     <span><a href="/"><i class="fas fa-home"></i> Trang Chủ</a> / <a href="/tin-tuc">Tin Tức</a></span>
 </nav>
-@*<div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-
-
-
-
-                <div class="col-md-6">
-                    @foreach (var item in Model)
-                    {
-                        var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
-                        <div class="">
-                            <div class="">
-                                <a href="@link"><img src="@item.Image" alt="@item.MetaKeywords"></a>
-                            </div>
-                            <div class="">
-                                <a href="@link"> <h3>@item.Name</h3></a>
-                                <h4>@item.CreatedDate<span>  by:  <a href="#">@item.CreatedBy</a></span></h4>
-                                <p style="color:#808080">@item.Decscription <a href="@link" title="more">[....]</a></p>
-                            </div>
-                        </div>
-                    }
-
-                </div>
-                <div class="col-md-4 sidebar">
-                    <div class="category">
-
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </div>*@
 <div class="product-view">
     <div class="container-fluid">
         <div class="row">

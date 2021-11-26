@@ -11,6 +11,7 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class UserGroupController : BaseController
     {
         // GET: Admin/UserGroup
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Index(string searchString,int page=1,int pageSize=10)
         {
             var dao = new GroupUserDao();
@@ -20,6 +21,7 @@ namespace WebBacklink.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Create()
         {
             return View();
@@ -32,6 +34,7 @@ namespace WebBacklink.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Create(UserGroup usergroup)
         {
             if (ModelState.IsValid)

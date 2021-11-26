@@ -11,6 +11,7 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class FooterController : BaseController
     {
         // GET: Admin/Footer
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Index()
         {
             var dao = new FooterDao();

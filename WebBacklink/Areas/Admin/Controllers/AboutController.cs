@@ -11,6 +11,7 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class AboutController : BaseController
     {
         // GET: Admin/About
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Index(string searchString,int page=1,int pageSize=10)
         {
             var dao = new AboutDao();
@@ -19,6 +20,7 @@ namespace WebBacklink.Areas.Admin.Controllers
             return View(model);
         }
         [HttpGet]
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Create()
         {
             
@@ -27,6 +29,7 @@ namespace WebBacklink.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Create(About about)
         {
             if (ModelState.IsValid)

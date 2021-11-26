@@ -10,6 +10,7 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class FeedBackController : BaseController
     {
         // GET: Admin/FeedBack
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Index(int page=1,int pageSize=5)
         {
             var dao = new FeedBackDao();

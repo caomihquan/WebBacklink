@@ -5,8 +5,9 @@
 }
 
 @section jsFooter{
-    <script src="/Assets/Client/js/controller/saveController.js"></script>
-    }
+    <script src="/Assets/Customer/js/controller/saveController.js"></script>
+
+}
 <div class="wishlist-page">
 
     <div class="container-fluid">
@@ -19,7 +20,7 @@
                             <table class="table table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                       
+
                                         <td>Tên Sản Phẩm</td>
                                         <td>Ảnh Sản Phẩm</td>
                                         <td></td>
@@ -32,7 +33,7 @@
                                         var link = "/chi-tiet" + item.Product.MetaTitle + "-" + item.Product.ID;
                                         <tr>
 
-                                            
+
                                             <td>@item.Product.Name</td>
                                             <td><img src="@item.Product.Image" width="200" /></td>
                                             <td><a href="@link" class="btn btn-primary">Xem Chi Tiết</a></td>
@@ -55,16 +56,16 @@
                         }
                         else
                         {
-                    <div class="alert alert-danger">
-                        <span >Chưa Có Sản Phẩm Nào.</span>
-                    </div>
+                            <div class="alert alert-danger">
+                                <span>Chưa Có Sản Phẩm Nào.</span>
+                            </div>
                         }
 
                     </div>
                 </div>
-                </div>
             </div>
         </div>
+    </div>
 </div>
 
 
