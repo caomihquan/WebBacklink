@@ -10,10 +10,11 @@ namespace WebBacklink.Areas.Admin.Controllers
 {
     public class BaseController : Controller
     {
-        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        protected override void OnActionExecuting(ActionExecutingContext filterContext )
         {
+
             var session = (UserLogin)Session[CommonConstants.USER_SESSION];
-            if (session==null)
+            if (session.GroupID == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new
                     RouteValueDictionary(new { controller = "Login", action = "Index", Area = "Admin" }));
