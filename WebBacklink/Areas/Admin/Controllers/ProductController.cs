@@ -24,11 +24,15 @@ namespace WebBacklink.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            SetViewBag();
             return View();
         }
-        public ActionResult Edit(int id)
+        public ActionResult Edit(long id)
         {
-            var product = new ProductDao().ViewDetail(id);
+
+            var dao = new ProductDao();
+            var product =dao.ViewDetailAdmin(id);
+            SetViewBag(product.CategoryID);
             return View(product);
         }
 
@@ -50,6 +54,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Thêm Sản Phẩm Không Thành Công");
                 }
             }
+            SetViewBag(product.CategoryID);
             return View("Index");
         }
 
@@ -88,6 +93,12 @@ namespace WebBacklink.Areas.Admin.Controllers
             }
             return View("Index");
             
+        }
+
+        public void SetViewBag(long? selectedId = null)
+        {
+            var dao = new ProductCategoryDao();
+            ViewBag.CategoryID = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
         }
 
         public JsonResult LoadImages(long id)

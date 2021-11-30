@@ -32,7 +32,7 @@ namespace WebBacklink.Areas.Admin.Controllers
         public ActionResult Edit(long id)
         {
             var dao = new ContentDao();
-            var content = dao.GetByID(id);
+            var content = dao.ViewDetail(id);
             SetViewBag(content.CategoryID);
 
             return View(content);

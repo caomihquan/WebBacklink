@@ -24,9 +24,11 @@ namespace Models.DAO
 
         public long Insert(Product entity)
         {
+            string image = "<image></image>";
             db.Products.Add(entity);
             entity.CreatedDate = DateTime.Now;
             entity.ViewCount = 0;
+            entity.MoreImages = image;
             db.SaveChanges();
             return entity.ID;
         }
@@ -80,10 +82,7 @@ namespace Models.DAO
             return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
-        public Product ViewDetail(int id)
-        {
-            return db.Products.Find(id);
-        }
+        
 
         public bool Delete(int id)
         {
@@ -128,38 +127,7 @@ namespace Models.DAO
             totalRecord = db.Products.Where(x => x.CategoryID == categoryID).Count();
             var model = db.Products.Where(x => x.CategoryID == categoryID).OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize).ToList();
             return model;
-            //totalRecord = db.Products.Where(x => x.CategoryID == categoryID).Count();
-            //var model = (from a in db.Products
-            //             join b in db.ProductCategories
-            //             on a.CategoryID equals b.ID
-            //             where a.CategoryID == categoryID
-            //             select new
-            //             {
-            //                 CateMetaTitle = b.MetaTitle,
-            //                 CateName = b.Name,
-            //                 CreatedDate = a.CreatedDate,
-            //                 ID = a.ID,
-            //                 Images = a.Image,
-            //                 Name = a.Name,
-            //                 MetaTitle = a.MetaTitle,
-            //                 Price = a.Price,
-            //                 Link=a.Link,
-            //                 Decriptions=a.Decscription
-            //             }).AsEnumerable().Select(x => new ProductViewModel()
-            //             {
-            //                 CateMetaTitle = x.MetaTitle,
-            //                 CateName = x.Name,
-            //                 CreatedDate = x.CreatedDate,
-            //                 ID = x.ID,
-            //                 Images = x.Images,
-            //                 Name = x.Name,
-            //                 MetaTitle = x.MetaTitle,
-            //                 Price = x.Price,
-            //                 Link=x.Link,
-            //                 Decriptions = x.Decriptions
-            //             });
-            //model.OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize);
-            //return model.ToList();
+            
         }
 
         public List<ProductViewModel> Search(string keyword, ref int totalRecord, int pageIndex = 1, int pageSize = 2)
@@ -210,5 +178,11 @@ namespace Models.DAO
             db.SaveChanges();
             return model;
         }
+
+        public Product ViewDetailAdmin(long id)
+        {
+            return db.Products.Find(id);
+        }
+
     }
 }

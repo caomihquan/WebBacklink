@@ -22,6 +22,7 @@ namespace Models.DAO
         public long Insert(Slide entity)
         {
             db.Slides.Add(entity);
+            entity.CreatedDate = DateTime.Now;
             db.SaveChanges();
             return entity.ID;
         }
