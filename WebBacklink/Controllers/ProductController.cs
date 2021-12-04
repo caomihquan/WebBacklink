@@ -16,7 +16,7 @@ namespace WebBacklink.Controllers
         public ActionResult Index(string searchString,int page = 1, int pageSize = 10)
         {
             var dao = new ProductDao();
-            var model = dao.ListPaging(searchString, page, pageSize);
+            var model = dao.ListAllPaging(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
             ViewBag.ListFeatureProducts = new ProductDao().ListFeatureProduct(3);
             return View(model);

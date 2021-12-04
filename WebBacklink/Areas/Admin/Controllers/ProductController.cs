@@ -14,14 +14,19 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class ProductController : BaseController
     {
         // GET: Admin/Product
-        public ActionResult Index(string searchString,int page=1,int pageSize=10)
+        [HasCredential(ModeRoleID = "VIEW_USER")]
+
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
             var dao = new ProductDao();
             var model = dao.ListPaging(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
             return View(model);
         }
+
+
         [HttpGet]
+        [HasCredential(ModeRoleID = "VIEW_USER")]
         public ActionResult Create()
         {
             SetViewBag();

@@ -11,6 +11,7 @@ namespace WebBacklink
     public class HasCredentialAttribute:AuthorizeAttribute
     {
         public string RoleID { set; get; }
+        public string ModeRoleID { set; get; }
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             var session = (UserLogin)HttpContext.Current.Session[Common.CommonConstants.USER_SESSION];
@@ -22,6 +23,10 @@ namespace WebBacklink
             List<string> privilegeLevels = this.GetCredentialByLoggedInUser(session.UserName); // Call another method to get rights of the user from DB
 
             if (privilegeLevels.Contains(this.RoleID) || session.GroupID == CommonConstants.ADMIN_GROUP)
+            {
+                return true;
+            }
+            else if (privilegeLevels.Contains(this.ModeRoleID) || session.GroupID == CommonConstants.MOD_GROUP)
             {
                 return true;
             }

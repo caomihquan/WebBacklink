@@ -3358,6 +3358,7 @@
     <Content Include="Assets\Customer\lib\slick\slick.less" />
     <Content Include="Assets\Customer\lib\slick\slick.scss" />
     <Content Include="Areas\Admin\Views\Tag\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\WebBackLink.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3410,7 +3411,6 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Data\" />
-    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

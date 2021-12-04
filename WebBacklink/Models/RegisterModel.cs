@@ -42,8 +42,5 @@ namespace WebBacklink.Models
         [Display(Name = "Tỉnh/thành")]
         public string ProvinceID { set; get; }
 
-
-        [Display(Name = "Quận/Quyện")]
-        public string DistrictID { set; get; }
     }
 }

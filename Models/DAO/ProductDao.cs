@@ -71,19 +71,55 @@ namespace Models.DAO
 
         }
 
-        public IEnumerable<Product> ListPaging(string searchString, int page, int pageSize)
+        public IEnumerable<Product> ListAllPaging(string searchString, int page, int pageSize)
         {
             IQueryable<Product> model = db.Products;
             if (!string.IsNullOrEmpty(searchString))
             {
-                model = model.Where(x => x.Name.Contains(searchString) || x.MetaTitle.Contains(searchString));
+                model = model.Where(x => x.Name.Contains(searchString) || x.Name.Contains(searchString));
+            }
+
+            return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+        }
+
+        public IEnumerable<ProductViewModel> ListPaging(string searchString, int page, int pageSize)
+        {
+            var model = (from a in db.Products
+                         join b in db.ProductCategories
+                         on a.CategoryID equals b.ID
+                         
+                         select new
+                         {
+                             CateName = b.Name,
+                             CreatedDate = a.CreatedDate,
+                             ID = a.ID,
+                             Images = a.Image,
+                             Name = a.Name,
+                             MetaTitle = a.MetaTitle,
+                             Price = a.Price,
+                             ViewCount=a.ViewCount,
+                             Status=a.Status,
+                             Link=a.Link
+                         }).AsEnumerable().Select(x => new ProductViewModel()
+                         {
+                             CateName = x.CateName,
+                             CreatedDate = x.CreatedDate,
+                             ID = x.ID,
+                             Images = x.Images,
+                             Name = x.Name,
+                             MetaTitle = x.MetaTitle,
+                             Price = x.Price,
+                             ViewCount=x.ViewCount,
+                             Status=x.Status,
+                             Link=x.Link
+                         });
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Name.Contains(searchString) || x.MetaTitle.Contains(searchString)||x.CateName.Contains(searchString));
             }
             
             return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
-
-        
-
         public bool Delete(int id)
         {
             try

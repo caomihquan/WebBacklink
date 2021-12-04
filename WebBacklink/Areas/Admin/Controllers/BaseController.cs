@@ -14,7 +14,7 @@ namespace WebBacklink.Areas.Admin.Controllers
         {
 
             var session = (UserLogin)Session[CommonConstants.USER_SESSION];
-            if (session.GroupID == null)
+            if (session == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new
                     RouteValueDictionary(new { controller = "Login", action = "Index", Area = "Admin" }));

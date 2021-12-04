@@ -28,11 +28,11 @@
                     <div class="row">
                         <div class="col-lg-12">
 
-                            <div class="p-4">
+                            <div class="p-4"align="center" >
                                 <div class="form-horizontal">
                                     <h4>Đăng Kí Thành Viên</h4>
                                     <hr />
-                                    <div class="form-group">
+                                    <div class="form-group" >
                                         @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                                         @if (ViewBag.Success != null)
                                         {
@@ -40,7 +40,7 @@
                                         }
                                     </div>
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-6" ,@align = "left"})
                                         <div class="col-md-6">
                                             @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
@@ -48,7 +48,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-6", @align = "left" })
                                         <div class="col-md-6">
                                             @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
@@ -56,7 +56,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label col-md-6", @align = "left" })
                                         <div class="col-md-6">
                                             @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
@@ -64,7 +64,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-6", @align = "left" })
                                         <div class="col-md-6">
                                             @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -72,7 +72,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-6", @align = "left" })
                                         <div class="col-md-6">
                                             @Html.TextAreaFor(model => model.Address, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
@@ -80,7 +80,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-6", @align = "left" })
                                         <div class="col-md-6">
                                             @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
@@ -88,7 +88,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.Phone, new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.Phone, new { @class = "control-label col-md-6", @align = "left" })
                                         <div class="col-md-6">
                                             @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
@@ -96,30 +96,24 @@
                                     </div>
 
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.ProvinceID, new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.ProvinceID, new { @class = "control-label col-md-6", @align = "left" })
                                         <div class="col-md-6">
                                             @Html.TextBoxFor(model => model.ProvinceID, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.ProvinceID, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.DistrictID, new { @class = "control-label col-md-2" })
-                                        <div class="col-md-6">
-                                            @Html.TextBoxFor(model => model.DistrictID, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => model.DistrictID, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
+                    
 
                                     <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
+                                        <div class="col-md-offset-2 col-md-6" align="left">
                                             @Html.Captcha(registerCapcha)
                                             @Html.TextBox("CaptchaCode")
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
+                                        <div class="col-md-offset-2 col-md-6" align="left">
                                             <input type="submit" value="Create" class="btn btn-primary" />
                                         </div>
                                     </div>
@@ -127,7 +121,7 @@
 
                                     <div class="clear"></div>
                                     <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
+                                        <div class="col-md-offset-2 col-md-6" align="left">
                                             <a href="/User/LoginFacebook" class="btn btn-facebook"><i class="fab fa-facebook-square"></i>  Login Facebook</a>
                                         </div>
 

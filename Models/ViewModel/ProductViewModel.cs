@@ -9,14 +9,18 @@ namespace Models.ViewModels
     public class ProductViewModel
     {
         public long ID { set; get; }
-        public string Images { set; get; }
         public string Name { set; get; }
+        public string MetaTitle { set; get; }
+        public string Decriptions { get; set; }
+        public string Images { set; get; }
+        public string MoreImages { get; set; }
         public string Link { set; get; }
         public decimal? Price { set; get; }
-        public string Decriptions { get; set; }
+        public long? CategoryID { get; set; }
         public string CateName { set; get; }
         public string CateMetaTitle { set; get; }
-        public string MetaTitle { set; get; }
+        public int? ViewCount { get; set; }
+        public bool Status { get; set; }
         public DateTime? CreatedDate { set; get; }
     }
 }

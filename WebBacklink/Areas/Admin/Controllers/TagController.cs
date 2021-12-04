@@ -9,6 +9,7 @@ namespace WebBacklink.Areas.Admin.Controllers
 {
     public class TagController : BaseController
     {
+        [HasCredential(ModeRoleID = "VIEW_USER")]
         // GET: Admin/Tag
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
