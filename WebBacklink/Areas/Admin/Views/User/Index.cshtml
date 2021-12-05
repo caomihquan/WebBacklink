@@ -75,14 +75,14 @@
                                     <td>@item.Email</td>
                                     <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status?"True":"False")</a></td>
                                     <td>
-                                        <a href="/Admin/User/Edit/@item.ID">Sửa</a>
-                                        |
-                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
+                                        <a href="/Admin/User/Edit/@item.ID" class="btn btn-primary">Sửa</a>
+                                        
+                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID,@class= "btn btn-primary" }, new AjaxOptions
                                    {
                                        Confirm = "Bạn có muốn xóa bản ghi này",
                                        OnComplete = "$('#row_" + @item.ID + "').remove()",
                                        HttpMethod = "Delete"
-                                   })
+                                   },new { @class="btn btn-danger"})
                                     </td>
                                 </tr>
                             }

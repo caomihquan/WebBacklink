@@ -2414,7 +2414,7 @@ h2 {
 .product-new-top {
     background: #fc636b;
     color: #fff;
-    right: 0;
+    left: 0;
     position: absolute;
     top: 0;
     width: 45px;

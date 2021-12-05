@@ -52,11 +52,11 @@
 
 
                                         @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
-                                    {
-                                        Confirm = "Bạn có muốn xóa bản ghi này",
-                                        OnComplete = "$('#row_" + @item.ID + "').remove()",
-                                        HttpMethod = "Delete"
-                                    })
+                                   {
+                                       Confirm = "Bạn có muốn xóa bản ghi này",
+                                       OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                       HttpMethod = "Delete"
+                                   },new { @class="btn btn-danger"})
                                     </td>
                                 </tr>
                             }

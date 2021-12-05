@@ -77,15 +77,15 @@
                                 <td><img src="@item.Images" style="width:100px;" /></td>
                                 <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status?"True":"False")</a></td>
                                 <td>
-                                    <a href="#" data-id="@item.ID" class="btn-images">Quản Lý Ảnh</a> |
-                                    <a href="/Admin/Product/Edit/@item.ID">Sửa</a>
-                                    |
+                                    <a href="#" data-id="@item.ID" class="btn-images">Quản Lý Ảnh</a> 
+                                    <a href="/Admin/Product/Edit/@item.ID" class="btn btn-primary">Sửa</a>
+                                    
                                     @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
                                {
                                    Confirm = "Bạn có muốn xóa bản ghi này",
                                    OnComplete = "$('#row_" + @item.ID + "').remove()",
                                    HttpMethod = "Delete"
-                               })
+                               }, new { @class = "btn btn-danger" })
                                 </td>
                             </tr>
                         }
