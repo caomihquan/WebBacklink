@@ -92,12 +92,29 @@ namespace WebBacklink.Controllers
         {
             
             var product = new ProductDao().ViewDetail(id);
-            
+            var images = product.MoreImages;
+            XElement xImages = XElement.Parse(images);
+            List<string> listImagesReturn = new List<string>();
+            foreach (XElement element in xImages.Elements())
+            {
+                if (element == null)
+                {
+
+                }
+                else
+                {
+                    listImagesReturn.Add(element.Value);
+                }
+
+            }
+
             ViewBag.Category = new ProductCategoryDao().ViewDetail(product.CategoryID.Value);
             ViewBag.RelatedProducts = new ProductDao().ListRelatedProducts(id);
+            ViewBag.xuly = listImagesReturn;
          
             
             return View(product);
+            
         }
 
         public JsonResult LoadImages(long id)

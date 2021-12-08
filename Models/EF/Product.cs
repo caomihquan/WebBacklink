@@ -58,5 +58,6 @@
         public DateTime? TopHot { get; set; }
 
         public int? ViewCount { get; set; }
+        
     }
 }

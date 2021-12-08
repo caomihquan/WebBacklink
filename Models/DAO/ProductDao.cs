@@ -220,5 +220,12 @@ namespace Models.DAO
             return db.Products.Find(id);
         }
 
+        public Product xulymoreimage(long id)
+        {
+            var model = db.Products.Find(id);
+            model.MoreImages.Replace("</image>", " ");
+            return model;
+        }
+
     }
 }

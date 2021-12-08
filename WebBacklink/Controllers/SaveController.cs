@@ -18,16 +18,17 @@ namespace WebBacklink.Controllers
         public ActionResult Index()
         {
             var save = Session[SaveSession];
-            
+
             var list = new List<SaveItem>();
-            
-            if(save!=null)
+
+            if (save != null)
             {
                 list = (List<SaveItem>)save;
 
             }
             return View(list);
         }
+
 
         public JsonResult DeleteAll()
         {

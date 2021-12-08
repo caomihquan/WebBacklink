@@ -8,6 +8,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var category = (Models.EF.ProductCategory)ViewBag.Category;
     var relatedProducts = (List<Models.EF.Product>)ViewBag.RelatedProducts;
+    var xuly = ViewBag.xuly;
 
 }
 
@@ -27,8 +28,6 @@
 
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
-
-
 <div class="product-detail">
     <div class="container-fluid">
         <div class="row">
@@ -37,8 +36,17 @@
                     <div class="row align-items-center">
                         <div class="col-md-5">
                             <div class="product-slider-single normal-slider">
-                                <img src="@Model.Image" alt="@Model.Name">
+                                @foreach (var item in xuly)
+                                {
+                                    <img src="@item" alt="Product Image">
+                                }
 
+                            </div>
+                            <div class="product-slider-single-nav normal-slider">
+                                @foreach (var item in xuly)
+                                {
+                                    <div class="slider-nav-img"><img src="@item" alt="Product Image"></div>
+                                }
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -62,84 +70,82 @@
                                 </div>
 
                                 <div class="action">
-                                    <a class="btn" href="@Model.Link"><i class="fa fa-shopping-bag"></i>Đến Nơi Bán</a> 
+                                    <a class="btn" href="@Model.Link"><i class="fa fa-shopping-bag"></i>Đến Nơi Bán</a>
                                     <a class="btn" href="/them-gio-hang?productId=@Model.ID&quantity=1"><i class="fa fa-heart"></i>Yêu Thích</a>
                                 </div>
-                                
-                                <div> 
+                                <div class="p-size">
+
                                 </div>
                                 <div class="p-color">
+
                                     <a href="#" data-id="@Model.ID" class="btn-images text-center">Xem Thêm Ảnh Sản Phẩm</a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
-                </div>
 
-                <div class="row product-detail-bottom">
-                    <div class="col-lg-12">
-                        <ul class="nav nav-pills nav-justified">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="pill" href="#description">Mô Tả</a>
-                            </li>
-                        </ul>
+                    <div class="row product-detail-bottom">
+                        <div class="col-lg-12">
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="pill" href="#description">Mô Tả</a>
+                                </li>
+                            </ul>
 
-                        <div class="tab-content">
-                            <div id="description" class="container tab-pane active">
-                                <h4>Chi Tiết Sản Phẩm</h4>
-                                <p>
-                                    @Html.Raw(Model.Detail)
-                                </p>
+                            <div class="tab-content">
+                                <div id="description" class="container tab-pane active">
+                                    <h4>Chi Tiết Sản Phẩm</h4>
+                                    <p>
+                                        @Html.Raw(Model.Detail)
+                                    </p>
+                                </div>
+
+
                             </div>
-
-
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-8">
 
-                    <div class="fb-comments" data-href="https://localhost:44371/@Model.MetaTitle-@Model.ID" data-width="100%" data-numposts="5"></div>
+                    <div class="product">
+                        <div class="section-header">
+                            <h1>Related Products</h1>
+                        </div>
 
-                </div>
+                        <div class="row align-items-center product-slider product-slider-3">
 
-                <div class="product">
-                    <div class="section-header">
-                        <h1>Related Products</h1>
-                    </div>
-
-                    <div class="row align-items-center product-slider product-slider-3">
-
-                        @foreach (var item in relatedProducts)
-                        {
-                            var url = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
-                            <div class="col-lg-3">
-                                <div class="product-item">
-                                    <div class="product-title">
-                                        <a href="@url">@item.Name</a>
-                                    </div>
-                                    <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="@item.Image" alt="Product Image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="@url"><i class="fas fa-info-circle"></i></a>
-                                            <a href="/them-gio-hang?productId=@item.ID&quantity=1"><i class="fa fa-heart"></i></a>
-                                            <a href="#"><i class="fa fa-search"></i></a>
+                            @foreach (var item in relatedProducts)
+                            {
+                                var url = "/chi-tiet" + item.MetaTitle + "-" + item.ID;
+                                <div class="col-lg-3">
+                                    <div class="product-item">
+                                        <div class="product-title">
+                                            <a href="@url">@item.Name</a>
+                                        </div>
+                                        <div class="product-image">
+                                            <a href="product-detail.html">
+                                                <img src="@item.Image" alt="Product Image">
+                                            </a>
+                                            <div class="product-action">
+                                                <a href="@url"><i class="fas fa-info-circle"></i></a>
+                                                <a href="/them-gio-hang?productId=@item.ID&quantity=1"><i class="fa fa-heart"></i></a>
+                                                <a href="#"><i class="fa fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-price">
+                                            <h3><span></span></h3>
+                                            <a class="btn" href="@item.Link"><i class="fa fa-shopping-cart"></i>Đến Nơi Bán</a>
                                         </div>
                                     </div>
-                                    <div class="product-price">
-                                        <h3><span></span></h3>
-                                        <a class="btn" href="@item.Link"><i class="fa fa-shopping-cart"></i>Đến Nơi Bán</a>
-                                    </div>
                                 </div>
-                            </div>
-                        }
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Side Bar Start -->
+                <!-- Side Bar Start -->
+                <!-- Side Bar End -->
+            </div>
             <div class="col-lg-4 sidebar">
                 <div class="sidebar-widget category">
 
@@ -202,7 +208,6 @@
 
 
             </div>
-            <!-- Side Bar End -->
         </div>
-    </div>
+</div>
 </div>
