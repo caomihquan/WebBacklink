@@ -9,14 +9,16 @@
     var category = (Models.EF.ProductCategory)ViewBag.Category;
     var relatedProducts = (List<Models.EF.Product>)ViewBag.RelatedProducts;
     var xuly = ViewBag.xuly;
+    var cmt = Model.MetaTitle + "-" + Model.ID;
 
 }
 
 
 @section jsHeader{
     <div id="fb-root"></div>
-    <script src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=1024793591616473&autoLogAppEvents=1" nonce="ujM3rLdx"></script>
-
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=1024793591616473&autoLogAppEvents=1" nonce="aph1qfQp"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=1024793591616473&autoLogAppEvents=1" nonce="vHh82ekG"></script>
 }
 
 @section jsFooter{
@@ -49,6 +51,8 @@
                                 }
                             </div>
                         </div>
+
+
                         <div class="col-md-7">
                             <div class="product-content">
                                 <div class="title"><h2>@Model.Name</h2></div>
@@ -99,14 +103,18 @@
                                     <p>
                                         @Html.Raw(Model.Detail)
                                     </p>
+
                                 </div>
 
 
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-12">
+                        <div class="fb-comments" data-href="http://caominhquan0512-001-site1.btempurl.com/@cmt" data-width="" data-numposts="5"></div>
+                        <div class="fb-comments" data-href="https://localhost:44371/@cmt" data-width="" data-numposts="5"></div>
 
-
+                    </div>
                     <div class="product">
                         <div class="section-header">
                             <h1>Related Products</h1>
@@ -209,5 +217,5 @@
 
             </div>
         </div>
-</div>
+    </div>
 </div>

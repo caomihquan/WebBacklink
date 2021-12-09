@@ -74,7 +74,7 @@ namespace WebBacklink.Controllers
             feedback.Address = address;
 
 
-            string a = System.IO.File.ReadAllText(Server.MapPath("/Assets/Client/Template/NewFeedback.html"));
+            string a = System.IO.File.ReadAllText(Server.MapPath("/Assets/Customer/Template/NewFeedback.html"));
             a = a.Replace("{{CustomerName}}", name);
             a = a.Replace("{{Phone}}", mobile);
             a = a.Replace("{{Email}}", email);

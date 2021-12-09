@@ -3086,6 +3086,7 @@
     <Content Include="Assets\Customer\lib\slick\slick.css" />
     <Content Include="Assets\Customer\lib\slick\slick.js" />
     <Content Include="Assets\Customer\lib\slick\slick.min.js" />
+    <Content Include="Assets\Customer\Template\NewFeedback.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -3358,7 +3359,6 @@
     <Content Include="Assets\Customer\lib\slick\slick.less" />
     <Content Include="Assets\Customer\lib\slick\slick.scss" />
     <Content Include="Areas\Admin\Views\Tag\Index.cshtml" />
-    <None Include="Properties\PublishProfiles\WebBackLink.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3411,6 +3411,7 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

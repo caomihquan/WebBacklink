@@ -82,7 +82,7 @@ namespace WebBacklink.Controllers
 
                 var user = new User();
                 user.Email = email;
-                user.UserName = email;
+                user.UserName = firstname + " " + middlename + " " + lastname;
                 user.Status = true;
                 user.Name = firstname + " " + middlename + " " + lastname;
                 user.CreatedDate = DateTime.Now;

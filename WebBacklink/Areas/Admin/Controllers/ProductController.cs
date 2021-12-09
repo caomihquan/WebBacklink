@@ -142,7 +142,7 @@ namespace WebBacklink.Areas.Admin.Controllers
 
             foreach (var item in listImages)
             {
-                var subStringItem = item.Substring(23);
+                var subStringItem = item.Substring(23+22);
                 xElement.Add(new XElement("Image", subStringItem));
             }
             ProductDao dao = new ProductDao();
