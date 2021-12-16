@@ -198,7 +198,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
-    <Compile Include="Controllers\FeedBackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SaveController.cs" />
@@ -3401,10 +3400,11 @@
     <Content Include="Views\Product\Search.cshtml" />
     <Content Include="Views\Content\Tag.cshtml" />
     <Content Include="Views\Shared\401.cshtml" />
-    <Content Include="Views\FeedBack\Create.cshtml" />
     <Content Include="Views\Term\Index.cshtml" />
     <Content Include="Views\Shared\Category.cshtml" />
     <Content Include="Views\Content\MenuCategory.cshtml" />
+    <Content Include="Views\User\Profilee.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

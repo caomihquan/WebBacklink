@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Profilee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var session = (Models.EF.User)Session[WebBacklink.Common.CommonConstants.USER_SESSION];
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-12 col-md-9">
+
+            <div class="card o-hidden border-0 my-5">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <div class="p-4">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-8">Thông Tin</h1>
+                                </div>
+                                <hr />
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-2 "></label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            Tên Đăng Nhập:
+                                        </div>
+                                        @session.UserName
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            Họ và Tên:
+                                        </div>
+                                        @session.Name
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            Mật Khẩu:
+                                        </div>
+                                        *********
+                                    </div>
+
+                                </div><div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            Email
+                                        </div>
+                                        @session.Email
+                                    </div>
+
+                                </div><div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            Số Điện Thoại
+                                        </div>
+                                        @session.Phone
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group center-block">
+                                <div class="col-md-offset-2 col-md-12">
+                                    <a class="btn" href="User/Edit/@session.ID"><i class="fas fa-user-edit"></i> Sửa</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

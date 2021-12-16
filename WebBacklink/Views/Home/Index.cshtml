@@ -26,7 +26,7 @@
                         {
                             <div class="header-slider-item">
 
-                                <img src="@item.Image" alt="Slider Image" style="width:100%" />
+                                <img src="@item.Image" alt="Slider Image" />
                                 <div class="header-slider-caption">
                                     <h1 style="color:white">@item.Name</h1>
                                     <p>@item.Description</p>
@@ -45,13 +45,9 @@
 }
 
 <div>
-    <div class="brand">
-        <div class="container-fluid">
-            <div class="brand-slider">
+    <div> </div>
 
-            </div>
-        </div>
-    </div>
+    <div> </div>
     <!-- Brand End -->
     <!-- Feature Start-->
     <div class="feature">
@@ -96,31 +92,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Feature End-->
-    <!-- Category Start-->
-    @*<div class="category">
-            <div class="container-fluid">
-                <div class="row">
-                    @foreach (var item in listContents)
-                    {
-                        var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
-                        <div class="col-md-4">
-                            <div class="category-item ch-400">
-                                <img src="@item.Image" style="width:100%" />
-                                <a class="category-name" href="@link">
-                                    <p>@item.Name</p>
-                                </a>
-                            </div>
-                        </div>
-                    }
-
-
-                </div>
-            </div>
-        </div>*@
-    <!-- Category End-->
-    <!-- Call to Action Start -->
     <div class="call-to-action">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -133,6 +104,9 @@
             </div>
         </div>
     </div>
+    <!-- Feature End-->
+    <!-- Category Start-->
+    <!-- Call to Action Start -->
     <!-- Call to Action End -->
     <!-- Featured Product Start -->
     <div class="featured-product product">

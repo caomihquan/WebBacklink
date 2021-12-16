@@ -29,6 +29,7 @@ namespace WebBacklink.Areas.Admin.Controllers
             return View();
         }
         [HasCredential(RoleID = "EDIT_USER")]
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var dao = new UserDao();
@@ -58,7 +59,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                 }
             }
             SetViewBag();
-            return View("Index");
+            return View(user);
         }
         [HttpPost]
         [HasCredential(RoleID = "EDIT_USER")]
@@ -67,10 +68,12 @@ namespace WebBacklink.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                if (!string.IsNullOrEmpty(user.Password))
+                if (!string.IsNullOrEmpty(user.Password) && !string.IsNullOrEmpty(user.ConfirmPassword))
                 {
                     var encryptedMd5Pas = Encryptor.MD5Hash(user.Password);
+                    var encryptedMd5Pass = Encryptor.MD5Hash(user.ConfirmPassword);
                     user.Password = encryptedMd5Pas;
+                    user.ConfirmPassword = encryptedMd5Pass;
                 }
 
                 var result = dao.Update(user);
@@ -85,7 +88,7 @@ namespace WebBacklink.Areas.Admin.Controllers
                 }
             }
             SetViewBag(user.GroupID);
-            return View("Index");
+            return View(user);
         }
         [HttpDelete]
         [HasCredential(RoleID = "DELETE_USER")]

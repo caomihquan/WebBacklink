@@ -14,7 +14,7 @@ namespace WebBacklink.Areas.Admin.Controllers
     public class ProductController : BaseController
     {
         // GET: Admin/Product
-        [HasCredential(ModeRoleID = "VIEW_USER")]
+      
 
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
@@ -26,7 +26,7 @@ namespace WebBacklink.Areas.Admin.Controllers
 
 
         [HttpGet]
-        [HasCredential(ModeRoleID = "VIEW_USER")]
+        
         public ActionResult Create()
         {
             SetViewBag();

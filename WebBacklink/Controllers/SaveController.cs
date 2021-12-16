@@ -27,6 +27,7 @@ namespace WebBacklink.Controllers
 
             }
             return View(list);
+
         }
 
 
@@ -86,6 +87,7 @@ namespace WebBacklink.Controllers
                 item.Product = product;
                 item.Quantity = quantity;
                 var list = new List<SaveItem>();
+                var item2 = new Save();
                 list.Add(item);
                 Session[SaveSession] = list;
             }

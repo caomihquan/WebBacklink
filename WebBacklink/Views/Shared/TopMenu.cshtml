@@ -15,7 +15,7 @@
                 </div>
                 <div class="navbar-nav ml-auto">
                     @{
-                        var session = (UserLogin)Session[WebBacklink.Common.CommonConstants.USER_SESSION];
+                        var session = (Models.EF.User)Session[WebBacklink.Common.CommonConstants.USER_SESSION];
                     }
                     @if (session == null)
                     {
@@ -36,7 +36,8 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Xin Chào: @session.UserName</a>
                             <div class="dropdown-menu">
-                                <div class="dropdown-item"> @Html.ActionLink("Thoát", "Logout", "User")</div>
+                                <a href="/thong-tin"><div class="dropdown-item"> <i class="fas fa-user"></i> Thông Tin</div></a>
+                                <a href="/dang-xuat"><div class="dropdown-item"> @*@Html.ActionLink("Thoát", "Logout", "User")*@ <i class="fas fa-sign-out-alt"></i> Đăng Xuất</div></a>
                             </div>
                         </div>
                     }

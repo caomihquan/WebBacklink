@@ -30,6 +30,19 @@ namespace WebBacklink
             );
 
             routes.MapRoute(
+                name: "Information",
+                url: "thong-tin",
+                defaults: new { controller = "User", action = "Profilee", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
+            routes.MapRoute(
+                name: "Logout",
+                url: "dang-xuat",
+                defaults: new { controller = "User", action = "Logout", id = UrlParameter.Optional },
+                namespaces: new[] { "WebBacklink.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Product Detail",
                 url: "chi-tiet/{metatitle}-{id}",
                 defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },

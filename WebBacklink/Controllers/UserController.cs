@@ -98,6 +98,14 @@ namespace WebBacklink.Controllers
 
             return Redirect("/");
         }
+        public ActionResult Profilee()
+        {
+            if (Session[CommonConstants.USER_SESSION] == null)
+            {
+                return View("Index");
+            }
+            return View();
+        }
 
 
         public ActionResult Logout()
@@ -117,9 +125,14 @@ namespace WebBacklink.Controllers
                 if (result == 1)
                 {
                     var user = dao.GetByID(model.UserName);
-                    var userSession = new UserLogin();
+                    var userSession = new User();
                     userSession.UserName = user.UserName;
-                    userSession.UserID = user.ID;
+                    userSession.ID = user.ID;
+                    userSession.Password = user.Password;
+                    userSession.Name = user.Name;
+                    userSession.Phone = user.Phone;
+                    userSession.Email = user.Email;
+                    userSession.Address = user.Address;
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return Redirect("/");
                 }
@@ -184,6 +197,35 @@ namespace WebBacklink.Controllers
             return View(model);
         }
 
-
+        public ActionResult Edit(int id)
+        {
+            var user = new UserDao().ViewDetail(id);
+            return View(user);
+        }
+        [HttpPost]
+        public ActionResult Edit(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new UserDao();
+                if (!string.IsNullOrEmpty(user.Password)&& !string.IsNullOrEmpty(user.ConfirmPassword))
+                {
+                    var encryptedMd5Pas = Encryptor.MD5Hash(user.Password);
+                    var encryptedMd5Pass = Encryptor.MD5Hash(user.ConfirmPassword);
+                    user.Password = encryptedMd5Pas;
+                    user.ConfirmPassword = encryptedMd5Pass;
+                }
+                var result = dao.Update(user);
+                if (result)
+                {                   
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhật user Không thành công");
+                }
+            }
+            return View(user);
+        }
     }
 }

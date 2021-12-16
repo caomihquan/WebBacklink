@@ -1,4 +1,4 @@
-namespace Models.EF
+﻿namespace Models.EF
 {
     using System;
     using System.Collections.Generic;
@@ -12,11 +12,16 @@ namespace Models.EF
         public long ID { get; set; }
 
         [StringLength(50)]
+        
         public string UserName { get; set; }
 
         [StringLength(32)]
+        [Required(ErrorMessage = "Yêu Cầu Nhập Mật Khẩu")]
         public string Password { get; set; }
 
+        [StringLength(32)]
+        [Compare("Password", ErrorMessage = "Xác nhận mật khẩu không đúng.")]
+        public string ConfirmPassword { set; get; }
         [StringLength(20)]
         public string GroupID { get; set; }
 
