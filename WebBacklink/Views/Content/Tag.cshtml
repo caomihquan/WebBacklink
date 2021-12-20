@@ -34,23 +34,24 @@
                     </div>
                     <div class="col-md-12 ">
                         <div class="product-view-top">
-                            @foreach (var item in Model)
-                            {
-                                var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
-                                <div class="row" style="padding:15px; border-top:1px solid #b9b8b8">
+                            
+                                @foreach (var item in Model)
+                                {
+                                    var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
+                                    <div class="row" style="padding:15px; border-top:1px solid #b9b8b8">
 
 
-                                    <div class="col-lg-4">
-                                        <a href="@link"><img src="@item.Image" style="width:100%" alt="@item.MetaKeywords"></a>
+                                        <div class="col-lg-4">
+                                            <a href="@link"><img src="@item.Image" style="width:100%" alt="@item.MetaKeywords"></a>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <a href="@link"> <h3>@item.Name</h3></a>
+                                            <h4>@item.CreatedDate<span>  by:  <a href="#">@item.CreatedBy</a></span></h4>
+                                            <p style="color:#808080">@item.Decscription <a href="@link" title="more">[....]</a></p>
+                                        </div>
+
                                     </div>
-                                    <div class="col-lg-8">
-                                        <a href="@link"> <h3>@item.Name</h3></a>
-                                        <h4>@item.CreatedDate<span>  by:  <a href="#">@item.CreatedBy</a></span></h4>
-                                        <p style="color:#808080">@item.Decscription <a href="@link" title="more">[....]</a></p>
-                                    </div>
-
-                                </div>
-                            }
+                                }
 
                             @if (ViewBag.TotalPage > 1)
                             {
@@ -95,6 +96,7 @@
                                 </nav>
 
                             }
+                            
                         </div>
 
                     </div>

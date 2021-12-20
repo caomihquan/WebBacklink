@@ -32,7 +32,7 @@ namespace WebBacklink.Controllers
         {
 
             var model = new ContentDao().GetByID(id);
-            ViewBag.RelatedContents = new ContentDao().ListRelatedContents(id,1);
+            ViewBag.RelatedContents = new ContentDao().ListRelatedContents(id,3);
             ViewBag.Tags = new ContentDao().ListTag(id);
             return View(model);
         }
