@@ -47,6 +47,9 @@ namespace WebBacklink.Areas.Admin.Controllers
 
                 var encryptedMd5Pas = Encryptor.MD5Hash(user.Password);
                 user.Password = encryptedMd5Pas;
+                var encryptedMd5Pass = Encryptor.MD5Hash(user.ConfirmPassword);
+                
+                user.ConfirmPassword = encryptedMd5Pass;
                 long id = dao.Insert(user);
                 if (id > 0)
                 {

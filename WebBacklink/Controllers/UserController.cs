@@ -166,31 +166,33 @@ namespace WebBacklink.Controllers
                 var dao = new UserDao();
                 if (dao.CheckUserName(model.UserName))
                 {
-                    ModelState.AddModelError("", "Tên Đăng Nhập Đã Tồn Tại");
+                    ModelState.AddModelError("", "Tên đăng nhập đã tồn tại");
                 }
                 else if (dao.CheckEmail(model.Email))
                 {
-                    ModelState.AddModelError("", "Email Đã Tồn Tại");
+                    ModelState.AddModelError("", "Email đã tồn tại");
                 }
                 else
                 {
                     var user = new User();
-                    user.Name = model.Name;
+                    user.UserName = model.UserName;
                     user.Password = Encryptor.MD5Hash(model.Password);
+                    user.ConfirmPassword = Encryptor.MD5Hash(model.ConfirmPassword);
                     user.Phone = model.Phone;
                     user.Email = model.Email;
+                    user.Name = model.Name;
                     user.Address = model.Address;
                     user.CreatedDate = DateTime.Now;
                     user.Status = true;
-                    var result=dao.Insert(user);
+                    var result = dao.Insert(user);
                     if (result > 0)
                     {
-                        ViewBag.Success = "Đăng Kí Thành Công";
+                        ViewBag.Success = "Đăng ký thành công";
                         model = new RegisterModel();
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Đăng Kí Thất Bại");
+                        ModelState.AddModelError("", "Đăng ký không thành công.");
                     }
                 }
             }
@@ -205,25 +207,39 @@ namespace WebBacklink.Controllers
         [HttpPost]
         public ActionResult Edit(User user)
         {
+
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                if (!string.IsNullOrEmpty(user.Password)&& !string.IsNullOrEmpty(user.ConfirmPassword))
+                
+                if (!string.IsNullOrEmpty(user.Password)&& !string.IsNullOrEmpty(user.ConfirmPassword) && !string.IsNullOrEmpty(user.CreatedBy))
                 {
                     var encryptedMd5Pas = Encryptor.MD5Hash(user.Password);
                     var encryptedMd5Pass = Encryptor.MD5Hash(user.ConfirmPassword);
+                    var encryptedMd5Passold = Encryptor.MD5Hash(user.CreatedBy);
                     user.Password = encryptedMd5Pas;
                     user.ConfirmPassword = encryptedMd5Pass;
+                    user.CreatedBy = encryptedMd5Passold;
                 }
-                var result = dao.Update(user);
-                if (result)
-                {                   
-                    return RedirectToAction("Index", "Home");
+
+                if (dao.CheckPassword(user.CreatedBy))
+                    {
+                    var result = dao.Update(user);
+                    if (result)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Cập nhật user Không thành công");
+                    }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật user Không thành công");
+                    ModelState.AddModelError("", "Mật Khẩu Cũ Không Đúng");
                 }
+                
+                
             }
             return View(user);
         }

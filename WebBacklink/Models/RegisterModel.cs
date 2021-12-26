@@ -39,8 +39,5 @@ namespace WebBacklink.Models
         [Display(Name = "Điện thoại")]
         public string Phone { set; get; }
 
-        [Display(Name = "Tỉnh/thành")]
-        public string ProvinceID { set; get; }
-
     }
 }

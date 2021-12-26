@@ -22,7 +22,13 @@
                                     <h4>Sửa Thông Tin</h4>
                                     <hr />
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+                                    <div class="form-group">
+                                        <div class="col-md-6">Mật Khẩu Cũ</div>
+                                        <div class="col-md-10">
+                                            @Html.PasswordFor(model => model.CreatedBy, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
 
                                     <div class="form-group">
                                         <div class="col-md-6">Mật Khẩu</div>
