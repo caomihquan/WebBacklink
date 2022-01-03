@@ -1,4 +1,4 @@
-﻿@model List<WebBacklink.Models.SaveItem>
+﻿@model List<Models.EF.SaveDetail>
 
 <div class="bottom-bar">
     <div class="container-fluid">
@@ -14,18 +14,38 @@
                 <div class="search">
                     <form action="/tim-kiem" method="get">
                         <input type="text" id="txtKeyword" name="keyword" placeholder="Gõ từ khoá">
-                        <button type="submit" ><i class="fa fa-search"></i></button>
+                        <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="user">
-                    <a href="/luu-bai-viet" class="btn wishlist">
-                        <i class="fa fa-heart"></i>
-                        <span>@Model.Count</span>
-                    </a>
+            @{
+                var session = (Models.EF.User)Session[WebBacklink.Common.CommonConstants.USER_SESSION];
+
+
+            }
+            @if (session == null)
+            {
+                <div class="col-md-3">
+                    <div class="user">
+                        <a href="/luu-bai-viet" class="btn wishlist">
+                            <i class="fa fa-heart"></i>
+                            <span>Yêu Thích (0)</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            }
+            else
+            {
+                <div class="col-md-3">
+                    <div class="user">
+                        <a href="/luu-bai-viet" class="btn wishlist">
+                            <i class="fa fa-heart"></i>
+                            <span>Yêu Thích (@Model.Count)</span>
+                        </a>
+                    </div>
+                </div>
+            }
+
         </div>
     </div>
 </div>

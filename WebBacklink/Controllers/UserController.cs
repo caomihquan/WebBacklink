@@ -189,6 +189,7 @@ namespace WebBacklink.Controllers
                     {
                         ViewBag.Success = "Đăng ký thành công";
                         model = new RegisterModel();
+                        return Redirect("/dang-nhap");
                     }
                     else
                     {

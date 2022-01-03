@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Web.UI;
 using WebBacklink.Common;
 using WebBacklink.Models;
+using Models.EF;
 
 namespace WebBacklink.Controllers
 {
@@ -48,17 +49,19 @@ namespace WebBacklink.Controllers
         [ChildActionOnly]
         public PartialViewResult HeaderSave()
         {
-            var save = Session[CommonConstants.SaveSession];
+            var session = (User)Session[WebBacklink.Common.CommonConstants.USER_SESSION];
             
-            var list = new List<SaveItem>();
-            
-            if (save != null)
+            if (session == null)
             {
-                list = (List<SaveItem>)save;
 
             }
-           
-            return PartialView(list);
+            else
+            {
+                var listsave = new SaveDetailDao().List(session.ID);
+                return PartialView(listsave);
+            }
+            
+            return PartialView();
         }
 
         [ChildActionOnly]

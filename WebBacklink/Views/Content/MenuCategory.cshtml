@@ -40,13 +40,28 @@
                                 foreach (var item in Model)
                                 {
                                     var link = "/chi-tiet-bao" + item.MetaTitle + "-" + item.ID;
-                                    <div class="image group">
-                                        <div class="grid images_3_of_1">
-                                            <a href="@link"><img src="@item.Image" alt=""></a>
+                                    <div class="row" style="padding:15px; border-top:1px solid #b9b8b8">
+                                        <div class="col-sm-5">
+                                            <div class="product-item">
+                                                <div class="product-title">
+
+                                                </div>
+                                                <div class="product-image">
+                                                    <a href="@link">
+                                                        <img src="@item.Image" alt="@item.Name">
+                                                    </a>
+                                                </div>
+                                                <div class="product-price">
+
+
+
+
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="grid news_desc">
+                                        <div class="col-sm-7">
                                             <a href="@link"> <h3>@item.Name</h3></a>
-                                            <h4>@item.CreatedDate<span>  by:  <a href="#">@item.CreatedBy</a></span></h4>
+                                            <p>@item.CreatedDate<span>  by:  <a href="#">@item.CreatedBy</a></span></p>
                                             <p style="color:#808080">@item.Decscription <a href="@link" title="more">[....]</a></p>
                                         </div>
                                     </div>
@@ -95,9 +110,9 @@
                             }
                             else
                             {
-                        <div class="alert alert-danger">
-                            <span>Không có bản ghi nào</span>
-                        </div>
+                                <div class="alert alert-danger">
+                                    <span>Không có bản ghi nào</span>
+                                </div>
                             }
 
                         </div>

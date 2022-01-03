@@ -10,17 +10,27 @@ namespace Models.EF
     public partial class SaveDetail
     {
         [Key]
+        
+        public long ID { get; set; }
+        
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long ProductID { get; set; }
 
-        [Key]
+       
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public long OrderID { get; set; }
+        public long UserID { get; set; }
 
-        public int? Quantity { get; set; }
+        [StringLength(250)]
+        public string Name { get; set; }
 
-        public decimal? Price { get; set; }
+        [StringLength(250)]
+        public string Image { get; set; }
+
+        [StringLength(250)]
+        public string Metatitle { get; set; }
+
+        public bool? Status { get; set; }
     }
 }

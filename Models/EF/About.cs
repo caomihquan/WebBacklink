@@ -45,6 +45,7 @@ namespace Models.EF
 
         public bool Status { get; set; }
 
+        [StringLength(2)]
         public string Language { get; set; }
     }
 }

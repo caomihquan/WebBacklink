@@ -6,14 +6,15 @@ namespace Models.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Account")]
-    public partial class Account
+    [Table("Language")]
+    public partial class Language
     {
-        [Key]
-        [StringLength(20)]
-        public string UserName { get; set; }
+        [StringLength(2)]
+        public string ID { get; set; }
 
-        [StringLength(20)]
-        public string Password { get; set; }
+        [StringLength(50)]
+        public string Name { get; set; }
+
+        public bool isDefault { get; set; }
     }
 }

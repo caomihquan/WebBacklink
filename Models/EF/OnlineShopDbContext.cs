@@ -13,7 +13,6 @@ namespace Models.EF
         }
 
         public virtual DbSet<About> Abouts { get; set; }
-        public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
@@ -21,12 +20,12 @@ namespace Models.EF
         public virtual DbSet<Credential> Credentials { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Footer> Footers { get; set; }
+        public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<MenuType> MenuTypes { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<Save> Saves { get; set; }
         public virtual DbSet<SaveDetail> SaveDetails { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
         public virtual DbSet<SystemConfig> SystemConfigs { get; set; }
@@ -52,12 +51,8 @@ namespace Models.EF
                 .Property(e => e.MetaDescriptions)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Account>()
-                .Property(e => e.UserName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Account>()
-                .Property(e => e.Password)
+            modelBuilder.Entity<About>()
+                .Property(e => e.Language)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Category>()
@@ -76,6 +71,10 @@ namespace Models.EF
                 .Property(e => e.MetaDescriptions)
                 .IsFixedLength();
 
+            modelBuilder.Entity<Category>()
+                .Property(e => e.Language)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Content>()
                 .Property(e => e.MetaTitle)
                 .IsUnicode(false);
@@ -91,6 +90,10 @@ namespace Models.EF
             modelBuilder.Entity<Content>()
                 .Property(e => e.MetaDescriptions)
                 .IsFixedLength();
+
+            modelBuilder.Entity<Content>()
+                .Property(e => e.Language)
+                .IsUnicode(false);
 
             modelBuilder.Entity<ContentTag>()
                 .Property(e => e.TagID)
@@ -105,6 +108,10 @@ namespace Models.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<Footer>()
+                .Property(e => e.ID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Language>()
                 .Property(e => e.ID)
                 .IsUnicode(false);
 
@@ -127,6 +134,10 @@ namespace Models.EF
             modelBuilder.Entity<Product>()
                 .Property(e => e.MetaDescriptions)
                 .IsFixedLength();
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.Language)
+                .IsUnicode(false);
 
             modelBuilder.Entity<ProductCategory>()
                 .Property(e => e.MetaTitle)
@@ -147,14 +158,6 @@ namespace Models.EF
             modelBuilder.Entity<Role>()
                 .Property(e => e.ID)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Save>()
-                .Property(e => e.ShipMobile)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<SaveDetail>()
-                .Property(e => e.Price)
-                .HasPrecision(18, 0);
 
             modelBuilder.Entity<Slide>()
                 .Property(e => e.CreatedBy)
@@ -181,7 +184,15 @@ namespace Models.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
+                .Property(e => e.ConfirmPassword)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
                 .Property(e => e.Password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.GroupID)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
@@ -196,7 +207,5 @@ namespace Models.EF
                 .Property(e => e.ID)
                 .IsUnicode(false);
         }
-
-        public System.Data.Entity.DbSet<Models.ViewModels.ProductViewModel> ProductViewModels { get; set; }
     }
 }

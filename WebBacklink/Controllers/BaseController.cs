@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using WebBacklink.Common;
+using Models.EF;
 
 namespace WebBacklink.Controllers
 {
@@ -36,7 +37,7 @@ namespace WebBacklink.Controllers
         // GET: Base
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+            var session = (User)Session[CommonConstants.USER_SESSION];
             if (session == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new

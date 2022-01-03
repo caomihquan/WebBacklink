@@ -2080,347 +2080,352 @@ h2 {
     flex-direction: row;
     background: #ffffff;
 }
+@media (max-width: 415px) {
+    .review .review-slider-item {
+        display: block;
+        background: #ffffff;
+    }
+}
+
 
 .review .review-img {
-    width: 100%;
-    max-width: 200px;
-    overflow: hidden;
-}
-
-.review .review-img img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-}
-
-.review .review-text {
-    padding: 15px;
-    width: 100%;
-    max-width: calc(100% - 200px);
-}
-
-.review .review-text h2 {
-    font-size: 22px;
-    letter-spacing: 2px;
-    margin-bottom: 5px;
-}
-
-.review .review-text h3 {
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-bottom: 5px;
-}
-
-.review .review-text p {
-    margin: 0;
-}
-
-.review .review-text .ratting {
-    margin-bottom: 5px;
-}
-
-.review .review-text .ratting i {
-    color: #4facfe;
-    font-size: 14px;
-}
-
-.review .slick-slider:hover .slick-prev {
-    left: 30px;
-}
-
-.review .slick-slider:hover .slick-next {
-    right: 30px;
-}
-
-
-/**********************************/
-/********** Contact CSS ***********/
-/**********************************/
-.contact {
-    position: relative;
-    padding-top: 30px;
-}
-
-.contact .contact-info,
-.contact .contact-form,
-.contact .contact-map {
-    height: 100%;
-    padding: 30px;
-    background: #ffffff;
-    border-bottom: 30px solid #f3f6ff;
-}
-
-.contact .contact-info h2 {
-    margin-bottom: 15px;
-}
-
-.contact .contact-info h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-.contact .contact-info h3 i {
-    width: 20px;
-    color: #4facfe;
-    margin-right: 5px;
-}
-
-.contact .social {
-    position: relative;
-    width: 100%;
-}
-
-.contact .social a {
-    display: inline-block;
-    margin: 10px 10px 0 0;
-    width: 40px;
-    height: 40px;
-    padding: 5px 0;
-    text-align: center;
-    font-size: 18px;
-    border: 1px solid #4facfe;
-    border-radius: 4px;
-}
-
-.contact .social a i {
-    color: #4facfe;
-}
-
-.contact .social a:hover {
-    background: #4facfe;
-}
-
-.contact .social a:hover i {
-    color: #ffffff;
-}
-
-.contact .contact-map iframe {
-    width: 100%;
-    height: 450px;
-}
-
-
-/**********************************/
-/****** Register & Login CSS ******/
-/**********************************/
-.login {
-    position: relative;
-    padding-top: 30px;
-}
-
-.login .login-form,
-.login .register-form {
-    padding: 30px;
-    background: #ffffff;
-    margin-bottom: 30px;
-}
-
-
-/**********************************/
-/********** Footer CSS ************/
-/**********************************/
-.footer {
-    position: relative;
-    padding: 30px 0 0 0;
-    background: #ffffff;
-}
-
-.footer .footer-widget {
-    position: relative;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-.footer .footer-widget h2 {
-    font-size: 25px;
-    white-space: nowrap;
-    margin-bottom: 20px; 
-}
-
-.footer .footer-widget ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.footer .footer-widget ul li {
-    margin-bottom: 12px; 
-}
-
-.footer .footer-widget ul li:last-child {
-    margin-bottom: 0; 
-}
-
-.footer .footer-widget ul li a {
-    color: #353535;
-    white-space: nowrap;
-    display: block;
-    line-height: 23px;
-    transition: all .3s;
-}
-
-.footer .footer-widget ul li a::before {
-    content: '\f105';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    padding-right: 5px;
-}
-
-.footer .footer-widget ul li a:hover {
-    color: #4facfe;
-}
-
-.footer .footer-widget ul li a:hover::before {
-    content: '\f101';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-}
-
-.footer .contact-info p {
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-
-.footer .contact-info p i {
-    margin-right: 5px;
-}
-
-.footer .social {
-    position: relative;
-    width: 100%;
-}
-
-.footer .social a {
-    display: inline-block;
-    margin: 10px 5px 0 0;
-    width: 40px;
-    height: 40px;
-    padding: 6px 0;
-    text-align: center;
-    font-size: 18px;
-    color: #353535;
-    border: 1px solid #353535;
-    border-radius: 4px;
-    transition: all .3s;
-}
-
-.footer .social a:hover {
-    color: #4facfe;
-    border-color: #4facfe;
-}
-
-.footer .payment {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    border-top: 1px solid rgba(0,0,0,.1);
-}
-
-@media (min-width: 992px) {
-    .footer .payment {
-        max-width: 80%;
-        margin: 0 auto;
+        width: 100%;
+        max-width: 200px;
+        overflow: hidden;
     }
-}
 
-.footer .payment-method,
-.footer .payment-security {
-    overflow: hidden;
-}
+        .review .review-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.footer .payment-method {
-    text-align: left;
-}
-
-.footer .payment-security {
-    text-align: right;
-}
-
-@media (max-width: 768.98px) {
-    .footer .payment-method {
-        margin-bottom: 15px;
+    .review .review-text {
+        padding: 15px;
+        width: 100%;
     }
-    
+
+        .review .review-text h2 {
+            font-size: 22px;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .review .review-text h3 {
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .review .review-text p {
+            margin: 0;
+        }
+
+        .review .review-text .ratting {
+            margin-bottom: 5px;
+        }
+
+            .review .review-text .ratting i {
+                color: #4facfe;
+                font-size: 14px;
+            }
+
+    .review .slick-slider:hover .slick-prev {
+        left: 30px;
+    }
+
+    .review .slick-slider:hover .slick-next {
+        right: 30px;
+    }
+
+
+    /**********************************/
+    /********** Contact CSS ***********/
+    /**********************************/
+    .contact {
+        position: relative;
+        padding-top: 30px;
+    }
+
+        .contact .contact-info,
+        .contact .contact-form,
+        .contact .contact-map {
+            height: 100%;
+            padding: 30px;
+            background: #ffffff;
+            border-bottom: 30px solid #f3f6ff;
+        }
+
+            .contact .contact-info h2 {
+                margin-bottom: 15px;
+            }
+
+            .contact .contact-info h3 {
+                margin-bottom: 15px;
+                font-size: 18px;
+            }
+
+                .contact .contact-info h3 i {
+                    width: 20px;
+                    color: #4facfe;
+                    margin-right: 5px;
+                }
+
+        .contact .social {
+            position: relative;
+            width: 100%;
+        }
+
+            .contact .social a {
+                display: inline-block;
+                margin: 10px 10px 0 0;
+                width: 40px;
+                height: 40px;
+                padding: 5px 0;
+                text-align: center;
+                font-size: 18px;
+                border: 1px solid #4facfe;
+                border-radius: 4px;
+            }
+
+                .contact .social a i {
+                    color: #4facfe;
+                }
+
+                .contact .social a:hover {
+                    background: #4facfe;
+                }
+
+                    .contact .social a:hover i {
+                        color: #ffffff;
+                    }
+
+        .contact .contact-map iframe {
+            width: 100%;
+            height: 450px;
+        }
+
+
+    /**********************************/
+    /****** Register & Login CSS ******/
+    /**********************************/
+    .login {
+        position: relative;
+        padding-top: 30px;
+    }
+
+        .login .login-form,
+        .login .register-form {
+            padding: 30px;
+            background: #ffffff;
+            margin-bottom: 30px;
+        }
+
+
+    /**********************************/
+    /********** Footer CSS ************/
+    /**********************************/
+    .footer {
+        position: relative;
+        padding: 30px 0 0 0;
+        background: #ffffff;
+    }
+
+        .footer .footer-widget {
+            position: relative;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+            .footer .footer-widget h2 {
+                font-size: 25px;
+                white-space: nowrap;
+                margin-bottom: 20px;
+            }
+
+            .footer .footer-widget ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+                .footer .footer-widget ul li {
+                    margin-bottom: 12px;
+                }
+
+                    .footer .footer-widget ul li:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    .footer .footer-widget ul li a {
+                        color: #353535;
+                        white-space: nowrap;
+                        display: block;
+                        line-height: 23px;
+                        transition: all .3s;
+                    }
+
+                        .footer .footer-widget ul li a::before {
+                            content: '\f105';
+                            font-family: 'Font Awesome 5 Free';
+                            font-weight: 900;
+                            padding-right: 5px;
+                        }
+
+                        .footer .footer-widget ul li a:hover {
+                            color: #4facfe;
+                        }
+
+                            .footer .footer-widget ul li a:hover::before {
+                                content: '\f101';
+                                font-family: 'Font Awesome 5 Free';
+                                font-weight: 900;
+                            }
+
+        .footer .contact-info p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+            .footer .contact-info p i {
+                margin-right: 5px;
+            }
+
+        .footer .social {
+            position: relative;
+            width: 100%;
+        }
+
+            .footer .social a {
+                display: inline-block;
+                margin: 10px 5px 0 0;
+                width: 40px;
+                height: 40px;
+                padding: 6px 0;
+                text-align: center;
+                font-size: 18px;
+                color: #353535;
+                border: 1px solid #353535;
+                border-radius: 4px;
+                transition: all .3s;
+            }
+
+                .footer .social a:hover {
+                    color: #4facfe;
+                    border-color: #4facfe;
+                }
+
+        .footer .payment {
+            padding-top: 25px;
+            padding-bottom: 25px;
+            border-top: 1px solid rgba(0,0,0,.1);
+        }
+
+    @media (min-width: 992px) {
+        .footer .payment {
+            max-width: 80%;
+            margin: 0 auto;
+        }
+    }
+
     .footer .payment-method,
     .footer .payment-security {
-        text-align: center; 
-    } 
-}
-
-.footer .payment-method h2,
-.footer .payment-security h2 {
-    display: inline-block;
-    margin: 0 10px 0 0;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 22px;
-}
-
-.footer .payment-method img,
-.footer .payment-security img {
-    height: 25px;
-}
-
-
-/**********************************/
-/******** Footer Bottom CSS *******/
-/**********************************/
-.footer-bottom {
-    position: relative;
-    padding: 25px 0;
-    background: #000000;
-}
-
-.footer-bottom .copyright {
-    text-align: left;
-}
-
-.footer-bottom .template-by {
-    text-align: right;
-}
-
-.footer-bottom .copyright p,
-.footer-bottom .template-by p {
-    color: #ffffff;
-    font-weight: 400;
-    margin: 0;
-}
-
-.footer-bottom .copyright p a,
-.footer-bottom .template-by p a {
-    font-weight: 600;
-}
-
-.footer-bottom .copyright p a:hover,
-.footer-bottom .template-by p a:hover {
-    color: #ffffff;
-}
-
-@media (max-width: 768.98px) {
-    .footer-bottom .copyright,
-    .footer-bottom .template-by {
-        text-align: center; 
+        overflow: hidden;
     }
 
-    
-    
-}
-@media (max-width: 1080px) {
+    .footer .payment-method {
+        text-align: left;
+    }
+
+    .footer .payment-security {
+        text-align: right;
+    }
+
+    @media (max-width: 768.98px) {
+        .footer .payment-method {
+            margin-bottom: 15px;
+        }
+
+        .footer .payment-method,
+        .footer .payment-security {
+            text-align: center;
+        }
+    }
+
+    .footer .payment-method h2,
+    .footer .payment-security h2 {
+        display: inline-block;
+        margin: 0 10px 0 0;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+    }
+
+    .footer .payment-method img,
+    .footer .payment-security img {
+        height: 25px;
+    }
+
+
+    /**********************************/
+    /******** Footer Bottom CSS *******/
+    /**********************************/
+    .footer-bottom {
+        position: relative;
+        padding: 25px 0;
+        background: #000000;
+    }
+
+        .footer-bottom .copyright {
+            text-align: left;
+        }
+
+        .footer-bottom .template-by {
+            text-align: right;
+        }
+
+            .footer-bottom .copyright p,
+            .footer-bottom .template-by p {
+                color: #ffffff;
+                font-weight: 400;
+                margin: 0;
+            }
+
+                .footer-bottom .copyright p a,
+                .footer-bottom .template-by p a {
+                    font-weight: 600;
+                }
+
+                    .footer-bottom .copyright p a:hover,
+                    .footer-bottom .template-by p a:hover {
+                        color: #ffffff;
+                    }
+
+    @media (max-width: 768.98px) {
+        .footer-bottom .copyright,
+        .footer-bottom .template-by {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 1080px) {
+        .product-new-top {
+            width: 35px;
+            font-size: 10px;
+            height: 35px;
+        }
+    }
+
     .product-new-top {
-        width: 35px;
-        font-size: 10px;
-        height: 35px;
+        background: #fc636b;
+        color: #fff;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 45px;
+        font-size: 13px;
+        height: 45px;
+        text-align: center;
+        border-radius: 50%;
+        line-height: 3.3;
     }
-}
-.product-new-top {
-    background: #fc636b;
-    color: #fff;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 45px;
-    font-size: 13px;
-    height: 45px;
-    text-align: center;
-    border-radius: 50%;
-    line-height: 3.3;
-}

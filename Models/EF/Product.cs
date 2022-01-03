@@ -1,4 +1,4 @@
-﻿namespace Models.EF
+namespace Models.EF
 {
     using System;
     using System.Collections.Generic;
@@ -58,6 +58,8 @@
         public DateTime? TopHot { get; set; }
 
         public int? ViewCount { get; set; }
-        
+
+        [StringLength(2)]
+        public string Language { get; set; }
     }
 }
